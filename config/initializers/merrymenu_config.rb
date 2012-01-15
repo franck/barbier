@@ -2,8 +2,8 @@
 # --------------------------------------------------
 Merrymenu::Builder.configure do |config|
   config.menu do |m|
-    m.tab 'Clients', '/clients'
-    m.tab 'Options', '/options'
+    m.tab 'Clients', '/prive/clients'
+    m.tab 'Options', '/prive/options'
   end
 end
 

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-module Options
+module Prive::Options
   describe SauvegardesController do
 
     before(:each) do

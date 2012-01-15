@@ -8,24 +8,11 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= depend_on "reset"
- *= depend_on "colors"
- *= depend_on "font"
- *= depend_on "form"
- *= depend_on "layout"
- *= depend_on "clients"
  *= require_self
 */
 
-//@import "reset.css.scss";
-//@import "bourbon";
 @import "bootstrap";
 @import "merrymenu";
-//@import "colors.css.scss";
-//@import "font.css.scss";
-//@import "form.css.scss";
-//@import 'layout.css.scss';
-//@import "clients.css.scss";
 
 h1 { font-size: 218%; margin-top:0em; margin-bottom:0.643em; }
 h2 { font-size: 164%; margin-top:1.929em; margin-bottom:0.643em; }

@@ -1,4 +1,4 @@
-module Options
+module Prive::Options
   class ParametresController < ApplicationController
     before_filter :load_salon
     

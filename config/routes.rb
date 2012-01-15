@@ -1,19 +1,22 @@
 Barbier::Application.routes.draw do
   
   constraints lambda { |r| r.domain != SalonVar::DOMAIN || (r.subdomain.present? && r.subdomain != 'www') } do
-    match '', to: 'clients#index'
-    namespace :options do
-      resources :parametres
-      resources :sauvegardes do
-        collection do
-          get 'export'
+    match '', to: 'accueil#index'
+    
+    namespace :prive do
+      namespace :options do
+        resources :parametres
+        resources :sauvegardes do
+          collection do
+            get 'export'
+          end
         end
       end
+      resources :clients
+      
+      match "/options" => redirect("/prive/options/parametres")
+      match '' => redirect("/prive/clients")
     end
-
-    resources :clients
-
-    match "/options" => redirect("/options/parametres")
   end
   
 

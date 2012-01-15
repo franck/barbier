@@ -3,7 +3,7 @@
 <%= render "search" %>
 
 <p>
-	<%= link_to ("<i class='icon-user icon-white'></i>&nbsp;Nouveau client").html_safe, new_client_path, :class => 'btn btn-primary' %>
+	<%= link_to ("<i class='icon-user icon-white'></i>&nbsp;Nouveau client").html_safe, new_prive_client_path, :class => 'btn btn-primary' %>
 </p>
 
 <%= paginate @clients %>
@@ -19,7 +19,7 @@
 	<% if @clients.size > 0 %>
 	<% for client in @clients %>
 	<tr>
-		<td><%= link_to client.name, client_path(client) %></td>
+		<td><%= link_to client.name, prive_client_path(client) %></td>
 		<td><%= client.email %></td>
 		<td><%= client.phone %></td>
 	</tr>

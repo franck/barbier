@@ -1,7 +1,7 @@
 # encoding: utf-8
 require 'csv'
 
-module Options
+module Prive::Options
   class SauvegardesController < ApplicationController
     before_filter :load_salon
     

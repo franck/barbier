@@ -11,7 +11,7 @@ describe "Clients" do
   describe "#create" do
     context "given valid information" do
       it "creates a client" do
-        visit '/'
+        visit '/prive/clients'
         click_link 'Nouveau client'
         fill_in :name, :with => 'Bob'
         click_button 'Ajouter'
@@ -21,7 +21,7 @@ describe "Clients" do
     
     context "when no name given" do
       it "display an error message" do
-        visit '/'
+        visit '/prive/clients'
         click_link 'Nouveau client'
         fill_in :name, :with => ''
         click_button 'Ajouter'
@@ -31,7 +31,7 @@ describe "Clients" do
     
     context "setting birthdate" do
       it "creates a client" do
-        visit '/'
+        visit '/prive/clients'
         click_link 'Nouveau client'
         fill_in :name, :with => 'Bob'
         fill_in :birthdate, :with => '07/06/1978'
@@ -45,7 +45,7 @@ describe "Clients" do
     context "when more than 20 results" do
       before(:each){ 22.times { create(:client, :name => Faker::Name.name, :salon_id => @salon.id)} }
       it "paginate" do
-        visit '/'
+        visit '/prive/clients'
         within('.pagination') do
           page.should have_content('2')
         end

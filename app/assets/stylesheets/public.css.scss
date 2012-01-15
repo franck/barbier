@@ -1,0 +1,11 @@
+/*
+ *= require_self
+*/
+
+@import "bootstrap";
+@import "font";
+
+
+.header {
+  h1 { font-size:24px; margin:20px 0 30px 0; padding:10px 0; border-bottom:3px solid #EEE; }
+}
