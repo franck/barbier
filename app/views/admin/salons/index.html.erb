@@ -9,12 +9,14 @@
 		<tr>
 			<th>Nom du salon</th>
 			<th>Sous domaine</th>
+			<th>Domaine</th>
 		</tr>
 	</thead>
 <% for salon in @salons %>
 <tr>
 	<td><%= salon.name %></td>
 	<td><a href="http://<%= salon.subdomain %>.<%= SalonVar::HOST %>"><%= salon.subdomain %></a></td>
+	<td><%= salon.domain %></td>
 	<td>
 		<%= link_to "modifier", edit_admin_salon_path(salon) %>
 		<%= link_to "supprimer", admin_salon_path(salon), :method => :delete, :confirm => "Etes vous sur ?" %>

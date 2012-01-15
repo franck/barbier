@@ -4,7 +4,11 @@ class ApplicationController < ActionController::Base
   private
   
   def load_salon
-    @salon = Salon.find_by_subdomain!(request.subdomain)
+    if request.domain != SalonVar::DOMAIN
+      @salon = Salon.find_by_domain!(request.domain)
+    elsif request.subdomain.present? && request.subdomain != 'www'
+      @salon = Salon.find_by_subdomain!(request.subdomain)
+    end
   end
   
 end
