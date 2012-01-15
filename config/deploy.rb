@@ -47,9 +47,9 @@ end
 #after "deploy:symlink", "deploy:symlink_avatars"
 
 
-def run_rake(cmd)
-  run "cd #{current_path}; #{rake} #{cmd}"
-end
+#def run_rake(cmd)
+#  run "cd #{current_path}; #{rake} #{cmd}"
+#end
 
 
 load 'deploy/assets'
