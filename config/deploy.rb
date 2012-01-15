@@ -42,6 +42,13 @@ namespace :deploy do
   #   run "ln -nfs #{shared_path}/avatars #{current_path}/avatars"
   # end
   
+  desc "deploy the precompiled assets"
+  task :deploy_assets, :except => { :no_release => true } do
+     run_locally("rake assets:clean && rake precompile")
+     upload("public/assets", "#{release_path}/public/assets", :via =>
+  :scp, :recursive => true)
+  end
+    
 end
 
 #after "deploy:symlink", "deploy:symlink_avatars"
@@ -52,5 +59,5 @@ end
 #end
 
 
-load 'deploy/assets'
+#load 'deploy/assets'
 load 'config/deploy/tail_logs'
