@@ -1,0 +1,67 @@
+body { 
+  font-size: 100%;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;;
+  color:#333;
+}
+html > body { font-size:13px; line-height:1.5em; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;;
+  font-weight: normal;
+  clear:left;
+  line-height:1.125em;
+}
+h1, h2, h3, h4, h5, h6, h1 a , h2 a, h3 a, h4 a, h5 a, h6 a { color:#222; }
+
+h1 { font-size: 218%; margin-top:0em; margin-bottom:0.643em; }
+h2 { font-size: 164%; margin-top:1.929em; margin-bottom:0.643em; }
+h3 { font-size: 145%; margin-top:1.929em; margin-bottom:0.643em; }
+h4 { font-size: 118%; margin-top:1.929em; margin-bottom:0.643em; }
+
+p, cite { 
+  font-size:1em;
+  margin-top:0em;
+  margin-bottom:1em;
+  line-height:1.5em;
+}
+cite { color:#333; display:inline-block; margin:0; background-color:#F4F4F4; padding:1em; }
+
+p em { font-style:italic; }
+p strong { font-weight:bold; }
+
+a { text-decoration:none; color:#0000FF; }
+a:hover { text-decoration:underline; }
+a:visited {}
+
+ul { list-style:disc; line-height:1.5em; }
+ul li { margin-left:1.3em; }
+ol { list-style:decimal; line-height:1.5em; }
+dl { line-height:1.5em; }
+dt { font-weight:bold; }
+dd { margin-bottom:0.643em; }
+
+img { margin:0; padding:0; }
+img.right { float:right; margin-left:10px; margin-bottom:10px; padding:4px; border:1px solid #EEE; }
+
+table {}
+th, td { line-height:1.5em; }
+th { padding:4px 8px; text-align:left; background-color:#333; color:#EEE; }
+td { padding:4px 8px; }
+tr.odd td { background-color:#EFEFEF; }
+
+.notice { color:green; font-weight:bold; }
+.alert, .error { color:red; font-weight:bold; }
+
+form label.required em { color:red; font-weight:bold; font-style:normal; margin-left:5px; }
+
+.no_margin { margin:0; }
+.no_top_margin { margin-top:0; }
+.no_bullet { list-style:none; }
+.with_bullets { margin-left:20px; }
+.clear { clear:both; height:1px; margin:0; }
+
+#flash_notice, #flash_error { padding: 8px 8px; margin:0 0 15px 0; }
+#flash_notice { background-color: #CFC; border: solid 1px #6C6; }
+#flash_error { background-color: #FCC; border: solid 1px #C00; color:#C00; }
+
+p.red { color:#C00; }

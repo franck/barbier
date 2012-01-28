@@ -1,0 +1,19 @@
+<%= render "/shared/error_messages", :target => @client %>
+<div>
+	<%= f.label :name, "Nom", :class => 'desc required' %>
+	<%= f.text_field :name, :class => 'text', :size => '60' %>
+</div>
+<div class="two-fields" style="clear:both">
+	<p>
+		<%= f.label :phone, "Téléphone", :class => 'desc' %>
+		<%= f.text_field :phone, :class => 'text', :size => '20' %>
+	</p>
+	<p>
+		<%= f.label :email, "Email", :class => 'desc' %>
+		<%= f.text_field :email, :class => 'text', :size => '50' %>
+	</p>
+</div>
+<div style="clear:both">
+	<%= f.label :comment, "Notes", :class => 'desc' %>
+	<%= f.text_area :comment, :size => '80x10', :class => 'text' %>
+</div>

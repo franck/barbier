@@ -1,0 +1,18 @@
+// vert : 7DB72F
+// jaune : FCC418
+// rouge : E20031
+// jaune orangé : FCC409
+
+$green:#7DB72F;
+$yellow : #FCC409;
+$red: #E20031;
+$blue: #07C;
+
+$base-color: $red;
+$second-color: $yellow;
+$third-color: $green;
+
+$font-on-base-color: #FFFFFF;
+$title-color: darken($base-color,0%);
+$offer-title-color: $blue;
+$link-color:$blue;

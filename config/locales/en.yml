@@ -1,0 +1,13 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  activerecord:
+    errors:
+      models:
+        client:
+          attributes:
+            name:
+              blank: Il faut mettre un nom
+            email:
+              invalid: Le format de l'email n'est pas bon

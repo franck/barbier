@@ -1,0 +1,14 @@
+<h1>Liste de clients</h1>
+
+<%= link_to "Nouveau client", new_client_path, :class => 'button' %>
+
+<table>
+	<tr>
+		<th>Nom</th>
+	</tr>
+	<% for client in @clients %>
+	<tr>
+		<td><%= client.name %></td>
+	</tr>
+	<% end %>
+</table>

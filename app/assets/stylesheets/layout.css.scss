@@ -1,0 +1,29 @@
+html, body { margin:0; }
+body { text-align:center; background-color:#EEE; }
+
+#flashbox { padding:5px 0; background:lighten($green, 30%); border-bottom:2px solid lighten($green, 5%); }
+#flashbox.alert { padding:5px 0; background:lighten($red, 46%); border-bottom:2px solid lighten($red, 5%); }
+
+#container { 
+  text-align:left; margin:10px auto 50px auto; width:960px; min-width:960px;
+  #header {
+    #login_box { float:right; }
+  }
+  #main {
+    background-color:#FFF; padding:15px 15px 45px 15px; float:left; width:930px;
+    #content {
+      float:left; width:660px; margin-right:30px;
+    }
+    #sidebar {
+      float:right; width:240px;
+    }
+  }
+  #footer { height:50px; float:left; width:960px; }
+}
+
+input[type="submit"], .button {
+  @include button(simple,$base-color);
+}
+a:hover.button { text-decoration:none; }
+
+#toplinks { margin-bottom:15px; }

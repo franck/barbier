@@ -1,0 +1,16 @@
+// Place all the styles related to the clients controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#clients {
+  table {
+    width:100%; margin-top:30px;
+  }
+  
+  ul#infos {
+    list-style:none; padding:0;
+    li { float:left; margin-right:10px; padding:0; margin-left:0; }
+  }
+  
+}
+
