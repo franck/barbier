@@ -2,13 +2,17 @@
 
 <%= link_to "Nouveau client", new_client_path, :class => 'button' %>
 
+<%= render "search" %>
+
 <table>
 	<tr>
 		<th>Nom</th>
+		<th>Email</th>
 	</tr>
 	<% for client in @clients %>
 	<tr>
 		<td><%= client.name %></td>
+		<td><%= client.email %></td>
 	</tr>
 	<% end %>
 </table>

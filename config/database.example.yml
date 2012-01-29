@@ -7,18 +7,18 @@ defaults: &defaults
 
 development:
   <<: *defaults
-  database: jobsite_dev
+  database: barbier_dev
 
 test:
   <<: *defaults
-  database: jobsite_test
+  database: barbier_test
 
 staging:
   <<: *defaults
-  database: jobsite_staging
+  database: barbier_staging
   socket: /var/run/mysqld/mysqld.sock
 
 production:
   <<: *defaults
-  database: jobsite_production
+  database: barbier_production
   socket: /var/run/mysqld/mysqld.sock
