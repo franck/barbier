@@ -22,8 +22,14 @@ body { text-align:center; background-color:#EEE; }
 }
 
 input[type="submit"], .button {
-  @include button(simple,$base-color);
+  @include button(simple);
 }
 a:hover.button { text-decoration:none; }
+
+a.second_button {
+  @include button(simple, $red);
+  padding:3px 12px 4px;
+}
+a:hover.second_button { text-decoration:none; }
 
 #toplinks { margin-bottom:15px; }
