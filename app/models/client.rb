@@ -5,7 +5,7 @@ class Client < ActiveRecord::Base
   
   def self.search(search)  
     if search  
-      scope = where('name like ? or email like ?', "%#{search}%", "%#{search}%")
+      scope = where('name like ? or email like ? or phone like ?', "%#{search}%", "%#{search}%", "%#{search}%")
     else
       scoped
     end

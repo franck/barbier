@@ -8,11 +8,13 @@
 	<tr>
 		<th>Nom</th>
 		<th>Email</th>
+		<th>Tél</th>
 	</tr>
 	<% for client in @clients %>
 	<tr>
 		<td><%= client.name %></td>
 		<td><%= client.email %></td>
+		<td><%= client.phone %></td>
 	</tr>
 	<% end %>
 </table>

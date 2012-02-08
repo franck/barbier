@@ -1,7 +1,7 @@
 <div class="search">
 <%= form_tag clients_path, :method => 'get' do %>  
 <div style="margin-bottom:0px;">
-	<%= text_field_tag :search, params[:search], :placeholder => 'nom ou email', class: 'text' %>
+	<%= text_field_tag :search, params[:search], :placeholder => 'nom, email ou tél', class: 'text' %>
   <%= submit_tag "Recherche", :name => nil %>
 </div>
 <% end %>
