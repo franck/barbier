@@ -17,10 +17,10 @@
  *= require_self
 */
 
-@import "reset.css";
-@import "bourbon.css";
-@import "colors.css";
-@import "font.css";
-@import "form.css";
-@import 'layout.css';
-@import "clients.css";
+@import "reset.css.scss";
+@import "bourbon";
+@import "colors.css.scss";
+@import "font.css.scss";
+@import "form.css.scss";
+@import 'layout.css.scss';
+@import "clients.css.scss";
