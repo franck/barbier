@@ -8,7 +8,6 @@ gem 'rails', '3.2.0'
 gem 'mysql2'
 gem 'sqlite3'
 
-gem 'bourbon'
 gem "delocalize" # date/time parsing
 gem "redcarpet"
 gem 'will_paginate', '> 3.0'
@@ -19,7 +18,8 @@ group :assets do
   gem 'sprockets'
   gem 'sass-rails'
   gem 'coffee-rails', '~> 3.2.1'
-
+  #gem 'bourbon'
+  gem 'bootstrap-sass', '~> 2.0.0'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer'
 

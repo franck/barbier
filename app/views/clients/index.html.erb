@@ -1,20 +1,24 @@
 <h1>Liste de clients</h1>
 
-<%= link_to "Nouveau client", new_client_path, :class => 'second_button new_client_button' %>
-
 <%= render "search" %>
 
-<table>
-	<tr>
-		<th>Nom</th>
-		<th>Email</th>
-		<th>Tél</th>
-	</tr>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Nom</th>
+			<th>Email</th>
+			<th>Tél</th>
+		</tr>
+	</thead>
 	<% for client in @clients %>
 	<tr>
-		<td><%= client.name %></td>
+		<td><%= link_to client.name, client_path(client) %></td>
 		<td><%= client.email %></td>
 		<td><%= client.phone %></td>
 	</tr>
 	<% end %>
 </table>
+
+<p>
+	<%= link_to "Nouveau client", new_client_path, :class => 'btn btn-primary' %>
+</p>

@@ -7,12 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body id="<%= params[:controller] %>">
-<div id="container">
-	<div id="header"><h2>Barbier du Moulin</h2></div>
-	<div id="main">
+	<div class="navbar">
+	  <div class="navbar-inner">
+	    <div class="container">
+	      <a class="brand" href="#">Barbier du moulin</a>
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li class="active"><a href="/">Clients</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+	    </div>
+	  </div>
+	</div>
+	<div class="container">
 		<%= yield %>
 	</div>
-	<div id="footer">&nbsp;</div>
-</div>
 </body>
 </html>

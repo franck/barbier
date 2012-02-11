@@ -1,6 +1,7 @@
 <div id="toplinks">
-	<%= link_to "Liste clients", clients_path %> - 
-	<%= link_to "modifier", edit_client_path(@client) %>
+	<%= link_to ("&laquo; Liste clients").html_safe, clients_path %> - 
+	<%= link_to "Modifier", edit_client_path(@client) %> - 
+	<%= link_to "Nouveau client", new_client_path %>
 </div>
 
 <h1><%= @client.name %></h1>
@@ -8,4 +9,8 @@
 <%= client_infos(@client) %>
 
 <h3>Notes</h3>
+<% if @client.comment.present? %>
 <%= markdown(@client.comment) %>
+<% else %>
+<p>Aucune note</p>
+<% end %>
