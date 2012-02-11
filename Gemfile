@@ -10,7 +10,7 @@ gem 'sqlite3'
 
 gem "delocalize" # date/time parsing
 gem "redcarpet"
-gem 'kaminari'
+gem 'kaminari', '0.13.0'
 gem "delocalize"
 
 # Gems used only for assets and not required
