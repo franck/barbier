@@ -3,7 +3,7 @@
 class ClientsController < ApplicationController
   
   def index
-    @clients = Client.search(params[:search])
+    @clients = Client.search(params[:search]).page(params[:page]).per(20)
   end
   
   def show

@@ -13,3 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require form
+//= require clients
+

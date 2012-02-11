@@ -2,6 +2,12 @@
 
 <%= render "search" %>
 
+<p>
+	<%= link_to ("<i class='icon-user icon-white'></i>&nbsp;Nouveau client").html_safe, new_client_path, :class => 'btn btn-primary' %>
+</p>
+
+<%= paginate @clients %>
+
 <table class="table table-striped">
 	<thead>
 		<tr>
@@ -19,6 +25,4 @@
 	<% end %>
 </table>
 
-<p>
-	<%= link_to "Nouveau client", new_client_path, :class => 'btn btn-primary' %>
-</p>
+<%= paginate @clients %>

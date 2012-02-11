@@ -1,4 +1,4 @@
 <%= form_tag clients_path, :method => 'get', :class => 'well form-search' do %>  
 	<%= text_field_tag :search, params[:search], :placeholder => 'nom, email ou tél', class: 'search-query' %>
- 	<%= submit_tag "Recherche", :name => nil, :class => 'btn btn-small' %>
+ 	<%= submit_tag("Recherche", :name => nil, :class => 'btn btn-small') %>
 <% end %>

@@ -1,0 +1,18 @@
+fr:
+  activerecord:
+    errors:
+      models:
+        client:
+          attributes:
+            name:
+              blank: Il faut mettre un nom
+            email:
+              invalid: Le format de l'email n'est pas bon
+
+  views:
+    pagination:
+      first: "&laquo; Début"
+      last: "Fin &raquo;"
+      previous: "&laquo;"
+      next: "&raquo;"
+      truncate: "..."

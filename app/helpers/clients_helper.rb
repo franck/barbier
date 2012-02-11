@@ -8,4 +8,9 @@ module ClientsHelper
     content_tag("div", content.join(' - '), :id => 'infos')
   end  
   
+  def client_birthdate(client)
+    date = client.birthdate.present? ? client.birthdate : "pas de date"
+    content_tag('p', "Date de naissance : #{date}")
+  end
+  
 end

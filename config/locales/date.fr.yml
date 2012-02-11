@@ -1,0 +1,79 @@
+fr:
+  number:
+    format:
+      separator: ','
+      delimiter: ' '
+      precision: 2
+  date:
+    input:
+      formats:
+        - :default
+        - :long
+        - :short
+    formats:
+      default: "%d/%m/%Y"
+      short: "%b %e"
+      long: "%B %e, %Y"
+      only_day: "%e"
+    day_names:
+      - Dimanche
+      - Lundi
+      - Mardi
+      - Mercredi
+      - Jeudi
+      - Vendredi
+      - Samedi
+    abbr_day_names:
+      - Dim
+      - Lun
+      - Mar
+      - Mer
+      - Jeu
+      - Ven
+      - Sam
+    month_names:
+      - ~
+      - Janvier
+      - Février
+      - Mars
+      - Avril
+      - Mai
+      - Juin
+      - Juillet
+      - Aout
+      - Septembre
+      - Octobre
+      - Novembre
+      - Décembre
+    abbr_month_names:
+      - ~
+      - Jan
+      - Fev
+      - Mar
+      - Avr
+      - Mai
+      - Jun
+      - Jul
+      - Aou
+      - Sep
+      - Oct
+      - Nov
+      - Dec
+    order:
+      - :day
+      - :month
+      - :year
+  time:
+    input:
+      formats: 
+        - :default
+        - :long
+        - :short
+        - :time
+    formats:
+      default: "%d/%m/%Y %H:%M"
+      short: "%e %B %H:%M"
+      long: "%A, %e %B, %Y %H:%M"
+      time: "%H:%M"
+    am: "am"
+    pm: "pm"

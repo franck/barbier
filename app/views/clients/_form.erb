@@ -3,15 +3,18 @@
 	<%= f.label :name, "Nom", :class => 'desc required' %>
 	<%= f.text_field :name, :class => 'input-xlarge' %>
 </div>
-<div class="two-fields" style="clear:both">
-	<p>
-		<%= f.label :phone, "Téléphone", :class => 'desc' %>
-		<%= f.text_field :phone, :class => 'input-xlarge' %>
-	</p>
-	<p>
-		<%= f.label :email, "Email", :class => 'desc' %>
-		<%= f.text_field :email, :class => 'input-xlarge' %>
-	</p>
+<div>
+	<%= f.label :phone, "Téléphone", :class => 'desc' %>
+	<%= f.text_field :phone, :class => 'input-medium' %>
+</div>
+<div>
+	<%= f.label :email, "Email", :class => 'desc' %>
+	<%= f.text_field :email, :class => 'input-xlarge' %>
+</div>
+<div>
+	<%= f.label :birthdate, "Date de naissance", :class => 'desc' %>
+	<%= f.text_field :birthdate, :class => 'input-small' %>
+	<span class="instruct">ex: 31/12/1975</span>
 </div>
 <div style="clear:both">
 	<%= f.label :comment, "Notes", :class => 'desc' %>

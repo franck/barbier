@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(:version => 20120128120607) do
     t.string   "name"
     t.string   "phone"
     t.string   "email"
-    t.string   "birthdate"
+    t.date     "birthdate"
     t.text     "comment"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

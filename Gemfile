@@ -10,7 +10,8 @@ gem 'sqlite3'
 
 gem "delocalize" # date/time parsing
 gem "redcarpet"
-gem 'will_paginate', '> 3.0'
+gem 'kaminari'
+gem "delocalize"
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -53,6 +54,7 @@ group :test do
   gem "spork", ">0.9.0.rc"
   gem "guard-spork"
   gem "turn", :require => false
+  gem "faker"
 end
 
 

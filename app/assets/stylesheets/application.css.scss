@@ -30,3 +30,13 @@ h1 { font-size: 218%; margin-top:0em; margin-bottom:0.643em; }
 h2 { font-size: 164%; margin-top:1.929em; margin-bottom:0.643em; }
 h3 { font-size: 145%; margin-top:1.929em; margin-bottom:0.643em; }
 h4 { font-size: 118%; margin-top:1.929em; margin-bottom:0.643em; }
+
+form {
+  label { font-weight:bold; }
+  label.required em { color:red; font-weight:bold; font-style:normal; margin-left:5px; }
+  #error_explanation { clear:both; }
+  #error_explanation p { color:red; font-weight:bold; }
+  #error_explanation ul { margin:0 0 15px 0; padding:0; list-style:none; }
+  #error_explanation ul li { margin:0; color:red; font-weight:bold; }
+  .instruct { font-size:0.85em; color:#AAA; font-style:italic; }
+}
