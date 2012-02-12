@@ -1,0 +1,56 @@
+.menu {
+  margin-left: 0;
+  margin-bottom: $baseLineHeight;
+  list-style: none;
+}
+
+// Make links block level
+.menu > div.tab > a {
+  display: block;
+}
+.menu > div.tab > a:hover {
+  text-decoration: none;
+  background-color: $grayLighter;
+}
+
+.menu .tabs { float:left; }
+
+// Links
+.navbar .menu {
+  position: relative;
+  left: 0;
+  display: block;
+  float: left;
+  margin: 0 10px 0 0;  
+  
+  div.tab {
+    display: block;
+    float: left;
+    text-align: -webkit-match-parent;
+    
+    a {
+      float: left;
+      padding: 10px 10px 10px 11px;
+      line-height: 19px;
+      color: $navbarLinkColor;
+      text-decoration: none;
+      text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+    }
+    
+    a:hover {
+      background-color: transparent;
+      color: $navbarLinkColorHover;
+      text-decoration: none;
+    }
+  }
+  
+  div.current {
+    a, a:hover {
+      color: $navbarLinkColorHover;
+      text-decoration: none;
+      background-color: $navbarBackground;
+      background-color: rgba(0,0,0,.5);
+    }
+  }
+  
+}
