@@ -9,7 +9,7 @@ end
 
 Merrymenu::Builder.configure do |config|
   config.menu :admin do |m|
-    m.tab 'Salons', '/salons'
+    m.tab 'Salons', '/admin/salons'
   end
 end
 

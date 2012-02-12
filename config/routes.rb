@@ -1,7 +1,11 @@
 Barbier::Application.routes.draw do
   
   match '', to: 'clients#index', constraints: lambda { |r| r.subdomain.present? && r.subdomain != 'www' }
-  resources :salons
+
+  namespace :admin do
+    match '/' => redirect("/admin/salons")
+    resources :salons
+  end
 
   namespace :options do
     resources :parametres
@@ -11,10 +15,10 @@ Barbier::Application.routes.draw do
       end
     end
   end
+  
   resources :clients
 
   match "/options" => redirect("/options/parametres")
-  match "/" => redirect("/clients")
-  root :to => 'clients#index'
+  root :to => 'home#index'
 
 end

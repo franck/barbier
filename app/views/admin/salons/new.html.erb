@@ -1,9 +1,9 @@
 <h1>Nouveau salon</h1>
 
-<%= form_for @salon do |f| %>
+<%= form_for [:admin, @salon] do |f| %>
 <%= render "form", :f => f %>
 <div>
 	<%= f.submit "Ajouter", :class => 'btn' %>
-	<%= link_to 'annuler', salons_path %>
+	<%= link_to 'annuler', admin_salons_path %>
 </div>
 <% end %>

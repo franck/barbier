@@ -41,3 +41,12 @@ form {
   #error_explanation ul li { margin:0; color:red; font-weight:bold; }
   .instruct { font-size:0.85em; color:#AAA; font-style:italic; }
 }
+
+#home .splash {
+  margin-top:200px;
+  text-align:center;
+  h1 {
+    margin:50px auto;
+    font-size:3em;
+  }
+}

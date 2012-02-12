@@ -1,3 +1,4 @@
+require "bundler/capistrano"
 load 'config/deploy/settings'
 
 namespace :deploy do
