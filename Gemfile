@@ -49,10 +49,10 @@ gem "rspec-rails", :group => [:test, :development]
 group :test do   
   gem "factory_girl_rails"   
   gem "capybara"
-  gem "capybara-webkit"
+  #gem "capybara-webkit"
   gem 'database_cleaner'
   gem "guard-rspec"
-  gem "spork", ">0.9.0.rc"
+  gem "spork"
   gem "guard-spork"
   gem "turn", :require => false
   gem "faker"
