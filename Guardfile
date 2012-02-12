@@ -26,6 +26,3 @@ guard 'rspec', :version => 2, :cli => '--drb', :all_on_start => false, :all_afte
   # Capybara request specs
   watch(%r{^app/views/(.+)/.*\.(erb|haml)$})          { |m| "spec/requests/#{m[1]}_spec.rb" }
 end
-
-
-

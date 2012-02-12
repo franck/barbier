@@ -1,27 +1,11 @@
-.menu {
-  margin-left: 0;
-  margin-bottom: $baseLineHeight;
-  list-style: none;
-}
-
-// Make links block level
-.menu > div.tab > a {
-  display: block;
-}
-.menu > div.tab > a:hover {
-  text-decoration: none;
-  background-color: $grayLighter;
-}
-
-.menu .tabs { float:left; }
-
-// Links
-.navbar .menu {
+.navbar .menu, .navbar .admin {
   position: relative;
   left: 0;
   display: block;
   float: left;
-  margin: 0 10px 0 0;  
+  margin: 0 10px 0 0;
+  
+  div.tabs { float:left; }
   
   div.tab {
     display: block;

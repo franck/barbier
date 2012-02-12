@@ -1,0 +1,9 @@
+<%= render "/shared/error_messages", :target => @salon %>
+<div>
+	<%= f.label :name, "Nom du salon", :class => "required" %>
+	<%= f.text_field :name %>
+</div>
+<div>
+	<%= f.label :subdomain, "Sous domaine", :class => "required" %>
+	<%= f.text_field :subdomain %>
+</div>

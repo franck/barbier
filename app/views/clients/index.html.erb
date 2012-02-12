@@ -16,11 +16,17 @@
 			<th>Tél</th>
 		</tr>
 	</thead>
+	<% if @clients.size > 0 %>
 	<% for client in @clients %>
 	<tr>
 		<td><%= link_to client.name, client_path(client) %></td>
 		<td><%= client.email %></td>
 		<td><%= client.phone %></td>
+	</tr>
+	<% end %>
+	<% else %>
+	<tr>
+		<td colspan="3">Aucun clients</td>
 	</tr>
 	<% end %>
 </table>

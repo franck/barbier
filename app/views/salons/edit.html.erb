@@ -1,0 +1,9 @@
+<h1>Modifier salon</h1>
+
+<%= form_for @salon do |f| %>
+<%= render "form", :f => f %>
+<div>
+	<%= f.submit "Modifier", :class => 'btn' %>
+	<%= link_to 'annuler', salons_path %>
+</div>
+<% end %>

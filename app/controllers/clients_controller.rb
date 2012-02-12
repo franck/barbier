@@ -1,21 +1,22 @@
 # encoding: utf-8
 
 class ClientsController < ApplicationController
+  before_filter :load_salon
   
   def index
-    @clients = Client.search(params[:search]).page(params[:page]).per(20)
+    @clients = @salon.clients.search(params[:search]).page(params[:page]).per(20)
   end
   
   def show
-    @client = Client.find(params[:id])
+    @client = @salon.clients.find(params[:id])
   end
   
   def new
-    @client = Client.new
+    @client = @salon.clients.build
   end
   
   def create
-    @client = Client.new(params[:client])
+    @client = @salon.clients.build(params[:client])
     if @client.save
       redirect_to client_path(@client)
     else
@@ -24,11 +25,11 @@ class ClientsController < ApplicationController
   end
   
   def edit
-    @client = Client.find(params[:id])
+    @client = @salon.clients.find(params[:id])
   end
   
   def update
-    @client = Client.find(params[:id])
+    @client = @salon.clients.find(params[:id])
     if @client.update_attributes(params[:client])
       redirect_to client_path(@client)
     else
@@ -37,7 +38,7 @@ class ClientsController < ApplicationController
   end
   
   def destroy
-    client = Client.find(params[:id])
+    client = @salon.clients.find(params[:id])
     client.destroy
     redirect_to clients_path, :notice => "Fiche client supprimée"
   end

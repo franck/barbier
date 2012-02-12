@@ -10,9 +10,9 @@
 	<div class="navbar">
 	  <div class="navbar-inner">
 	    <div class="container">
-	      <a class="brand" href="/"><%= @salon.try(:name) || "Salon de coiffure" %></a>
+	      <a class="brand" href="/salons"><%= "Admin" %></a>
         <div class="nav-collapse">
-					<%= render_menu %>
+					<%= render_menu :admin %>
         </div><!--/.menu-collapse -->
 	    </div>
 	  </div>

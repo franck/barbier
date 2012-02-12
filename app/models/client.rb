@@ -1,5 +1,7 @@
 class Client < ActiveRecord::Base
   
+  belongs_to :salon
+  
   validates_presence_of :name
   validates_format_of   :email, :with  => /\A[^@]+@[^@]+\z/, :allow_blank => true
   

@@ -3,6 +3,11 @@ require 'spec_helper'
 
 describe "Clients" do
   
+  before(:each) do
+    @salon = create(:salon)
+    set_host("barbier.lvh.me")
+  end
+  
   describe "#create" do
     context "given valid information" do
       it "creates a client" do
@@ -38,7 +43,7 @@ describe "Clients" do
   
   describe "#index" do
     context "when more than 20 results" do
-      before(:each){ 22.times { create(:client, :name => Faker::Name.name)} }
+      before(:each){ 22.times { create(:client, :name => Faker::Name.name, :salon_id => @salon.id)} }
       it "paginate" do
         visit '/'
         within('.pagination') do

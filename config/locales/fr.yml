@@ -8,6 +8,13 @@ fr:
               blank: Il faut mettre un nom
             email:
               invalid: Le format de l'email n'est pas bon
+        salon:
+          attributes:
+            name:
+              blank: Le nom du salon est obligatoire
+            subdomain:
+              blank: Le sous domaine est obligatoire
+              taken: Ce sous domaine est déjà pris
 
   views:
     pagination:

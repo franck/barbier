@@ -1,0 +1,24 @@
+<h1>Salons</h1>
+
+<p>
+	<%= link_to "Nouveau salon", new_salon_path, :class => 'btn btn-primary'%>
+</p>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Nom du salon</th>
+			<th>Sous domaine</th>
+		</tr>
+	</thead>
+<% for salon in @salons %>
+<tr>
+	<td><%= salon.name %></td>
+	<td><a href="http://<%= salon.subdomain %>.<%= SalonVar::HOST %>"><%= salon.subdomain %></a></td>
+	<td>
+		<%= link_to "modifier", edit_salon_path(salon) %>
+		<%= link_to "supprimer", salon_path(salon), :method => :delete, :confirm => "Etes vous sur ?" %>
+	</td>
+</tr>
+<% end %>
+</table>
