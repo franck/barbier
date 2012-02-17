@@ -16,3 +16,6 @@
 //= require form
 //= require clients
 
+$(function() {
+  $('#password').focus();
+});

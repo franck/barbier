@@ -18,7 +18,7 @@ describe "Salon security" do
     context "if correct password" do
       it "log in" do
         visit '/prive/login'
-        fill_in 'salon_password', :with => @salon.password
+        fill_in 'password', :with => @salon.password
       end
     end
     

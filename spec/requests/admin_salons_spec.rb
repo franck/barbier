@@ -85,6 +85,26 @@ describe "Salons" do
       end  
     end
     
+    describe "on password" do
+      context "when password is OK" do
+        it "displays a green notice" do
+          fill_in 'salon_password', :with => "barfoo"
+          fill_in 'salon_password_confirmation', :with => "barfoo"
+          click_button 'Modifier'
+          page.should have_content("Salon modifié")
+        end
+      end
+      
+      context "when password is no OK" do
+        it "raises an error" do
+          fill_in 'salon_password', :with => "aa"
+          fill_in 'salon_password_confirmation', :with => "aa"
+          click_button 'Modifier'
+          page.should have_content("Le mot de passe est trop petit")
+        end
+      end
+    end
+    
   end
   
   

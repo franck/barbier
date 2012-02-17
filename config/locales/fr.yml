@@ -23,6 +23,8 @@ fr:
               blank: Il manque le mot de passe
               length: "Le mot de passe n'a pas la taille (min: 3, max: 128)"
               confirmation: Il manque la confirmation du mot de passe
+              too_short: "Le mot de passe est trop petit (min: 3)"
+              too_long: "Le mot de passe est trop long (max: 128)"
               
 
   views:

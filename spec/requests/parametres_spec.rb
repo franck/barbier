@@ -37,7 +37,7 @@ describe "Parametres" do
         click_button('Enregistrer')
         click_link("Se déconnecter")
         visit '/prive/login'
-        fill_in 'salon_password', :with => 'barfoo'
+        fill_in 'password', :with => 'barfoo'
         page.should have_no_content("Mauvais mot de passe")
       end
     end

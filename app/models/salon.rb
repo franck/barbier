@@ -2,7 +2,7 @@ require 'subdomain_validator'
 require 'password'
 
 class Salon < ActiveRecord::Base
-  attr_accessor :password_confirmation
+  attr_accessor :password, :password_confirmation
   
   has_many :clients
   
@@ -20,7 +20,7 @@ class Salon < ActiveRecord::Base
                         
 
   def authenticate(text)
-    if Password::match?(self.password, text)
+    if Password::match?(self.encrypted_password, text)
       true
     else
       false
@@ -30,7 +30,7 @@ class Salon < ActiveRecord::Base
   protected
   
   def update_password
-    self.password = Password::encrypt(self.password) if password_required?
+    self.encrypted_password = Password::encrypt(self.password) if password_required?
   end
   
   def password_required?
