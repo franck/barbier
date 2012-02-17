@@ -1,4 +1,5 @@
 module ApplicationHelper
+  include PublicHelper
   
   def markdown(text)
     return if text.nil?
