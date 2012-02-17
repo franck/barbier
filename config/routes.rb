@@ -21,7 +21,7 @@ Barbier::Application.routes.draw do
       post '/login', :to => "sessions#create"
       delete '/logout', :to => "sessions#destroy", :as => 'logout'
       
-      match "/options" => redirect("/prive/options/parametres")
+      match "/options" => redirect("/prive/options/informations")
       match '' => redirect("/prive/clients")
     end
   end

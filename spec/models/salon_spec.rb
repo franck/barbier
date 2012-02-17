@@ -91,8 +91,23 @@ describe Salon do
     end
     
     describe "on update" do
+      
+      context "when correct password given" do
+        it "change the password" do
+          salon = create(:salon)
+          salon.update_attributes(:password => 'newpassword', :password_confirmation => 'newpassword')
+          salon.should be_valid
+          salon.authenticate("newpassword").should be_true
+        end
+      end
+      
       context "when no password" do
-        it "does not change the password"
+        it "does not change the password" do
+          salon = create(:salon)
+          salon.update_attributes(:password => '', :password_confirmation => '')
+          salon.should be_valid
+          salon.authenticate("foobar").should be_true
+        end
       end
     end
     

@@ -9,6 +9,7 @@ describe "Parametres" do
     log_salon
     visit '/prive'
     click_link 'Options'
+    click_link 'Paramètres'
   end
   
   describe "#update" do
