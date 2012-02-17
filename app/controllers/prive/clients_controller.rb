@@ -1,7 +1,6 @@
 # encoding: utf-8
 module Prive
-  class ClientsController < ApplicationController
-    before_filter :load_salon
+  class ClientsController < BaseController
   
     def index
       @clients = @salon.clients.search(params[:search]).page(params[:page]).per(20)

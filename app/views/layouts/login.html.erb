@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Barbier</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body id="<%= params[:controller] %>">
+	<div class="container">
+		<div id="login"><div id="wrapper">
+			<%= render "shared/flashbox" %>
+			<h4><%= @salon.name %></h4>
+			<div id="login-box" class="well">
+				<%= yield %>
+			</div>
+		</div></div>
+	</div>
+</body>
+</html>

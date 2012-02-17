@@ -1,0 +1,6 @@
+<%= form_tag prive_login_path, :method => :post, :class => 'form-inline' do |f| %>
+	<div>
+		<%= password_field_tag :password, '',  :placeholder => "Mot de passe" %>
+		<%= submit_tag 'Me connecter', :class => 'btn' %>
+	</div>
+<% end %>

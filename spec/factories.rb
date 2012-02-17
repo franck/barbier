@@ -7,5 +7,6 @@ FactoryGirl.define do
   factory :salon do
     name "Barbier du moulin"
     subdomain "barbier"
+    password "foobar"
   end
 end

@@ -37,3 +37,12 @@ form {
     font-size:3em;
   }
 }
+
+#login {
+  text-align:center;
+  margin:0 auto;
+  margin-top:200px;
+  width:400px;
+  #wrapper {text-align: left;}
+  form { margin:0; }
+}

@@ -18,6 +18,8 @@ describe "Salons" do
       it "creates a salon" do
         fill_in 'salon_name', :with => "Barbier du moulin"
         fill_in 'salon_subdomain', :with => "barbier"
+        fill_in 'salon_password', :with => "foobar"
+        fill_in 'salon_password_confirmation', :with => "foobar"
         click_button 'Ajouter'
         page.should have_content('Salon ajouté')
       end

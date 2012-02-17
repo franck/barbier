@@ -1,9 +1,8 @@
 # encoding: utf-8
 require 'csv'
 
-module Prive::Options
-  class SauvegardesController < ApplicationController
-    before_filter :load_salon
+module Prive
+  class Options::SauvegardesController < BaseController
     
     def index
     end

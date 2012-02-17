@@ -5,7 +5,8 @@ describe "Clients" do
   
   before(:each) do
     @salon = create(:salon)
-    set_host("barbier.test.com")
+    set_host("#{@salon.subdomain}.test.com")
+    log_salon
   end
   
   describe "#create" do

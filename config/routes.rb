@@ -14,6 +14,12 @@ Barbier::Application.routes.draw do
       end
       resources :clients
       
+      # sessions
+      # resources :sessions
+      get '/login', :to => "sessions#index", :as => 'login'
+      post '/login', :to => "sessions#create"
+      delete '/logout', :to => "sessions#destroy", :as => 'logout'
+      
       match "/options" => redirect("/prive/options/parametres")
       match '' => redirect("/prive/clients")
     end
