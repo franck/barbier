@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
+  def current_salon
+    @current_salon = (Salon.find(session[:salon_id]) if session[:salon_id]) || false
+  end
+  
   private
   
   def load_salon

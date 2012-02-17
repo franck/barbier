@@ -1,10 +1,10 @@
 module Prive
   class SessionsController < ApplicationController
     before_filter :load_salon
-    
     layout "login"
     
     def index
+      redirect_to prive_path if current_salon
     end
     
     def create
