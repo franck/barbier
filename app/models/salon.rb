@@ -16,6 +16,8 @@ class Salon < ActiveRecord::Base
   validates_presence_of     :password, :if => :password_required?
   validates_confirmation_of :password, :if => :password_required?
   validates_length_of       :password, :within => 3..128, :allow_blank => true
+  
+  validates_format_of   :public_email, :with  => /\A[^@]+@[^@]+\z/, :allow_blank => true
                         
                         
 

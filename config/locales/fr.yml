@@ -25,6 +25,8 @@ fr:
               confirmation: Il manque la confirmation du mot de passe
               too_short: "Le mot de passe est trop petit (min: 3)"
               too_long: "Le mot de passe est trop long (max: 128)"
+            public_email:
+              invalid: Le format de l'email n'est pas bon
               
 
   views:

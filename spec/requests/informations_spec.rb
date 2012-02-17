@@ -37,5 +37,13 @@ describe "Informations" do
     end
   end
   
+  context "when email format is invalid" do
+    it "raise an error" do
+      fill_in 'salon_public_email', :with => 'contact.com'
+      click_button 'Enregistrer'
+      page.should have_content("Le format de l'email n'est pas bon")
+    end
+  end
+  
     
 end
