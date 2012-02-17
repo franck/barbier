@@ -14,7 +14,11 @@ fr:
               blank: Le nom du salon est obligatoire
             subdomain:
               blank: Le sous domaine est obligatoire
-              taken: Ce sous domaine est déjà pris
+              taken: Le sous domaine est déjà pris
+              lenght: Le sous domaine doit comprendre entre 3 et 63 caractères
+              hyphen: Le sous domaine ne peut commencer ou finir par un tiret
+              format: Le sous domaine ne doit comporter que des lettres, des chiffres ou des tiret. Les accents et les majuscules ne sont pas autorisés.
+              reserved: Le sous domaine est résérvé (www, ftp, ...)
 
   views:
     pagination:

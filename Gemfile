@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.0'
+gem 'rails', '3.2.1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -49,10 +49,12 @@ gem "rspec-rails", :group => [:test, :development]
 group :test do   
   gem "factory_girl_rails"   
   gem "capybara"
+  gem "launchy"
   #gem "capybara-webkit"
   gem 'database_cleaner'
   gem "guard-rspec"
   gem "spork"
+  gem 'rb-fsevent'
   gem "guard-spork"
   gem "turn", :require => false
   gem "faker"

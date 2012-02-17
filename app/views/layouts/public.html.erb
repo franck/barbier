@@ -13,11 +13,8 @@
 			<h1><%= @salon.name %></h1>
 		</div>
 		
-		<% if notice %>
-		<div class="alert alert-success"><%= notice %></div>
-		<% elsif alert %>
-		<div class="alert alert-error"><%= alert %></div>
-		<% end %>
+		<%= render "shared/flashbox" %>
+		
 		<div class="row">
 			<div class="span8">
 				<%= yield %>

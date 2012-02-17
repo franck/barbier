@@ -15,7 +15,7 @@ module Admin
     def create
       @salon = Salon.new(params[:salon])
       if @salon.save
-        redirect_to admin_salons_path, :notice => "Salon crée"
+        redirect_to admin_salons_path, :notice => "Salon ajouté"
       else
         render :new
       end

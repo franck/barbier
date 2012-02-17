@@ -25,8 +25,8 @@ describe "Salons" do
   describe "on a another domain" do
     context "when domain exist" do
       it "show the salon" do
-        create(:salon, :domain => 'barbier-du-moulin.com')
-        set_host("barbier-du-moulin.com")
+        create(:salon, :domain => 'barbierdumoulin.com')
+        set_host("barbierdumoulin.com")
         visit '/'
         page.should have_content("Barbier du moulin")
       end

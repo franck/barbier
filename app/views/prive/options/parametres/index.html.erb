@@ -6,8 +6,21 @@
 		</ul>
 	</div>
 	<div class="span9">
-		<h1>Parametres#index</h1>
-		<p>Find me in app/views/options/index.html.erb</p>
+		<h1>Parametres</h1>
+		
+		<%= form_for @salon, :url => prive_options_parametre_path(@salon), :method => :put do |f| %>
+		<%= render "/shared/error_messages", :target => @salon %>
+		<div>
+			<%= f.label :name, "Nom du salon", :class => "required" %>
+			<%= f.text_field :name %>
+		</div>
+		<div>
+			<%= f.submit "Enregistrer", class: 'btn' %>
+		</div>
+		<% end %>
+		
+		
+		
 	</div>
 </div><!-- end of row fluid -->
 
