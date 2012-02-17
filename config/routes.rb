@@ -7,6 +7,7 @@ Barbier::Application.routes.draw do
       namespace :options do
         resources :parametres
         resources :informations
+        resources :photos
         resources :sauvegardes do
           collection do
             get 'export'

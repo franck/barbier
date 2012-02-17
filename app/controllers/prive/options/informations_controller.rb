@@ -1,6 +1,7 @@
 # encoding: UTF-8
 module Prive
   class Options::InformationsController < BaseController
+    layout "options"
     
     def index
     end

@@ -1,35 +1,24 @@
-<div class="row-fluid">
-	<div class="span3">
-		<ul class="nav nav-pills nav-stacked">
-			<li><%= link_to 'Informations', prive_options_informations_path %></li>
-			<li class="active"><%= link_to 'Paramètres', prive_options_parametres_path %></li>
-		  <li><%= link_to 'Sauvegardes', prive_options_sauvegardes_path %></li>
-		</ul>
-	</div>
-	<div class="span9">
-		<h1>Parametres</h1>		
-		
-		<%= form_for @salon, :url => prive_options_parametre_path(@salon), :method => :put do |f| %>
-		<%= render "/shared/error_messages", :target => @salon %>
-		<div>
-			<%= f.label :name, "Nom du salon", :class => "required" %>
-			<%= f.text_field :name %>
-		</div>
-		<div>
-			<%= f.label :subdomain, "Sous domaine", :class => "required" %>
-			<%= f.text_field :subdomain %>
-		</div>
-		<div>
-			<%= f.label :password, "Mot de passe", :class => "" %>
-			<%= f.password_field :password %>
-		</div>
-		<div>
-			<%= f.label :password_confirmation, "Confirmation du mot de passe", :class => "" %>
-			<%= f.password_field :password_confirmation %>
-		</div>
-		<div>
-			<%= f.submit "Enregistrer", class: 'btn' %>
-		</div>
-		<% end %>
-	</div>
-</div><!-- end of row fluid -->
+<h1>Parametres</h1>		
+
+<%= form_for @salon, :url => prive_options_parametre_path(@salon), :method => :put do |f| %>
+<%= render "/shared/error_messages", :target => @salon %>
+<div>
+	<%= f.label :name, "Nom du salon", :class => "required" %>
+	<%= f.text_field :name %>
+</div>
+<div>
+	<%= f.label :subdomain, "Sous domaine", :class => "required" %>
+	<%= f.text_field :subdomain %>
+</div>
+<div>
+	<%= f.label :password, "Mot de passe", :class => "" %>
+	<%= f.password_field :password %>
+</div>
+<div>
+	<%= f.label :password_confirmation, "Confirmation du mot de passe", :class => "" %>
+	<%= f.password_field :password_confirmation %>
+</div>
+<div>
+	<%= f.submit "Enregistrer", class: 'btn' %>
+</div>
+<% end %>

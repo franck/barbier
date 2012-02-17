@@ -5,6 +5,7 @@ class Salon < ActiveRecord::Base
   attr_accessor :password, :password_confirmation
   
   has_many :clients
+  has_many :photos
   
   before_save :update_password
   

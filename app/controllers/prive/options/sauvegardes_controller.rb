@@ -3,6 +3,7 @@ require 'csv'
 
 module Prive
   class Options::SauvegardesController < BaseController
+    layout "options"
     
     def index
     end

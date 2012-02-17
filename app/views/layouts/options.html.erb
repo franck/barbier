@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @salon.name %></title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body id="<%= params[:controller] %>">
+	<div class="navbar">
+	  <div class="navbar-inner">
+	    <div class="container">
+	      <a class="brand" href="/prive"><%= @salon.try(:name) || "Salon de coiffure" %></a>
+        <div class="nav-collapse">
+					<%= render_menu %>
+        </div><!--/.menu-collapse -->
+				<ul class="nav pull-right">
+					<li><a href='/'>Site</a></li>
+					<li><%= link_to "Se déconnecter", prive_logout_path, :method => :delete %></li>
+				</ul>
+	    </div>
+	  </div>
+	</div>
+	<div class="container-fluid">
+		
+		<%= render "shared/flashbox" %>
+		
+		<div class="row-fluid">
+			<div class="span3">
+				<%= options_nav %>
+			</div>
+			<div class="span9">
+				<%= yield %>
+			</div>
+		</div><!-- end of row fluid -->
+		
+	</div>
+</body>
+</html>

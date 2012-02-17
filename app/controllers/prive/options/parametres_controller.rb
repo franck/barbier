@@ -1,6 +1,7 @@
 # encoding: UTF-8
 module Prive
   class Options::ParametresController < BaseController
+    layout "options"
     
     def index
     end
