@@ -8,7 +8,7 @@ describe "Photos" do
     set_host("#{@salon.subdomain}.test.com")
     log_salon
     visit '/prive'
-    click_link 'Options'
+    click_link 'Site'
     click_link 'Photos'
   end
   
@@ -16,6 +16,9 @@ describe "Photos" do
     context "when adding a photo" do
       it "display the thumb version on #index" do
         click_link 'Ajouter une photo'
+        attach_file "photo_picture", File.join(Rails.root, 'spec', 'support', 'photos', 'barbier.jpg' )
+        click_button 'Ajouter'
+        page.should have_content("supprimer")
       end
     end
     

@@ -1,0 +1,14 @@
+// Place all the styles related to the options controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.photos {
+  margin-top:15px;
+}
+
+.photo {
+  float:left; padding:8px; margin-right:15px; margin-bottom:15px;
+  border:1px solid #EEE; background-color:#CCC;
+  img { margin:0; border:1px solid #EEE; padding:5px; background-color:#FFF; }
+  p { margin:0; }
+}

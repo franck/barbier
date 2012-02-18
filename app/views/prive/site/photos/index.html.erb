@@ -1,0 +1,15 @@
+<h1>Photos</h1>	
+		
+<p>
+	<%= link_to ("<i class='icon-picture'></i>&nbsp;Ajouter une photo").html_safe, new_prive_site_photo_path, :class => 'btn' %>
+</p>
+<div class="photos">
+	<% for photo in @photos %>
+	<div class="photo">
+		<%= image_tag photo.picture.url(:thumb) %>
+		<p>
+			<%= link_to 'supprimer', prive_site_photo_path(photo), :method => :delete %>
+		</p>
+	</div>
+	<% end %>
+</div>

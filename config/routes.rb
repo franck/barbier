@@ -4,10 +4,13 @@ Barbier::Application.routes.draw do
     match '', to: 'accueil#index'
     
     namespace :prive do
-      namespace :options do
-        resources :parametres
+      namespace :site do
         resources :informations
         resources :photos
+      end
+      
+      namespace :options do
+        resources :parametres  
         resources :sauvegardes do
           collection do
             get 'export'
@@ -22,7 +25,8 @@ Barbier::Application.routes.draw do
       post '/login', :to => "sessions#create"
       delete '/logout', :to => "sessions#destroy", :as => 'logout'
       
-      match "/options" => redirect("/prive/options/informations")
+      match "/site" => redirect("/prive/site/informations")
+      match "/options" => redirect("/prive/options/parametres")
       match '' => redirect("/prive/clients")
     end
   end

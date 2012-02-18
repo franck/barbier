@@ -8,7 +8,7 @@ describe "Informations" do
     set_host("#{@salon.subdomain}.test.com")
     log_salon
     visit '/prive'
-    click_link 'Options'
+    click_link 'Site'
     click_link 'Informations'
   end
   
