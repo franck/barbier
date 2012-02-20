@@ -1,3 +1,4 @@
+# encoding: utf-8
 FactoryGirl.define do
   factory :client do
     name "Franck Dago"
@@ -21,6 +22,10 @@ FactoryGirl.define do
   factory :tarif do
     title 'Coiffure homme'
     price '19,5'
+  end
+  
+  factory :theme do
+    title 'Mon thème'
   end
   
 end

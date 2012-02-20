@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120220095700) do
+ActiveRecord::Schema.define(:version => 20120220110711) do
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -64,6 +64,16 @@ ActiveRecord::Schema.define(:version => 20120220095700) do
     t.integer  "salon_id"
     t.datetime "created_at",                               :null => false
     t.datetime "updated_at",                               :null => false
+  end
+
+  create_table "themes", :force => true do |t|
+    t.text     "html"
+    t.text     "css"
+    t.string   "title"
+    t.string   "state"
+    t.integer  "salon_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

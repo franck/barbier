@@ -8,13 +8,13 @@
 </head>
 <body id="<%= params[:controller] %>">
 	<%= salon_navbar(@salon) %>
-	<div class="container-fluid">		
-		<%= render "shared/flashbox" %>
+	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="span3">
 				<%= site_nav %>
 			</div>
 			<div class="span9">
+				<%= render "shared/flashbox" %>
 				<%= yield %>
 			</div>
 		</div><!-- end of row fluid -->

@@ -1,0 +1,10 @@
+<h1>Modifier le thème</h1>
+
+<%= form_for [:prive, :site, @theme] do |f| %>
+	<%= render "/shared/error_messages", :target => @theme %>	
+	<%= render 'form', :f => f %>	
+	<div>
+		<%= f.submit 'Modifier', :class => 'btn' %>
+		<%= link_to 'annuler', prive_site_themes_path %>
+	</div>
+<% end %>

@@ -42,6 +42,10 @@ fr:
             price:
               blank: "Vous oubliez le prix"
               not_a_number: "Le prix doit être un nombre"
+        theme:
+          attributes:
+            title:
+              blank: "Vous devez donner un titre à ce thème"
             
               
 

@@ -1,0 +1,30 @@
+<h1>Thèmes</h1>
+
+<p>
+	<%= link_to 'Nouveau thème', new_prive_site_theme_path, :class => 'btn' %>
+</p>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Titre</th>
+			<th>&nbsp;</th>
+			<th>&nbsp;</th>
+		</tr>
+	</thead>
+	<tr>
+		<td>Thème par défaut</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	<% for theme in @themes %>
+	<tr>
+		<td><%= theme.title %></td>
+		<td><%= theme.state %></td>
+		<td>
+			<%= link_to 'modifier', edit_prive_site_theme_path(theme) %>
+			<%= link_to 'supprimer', prive_site_theme_path(theme), :method => :delete %>
+		</td>
+	</tr>
+	<% end %>	
+</table>
