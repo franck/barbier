@@ -18,7 +18,7 @@ module Prive
     def create
       @theme = @salon.themes.build(params[:theme])
       if @theme.save
-        redirect_to prive_site_themes_path, :notice => "Thème ajouté"
+        redirect_to edit_prive_site_theme_path(@theme), :notice => "Thème ajouté"
       else
         render :new
       end
@@ -31,7 +31,7 @@ module Prive
     def update
       @theme = @salon.themes.find(params[:id])
       if @theme.update_attributes(params[:theme])
-        redirect_to prive_site_themes_path, :notice => 'Thème modifié'
+        redirect_to edit_prive_site_theme_path(@theme), :notice => 'Thème modifié'
       else
         render :edit
       end

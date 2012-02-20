@@ -15,7 +15,8 @@
 //= require bootstrap
 //= require form
 //= require clients
+//= require site
 
 $(function() {
-  $('#password').focus();
+  $('#password').focus();  
 });

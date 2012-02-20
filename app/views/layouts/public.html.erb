@@ -4,6 +4,13 @@
   <title><%= @salon.name %></title>
   <%= stylesheet_link_tag    "public", :media => "all" %>
   <%= javascript_include_tag "public" %>
+	
+	<% if @current_theme %>
+	<style type="text/css">
+		<%= @current_theme.css %>
+	</style>
+	<% end %>
+		
   <%= csrf_meta_tags %>
 </head>
 <body id="<%= params[:controller] %>">

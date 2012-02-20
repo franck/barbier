@@ -1,6 +1,6 @@
 <h1>Nouveau thème</h1>
 
-<%= form_for [:prive, :site, @theme] do |f| %>
+<%= form_for [:prive, :site, @theme], :html => { :class => 'theme_form' } do |f| %>
 	<%= render "/shared/error_messages", :target => @theme %>	
 	<%= render 'form', :f => f %>	
 	<div>
