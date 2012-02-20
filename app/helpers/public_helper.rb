@@ -1,6 +1,21 @@
 # encoding: utf-8
 module PublicHelper
   
+  def public_tarifs(tarifs)
+    return if tarifs.size == 0
+    title = content_tag('h3', 'Tarifs')
+    tarif_rows = []
+    for tarif in tarifs
+      tarif_cols = []
+      tarif_cols << content_tag('td', tarif.title)
+      tarif_cols << content_tag('td', number_to_currency(tarif.price, :unit => "€", :format => '%n %u'))
+      tarif_rows << content_tag('tr', tarif_cols.join.html_safe)
+    end
+    tarif_table = content_tag('table', tarif_rows.join.html_safe, :class => 'table table-striped')
+    content_tag('div', (title + tarif_table).html_safe, :class => 'tarifs')
+  end
+  
+  
   def public_messages(messages)
     return if messages.size == 0
     items = []
