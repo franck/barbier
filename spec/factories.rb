@@ -18,4 +18,9 @@ FactoryGirl.define do
     title 'Un titre de message'
   end
   
+  factory :tarif do
+    title 'Coiffure homme'
+    price '19,5'
+  end
+  
 end

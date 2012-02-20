@@ -1,0 +1,31 @@
+<h1>Tarifs</h1>
+
+<p>
+	<%= link_to 'Nouveau tarif', new_prive_site_tarif_path, :class => 'btn' %>
+</p>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Titre</th>
+			<th>Prix</th>
+			<th>&nbsp;</th>
+		</tr>
+	</thead>
+	<% if @tarifs.size > 0 %>
+	<% for tarif in @tarifs %>
+	<tr>
+		<td><%= tarif.title %></td>
+		<td><%= number_to_currency(tarif.price, :unit => "€", :format => '%n %u') %></td>
+		<td>
+			<%= link_to 'modifier', edit_prive_site_tarif_path(tarif) %>
+			<%= link_to 'supprimer', prive_site_tarif_path(tarif), :method => :delete %>
+		</td>
+	</tr>
+	<% end %>	
+	<% else %>
+	<tr>
+		<td colspan="3">Aucun tarif</td>
+	</tr>
+	<% end %>
+</table>

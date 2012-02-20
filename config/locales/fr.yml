@@ -35,6 +35,14 @@ fr:
           attributes:
             picture:
               empty: Vous oubliez le fichier
+        tarif:
+          attributes:
+            title:
+              blank: "Le titre du service ou du produit ne peut être vide"
+            price:
+              blank: "Vous oubliez le prix"
+              not_a_number: "Le prix doit être un nombre"
+            
               
 
   views:

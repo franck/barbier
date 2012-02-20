@@ -7,6 +7,7 @@ class Salon < ActiveRecord::Base
   has_many :clients
   has_many :photos
   has_many :messages
+  has_many :tarifs
   
   before_save :update_password
   

@@ -1,0 +1,10 @@
+<h1>Modifier le tarif</h1>
+
+<%= form_for [:prive, :site, @tarif] do |f| %>
+	<%= render "/shared/error_messages", :target => @tarif %>	
+	<%= render 'form', :f => f %>	
+	<div>
+		<%= f.submit 'Modifier', :class => 'btn' %>
+		<%= link_to 'annuler', prive_site_tarifs_path %>
+	</div>
+<% end %>
