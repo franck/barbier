@@ -28,7 +28,6 @@ describe "Messages" do
         fill_in 'theme_title', :with => "Mon thème"
         click_button 'Ajouter'
         page.should have_content('Thème ajouté')
-        page.should have_content('Mon thème')
       end
     end
     context "when title is missing" do
@@ -50,9 +49,8 @@ describe "Messages" do
     context "when nothing is missing" do
       it "creates the theme" do
         fill_in 'theme_title', :with => "Mon thème modifié"
-        click_button 'Modifier'
+        click_button 'Sauver'
         page.should have_content('Thème modifié')
-        page.should have_content('Mon thème modifié')
       end
     end
   end
