@@ -43,5 +43,16 @@ module Prive
       redirect_to prive_site_themes_path, :notice => 'Thème supprimé'
     end
     
+    def use
+      @theme = @salon.themes.find(params[:id])
+      @theme.activate
+      redirect_to prive_site_themes_path, :notice => 'Thème activé'
+    end
+    
+    def use_default
+      Theme.desactivate_all_themes(@salon.id)
+      redirect_to prive_site_themes_path, :notice => 'Thème activé'
+    end
+    
   end
 end

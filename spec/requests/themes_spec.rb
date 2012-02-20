@@ -68,5 +68,37 @@ describe "Messages" do
     end
   end
   
+  describe "#use" do
+    before(:each) do
+      @theme = create(:theme, :salon_id => @salon.id)
+      click_link 'Thèmes'
+      within(".theme-#{@theme.id}") do
+        click_link 'utiliser'
+      end
+    end
+    it "activate the theme" do
+      page.should have_content('Thème activé')
+      within(".theme-#{@theme.id}") do
+        page.should have_content('utilisé')
+      end
+    end
+  end
+  
+  describe "#use_default" do
+    before(:each) do
+      @theme = create(:theme, :salon_id => @salon.id, :state => 'active')
+      click_link 'Thèmes'
+      within(".theme-default") do
+        click_link 'utiliser'
+      end
+    end
+    it "activate default theme" do
+      page.should have_content('Thème activé')
+      within(".theme-default") do
+        page.should have_content('utilisé')
+      end
+    end
+  end
+  
   
 end

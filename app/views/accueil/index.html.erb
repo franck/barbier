@@ -1,28 +1,17 @@
 <div class="container">
-	
 	<div class="header">
 		<h1><%= @salon.name %></h1>
-	</div>
-	
-	<%= render "shared/flashbox" %>
-	
+	</div>	
 	<div class="row">
 		<div class="span8">
-			
 			<%= public_info(@salon) %>
-			
-			<%= public_photos(@salon.photos) %>
-						
-			<%= public_messages(@salon.messages) %>
-			
+			<%= public_photos(@salon.photos) %>						
+			<%= public_messages(@salon.messages) %>			
 			<%= public_tarifs(@salon.tarifs) %>
-			
 		</div>
 
 		<div class="span4">
 			<%= public_contact(@salon) %>
 		</div>
 	</div>
-	
-	
 </div>

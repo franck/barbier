@@ -12,16 +12,19 @@
 			<th>&nbsp;</th>
 		</tr>
 	</thead>
-	<tr>
+	<tr class="theme-default">
 		<td>Thème par défaut</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td><%= "utilisé" if Theme.current(@salon.id).nil? %></td>
+		<td>
+			<%= link_to 'utiliser', use_default_prive_site_themes_path %>
+		</td>
 	</tr>
 	<% for theme in @themes %>
-	<tr>
+	<tr class="theme-<%= theme.id %>">
 		<td><%= theme.title %></td>
-		<td><%= theme.state %></td>
+		<td><%= "utilisé" if theme.state %></td>
 		<td>
+			<%= link_to 'utiliser', use_prive_site_theme_path(theme) %>
 			<%= link_to 'modifier', edit_prive_site_theme_path(theme) %>
 			<%= link_to 'supprimer', prive_site_theme_path(theme), :method => :delete %>
 		</td>

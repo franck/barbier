@@ -23,8 +23,6 @@ class Salon < ActiveRecord::Base
   
   validates_format_of   :public_email, :with  => /\A[^@]+@[^@]+\z/, :allow_blank => true
                         
-                        
-
   def authenticate(text)
     if Password::match?(self.encrypted_password, text)
       true

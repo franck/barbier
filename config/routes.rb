@@ -9,7 +9,14 @@ Barbier::Application.routes.draw do
         resources :photos
         resources :messages
         resources :tarifs
-        resources :themes
+        resources :themes do
+          member do
+            get 'use'
+          end
+          collection do
+            get 'use_default'
+          end
+        end
       end
       match "/site" => redirect("/prive/site/messages")
       
