@@ -9,4 +9,9 @@ FactoryGirl.define do
     subdomain "barbier"
     password "foobar"
   end
+  
+  factory :photo do
+    picture File.new(Rails.root.join('spec/support/photos/barbier.jpg'))
+  end
+  
 end

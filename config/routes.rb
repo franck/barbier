@@ -9,6 +9,7 @@ Barbier::Application.routes.draw do
         resources :photos
         resources :messages
       end
+      match "/site" => redirect("/prive/site/messages")
       
       namespace :options do
         resources :parametres  
@@ -18,6 +19,7 @@ Barbier::Application.routes.draw do
           end
         end
       end
+      match "/options" => redirect("/prive/options/parametres")
       resources :clients
       
       # sessions
@@ -25,9 +27,7 @@ Barbier::Application.routes.draw do
       get '/login', :to => "sessions#index", :as => 'login'
       post '/login', :to => "sessions#create"
       delete '/logout', :to => "sessions#destroy", :as => 'logout'
-      
-      match "/site" => redirect("/prive/site/informations")
-      match "/options" => redirect("/prive/options/parametres")
+            
       match '' => redirect("/prive/clients")
     end
   end

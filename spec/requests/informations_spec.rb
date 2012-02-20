@@ -24,7 +24,7 @@ describe "Informations" do
       end
     end
     
-    it "display the information on public site" do
+    it "display a notice message" do
       page.should have_content("Informations mises à jour")
     end
     

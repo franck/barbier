@@ -31,6 +31,10 @@ fr:
           attributes:
             title:
               blank: Le titre est obligatoire
+        photo:
+          attributes:
+            picture:
+              empty: Vous oubliez le fichier
               
 
   views:
