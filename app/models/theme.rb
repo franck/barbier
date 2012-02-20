@@ -14,6 +14,7 @@ class Theme < ActiveRecord::Base
     
   def activate
     Theme.from_salon(salon_id).where("state = ?", 'active').update_all(:state => nil,)
+    self.reload
     self.state = 'active'
     self.save
   end  

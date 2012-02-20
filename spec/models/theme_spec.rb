@@ -7,16 +7,25 @@ describe Theme do
       @salon = create(:salon)
       @theme = create(:theme, :salon_id => @salon.id)
       @othertheme = create(:theme, :salon_id => @salon.id, :state => 'active')
-      @theme.activate
+      
     end
     
     it "activate the theme" do
+      @theme.activate
       @theme.state.should == 'active'
     end
     
     it "desactivate all other themes" do
+      @theme.activate
       @othertheme.reload
       @othertheme.state.should be_nil
+    end
+    
+    context "when the theme is already activated" do
+      it "does nothing" do
+        @othertheme.activate
+        @othertheme.state.should == 'active'
+      end
     end
   end
   
