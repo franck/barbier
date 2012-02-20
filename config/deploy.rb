@@ -36,11 +36,11 @@ namespace :deploy do
     end
   end
   
-  # desc "symlink avatars folder"
-  # task :symlink_avatars, :roles => :app do
-  #   run "mkdir -p #{shared_path}/avatars"
-  #   run "ln -nfs #{shared_path}/avatars #{current_path}/avatars"
-  # end
+  desc "symlink system folder"
+  task :symlink_system, :roles => :app do
+    run "mkdir -p #{shared_path}/system"
+    run "ln -nfs #{shared_path}/system #{current_path}/public/system"
+  end
   
   # desc "deploy the precompiled assets"
   # task :deploy_assets, :except => { :no_release => true } do
@@ -51,7 +51,7 @@ namespace :deploy do
     
 end
 
-#after "deploy:symlink", "deploy:symlink_avatars"
+after "deploy:symlink", "deploy:symlink_system"
 
 
 #def run_rake(cmd)
