@@ -7,6 +7,7 @@ Barbier::Application.routes.draw do
       namespace :site do
         resources :informations
         resources :photos
+        resources :messages
       end
       
       namespace :options do

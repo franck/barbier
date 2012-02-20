@@ -1,5 +1,25 @@
 <h1>Informations</h1>		
 
+<h2>Présentation</h2>
+
+<%= form_for @salon, :url => prive_site_information_path(@salon), :method => :put do |f| %>
+<%= render "/shared/error_messages", :target => @salon %>
+<div>
+	<%= f.label :title, "Phrase d'introduction" %>
+	<%= f.text_field :title, :class => 'input-xxlarge' %>
+</div>
+<div>
+	<%= f.label :description, "Description courte" %>
+	<%= f.text_area :description, :rows => "6", :class => 'input-xxlarge' %>
+</div>
+<div>
+	<%= f.submit "Enregistrer", class: 'btn' %>
+</div>
+<% end %>
+
+<div class="contact">
+<h2>Contact</h2>
+
 <%= form_for @salon, :url => prive_site_information_path(@salon), :method => :put do |f| %>
 <%= render "/shared/error_messages", :target => @salon %>
 <div>
@@ -26,3 +46,4 @@
 	<%= f.submit "Enregistrer", class: 'btn' %>
 </div>
 <% end %>
+</div>

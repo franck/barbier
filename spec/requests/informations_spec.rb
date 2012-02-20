@@ -19,7 +19,9 @@ describe "Informations" do
       fill_in 'salon_address', :with => '24 rue du moulin'
       fill_in 'salon_postalcode', :with => '08000'
       fill_in 'salon_city', :with => 'Charleville-Mézières'
-      click_button 'Enregistrer'
+      within('.contact') do
+        click_button 'Enregistrer'
+      end
     end
     
     it "display the information on public site" do
@@ -40,7 +42,9 @@ describe "Informations" do
   context "when email format is invalid" do
     it "raise an error" do
       fill_in 'salon_public_email', :with => 'contact.com'
-      click_button 'Enregistrer'
+      within('.contact') do
+        click_button 'Enregistrer'
+      end
       page.should have_content("Le format de l'email n'est pas bon")
     end
   end

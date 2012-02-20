@@ -1,1 +1,26 @@
-Accueil
+<div class="container">
+	
+	<div class="header">
+		<h1><%= @salon.name %></h1>
+	</div>
+	
+	<%= render "shared/flashbox" %>
+	
+	<div class="row">
+		<div class="span8">
+			
+			<%= public_info(@salon) %>
+			
+			<%= public_photos(@salon) %>
+						
+			<%= public_messages(@salon.messages) %>
+			
+		</div>
+
+		<div class="span4">
+			<%= public_contact(@salon) %>
+		</div>
+	</div>
+	
+	
+</div>

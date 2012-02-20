@@ -11,5 +11,27 @@
 }
 
 .info {
+  margin-bottom: 15px; 
+  h2 { margin-top:0; }
+}
+
+
+.contact {
   h3 { margin-top:0; }
+}
+
+.photos {
+  margin-bottom: 15px; 
+  img { width:33%; }
+}
+
+.messages {
+  padding:5px 10px;
+  background-color:#FCF8E3;
+  border:1px solid #FBEED5;
+  dl { 
+    margin:10px 0 0 0; 
+    dt { }
+    dd { margin:0 0 10px 0; }
+  }
 }

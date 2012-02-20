@@ -1,0 +1,10 @@
+<h1>Nouveau message</h1>
+
+<%= form_for [:prive, :site, @message] do |f| %>
+	<%= render "/shared/error_messages", :target => @message %>	
+	<%= render 'form', :f => f %>	
+	<div>
+		<%= f.submit 'Ajouter', :class => 'btn' %>
+		<%= link_to 'annuler', prive_site_messages_path %>
+	</div>
+<% end %>

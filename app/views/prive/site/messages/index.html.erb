@@ -1,0 +1,29 @@
+<h1>Messages</h1>
+
+<p>
+	<%= link_to 'Nouveau message', new_prive_site_message_path, :class => 'btn' %>
+</p>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Titre</th>
+			<th>&nbsp;</th>
+		</tr>
+	</thead>
+	<% if @messages.size > 0 %>
+	<% for message in @messages %>
+	<tr>
+		<td><%= message.title %></td>
+		<td>
+			<%= link_to 'modifier', edit_prive_site_message_path(message) %>
+			<%= link_to 'supprimer', prive_site_message_path(message), :method => :delete %>
+		</td>
+	</tr>
+	<% end %>	
+	<% else %>
+	<tr>
+		<td colspan="2">Aucun message</td>
+	</tr>
+	<% end %>
+</table>

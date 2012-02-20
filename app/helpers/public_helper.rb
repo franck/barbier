@@ -1,7 +1,33 @@
 # encoding: utf-8
 module PublicHelper
   
+  def public_messages(messages)
+    items = []
+    for message in messages
+      items << content_tag('dt', message.title)
+      items << content_tag('dd', markdown(message.content)) if message.content.present?
+    end
+    messages_list = content_tag('dl', items.join.html_safe)
+    content_tag('div', messages_list, :class => 'messages')
+  end
+  
   def public_info(salon)
+    items = []
+    items << content_tag('h2', salon.title) if salon.title.present?
+    items << markdown(salon.description) if salon.description.present?
+    content_tag('div', items.join.html_safe, :class => 'info')
+  end
+  
+  def public_photos(salon)
+    photos = []
+    for photo in salon.photos
+			photos << image_tag(photo.picture.url(:thumb))
+		end
+		gutter= content_tag('span', '&nbsp;'.html_safe, :class => 'gutter' )
+		content_tag('div', photos.join(gutter).html_safe, :class => 'photos')
+  end
+  
+  def public_contact(salon)
     content = ""
     content << content_tag("h3", "Contact")
     infos = []
@@ -9,7 +35,7 @@ module PublicHelper
     infos << public_phone(salon)
     infos << public_address(salon)
     content << infos.join('<br/>')
-    content_tag('div', content.html_safe, :class => 'well info')
+    content_tag('div', content.html_safe, :class => 'well contact')
   end
   
   def public_phone(salon)
