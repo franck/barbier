@@ -14,4 +14,8 @@ FactoryGirl.define do
     picture File.new(Rails.root.join('spec/support/photos/barbier.jpg'))
   end
   
+  factory :message do
+    title 'Un titre de message'
+  end
+  
 end

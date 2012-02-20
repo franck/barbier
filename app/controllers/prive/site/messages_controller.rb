@@ -14,7 +14,7 @@ module Prive
     def create
       @message = @salon.messages.build(params[:message])
       if @message.save
-        redirect_to prive_site_messages_path
+        redirect_to prive_site_messages_path, :notice => 'Message ajouté'
       else
         render :new
       end
@@ -27,7 +27,7 @@ module Prive
     def update
       @message = @salon.messages.find(params[:id])
       if @message.update_attributes(params[:message])
-        redirect_to prive_site_messages_path
+        redirect_to prive_site_messages_path, :notice => 'Message modifié'
       else
         render :edit
       end
@@ -36,7 +36,7 @@ module Prive
     def destroy
       message = @salon.messages.find(params[:id])
       message.destroy
-      redirect_to prive_site_messages_path
+      redirect_to prive_site_messages_path, :notice => 'Message supprimé'
     end
     
   end
