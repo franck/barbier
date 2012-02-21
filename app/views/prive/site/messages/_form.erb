@@ -6,3 +6,7 @@
 	<%= f.label :content, "Contenu" %>
 	<%= f.text_area :content, :rows => "6", :class => 'input-xxlarge' %>
 </div>
+<p>
+	<label class="checkbox"><%= check_box_tag :publish_on_facebook, "1", false, :disabled => true %>&nbsp;<span>Publier sur Facebook</span></label>
+	<label class="checkbox"><%= check_box_tag :send_by_sms, "1", false, :disabled => true %>&nbsp;<span>Envoyer par SMS</span></label>
+</p>

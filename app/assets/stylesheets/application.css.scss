@@ -23,6 +23,7 @@ h4 { font-size: 118%; }
 form {
   label { font-weight:bold; }
   label.required em { color:red; font-weight:bold; font-style:normal; margin-left:5px; }
+  label.checkbox { font-weight:normal; }
   #error_explanation { clear:both; }
   #error_explanation p { color:red; font-weight:bold; }
   #error_explanation ul { margin:0 0 15px 0; padding:0; list-style:none; }
@@ -46,4 +47,8 @@ form {
   width:400px;
   #wrapper {text-align: left;}
   form { margin:0; }
+}
+
+.nav-list .active > a:hover {
+  background-color: #08C;
 }
