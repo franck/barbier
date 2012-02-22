@@ -1,6 +1,23 @@
 # encoding: utf-8
 module MessagesHelper
   
+  def message_state(message)
+    if message.published_at
+      "publié"
+    else
+      "brouillon"
+    end
+  end
+  
+  def message_publish_link(message)
+    if message.published_at
+      link_to("dépublier", unpublish_prive_site_message_path(message))
+    else
+      link_to("publier", publish_prive_site_message_path(message))
+    end
+  end
+  
+  
   def publish_on_facebook_account(form, facebook_account, message)
     
     if facebook_account && message.published_on_facebook_account_at.nil?
@@ -43,6 +60,7 @@ module MessagesHelper
     checkbox << ("&nbsp;").html_safe
     span_content = "Envoyer par SMS"
     checkbox << content_tag('span', span_content)
+    checkbox << content_tag('span', "pas encore disponible", :class => 'todo')
     
     content_tag('label', checkbox, :class => "checkbox disabled-#{disabled}")
   end

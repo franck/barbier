@@ -7,7 +7,12 @@ Barbier::Application.routes.draw do
       namespace :site do
         resources :informations
         resources :photos
-        resources :messages
+        resources :messages do
+          member do
+            get 'publish'
+            get 'unpublish'
+          end
+        end
         resources :tarifs
         resources :themes do
           member do

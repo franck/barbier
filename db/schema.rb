@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120222100126) do
+ActiveRecord::Schema.define(:version => 20120222144419) do
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20120222100126) do
     t.datetime "published_on_facebook_account_at"
     t.boolean  "publish_on_facebook_page"
     t.datetime "published_on_facebook_page_at"
+    t.datetime "published_at"
   end
 
   create_table "photos", :force => true do |t|

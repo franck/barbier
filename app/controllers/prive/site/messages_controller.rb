@@ -32,7 +32,6 @@ module Prive
     def update
       @message = @salon.messages.find(params[:id])
       if @message.update_attributes(params[:message])
-        @message.send_to_facebook
         redirect_to prive_site_messages_path, :notice => 'Message modifié'
       else
         render :edit
@@ -43,6 +42,19 @@ module Prive
       message = @salon.messages.find(params[:id])
       message.destroy
       redirect_to prive_site_messages_path, :notice => 'Message supprimé'
+    end
+    
+    def publish
+      message = @salon.messages.find(params[:id])
+      message.publish!
+      message.send_to_facebook
+      redirect_to prive_site_messages_path, :notice => 'Message publié'
+    end
+    
+    def unpublish
+      message = @salon.messages.find(params[:id])
+      message.unpublish!
+      redirect_to prive_site_messages_path, :notice => 'Message dépublié'
     end
     
     private

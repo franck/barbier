@@ -9,13 +9,16 @@
 		<tr>
 			<th>Titre</th>
 			<th>&nbsp;</th>
+			<th>&nbsp;</th>
 		</tr>
 	</thead>
 	<% if @messages.size > 0 %>
 	<% for message in @messages %>
 	<tr>
 		<td><%= message.title %></td>
+		<td><%= message_state(message) %></td>
 		<td>
+			<%= message_publish_link(message) %>
 			<%= link_to 'modifier', edit_prive_site_message_path(message) %>
 			<%= link_to 'supprimer', prive_site_message_path(message), :method => :delete %>
 		</td>

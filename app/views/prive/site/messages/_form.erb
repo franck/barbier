@@ -7,6 +7,7 @@
 	<%= f.text_area :content, :rows => "6", :class => 'input-xxlarge' %>
 </div>
 <p>
+	<label>Lors de la publication</label>
 	<%= publish_on_facebook_account(f, @salon.facebook_account, @message) %>
 	<%= publish_on_facebook_page(f, @salon.facebook_account, @message) %>
 	<%= send_by_sms %>

@@ -6,7 +6,7 @@
 		<div class="span8">
 			<%= public_info(@salon) %>
 			<%= public_photos(@salon.photos) %>						
-			<%= public_messages(@salon.messages) %>			
+			<%= public_messages(@salon.messages.published) %>			
 			<%= public_tarifs(@salon.tarifs) %>
 		</div>
 

@@ -3,6 +3,8 @@ class Message < ActiveRecord::Base
   belongs_to :salon
   validates :title, :presence => true
   
+  scope :published, where("published_at IS NOT NULL")
+  
   def send_to_facebook
     fb_account = self.salon.facebook_account
     return unless fb_account
@@ -30,6 +32,20 @@ class Message < ActiveRecord::Base
     result = page.feed!(:message => facebook_message) if title.present? or content.present?
     logger.debug("PAGE RESULT : #{result.inspect}")
     self.published_on_facebook_page_at = Time.now
+    save!
+  end
+  
+  def published?
+    return true if !published_at.nil?
+  end
+  
+  def publish!
+    self.published_at = Time.now
+    save!
+  end
+  
+  def unpublish!
+    self.published_at = nil
     save!
   end
   
