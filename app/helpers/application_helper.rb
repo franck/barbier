@@ -9,4 +9,8 @@ module ApplicationHelper
     markdown.render(text).html_safe
   end
   
+  def get_controller(controller)
+    controller.split('/').last
+  end
+  
 end

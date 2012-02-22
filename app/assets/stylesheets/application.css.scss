@@ -14,6 +14,8 @@
 @import "bootstrap";
 @import "merrymenu";
 @import "photos";
+@import "options";
+@import "site";
 
 h1 { font-size: 218%; margin-top:0em; margin-bottom:0.643em; }
 h2 { font-size: 164%; }
@@ -52,3 +54,5 @@ form {
 .nav-list .active > a:hover {
   background-color: #08C;
 }
+
+.clear { clear:both; }

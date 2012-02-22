@@ -6,7 +6,7 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body id="<%= params[:controller] %>">
+<body id="<%= get_controller(params[:controller]) %>">
 	<div class="container">
 		<div id="login"><div id="wrapper">
 			<%= render "shared/flashbox" %>

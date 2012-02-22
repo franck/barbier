@@ -70,6 +70,57 @@ describe "Messages" do
     end
   end
   
+  describe "with facebook" do
+
+    context "if no account" do
+      before(:each) do
+        click_link 'Messages'
+        click_link 'Nouveau message'
+      end
+      
+      it "shows checkbox publish to facebook account but disabled" do
+        page.should have_content("Publier sur le compte Facebook")
+        page.find('#publish_on_facebook_account')['disabled'].should == "disabled"
+      end
+      it "shows checkbox publish to facebook page but disabled" do
+        page.should have_content("Publier sur la page Facebook")
+        page.find('#publish_on_facebook_page')['disabled'].should == "disabled"
+      end
+    end
+    context "if an account without page" do
+      before(:each) do
+        @facebook_account = create(:facebook_account, :salon_id => @salon.id)
+        click_link 'Messages'
+        click_link 'Nouveau message'
+      end
+      it "shows checkbox publish to facebook account and facebook account name" do
+        page.should have_content("Publier sur le compte Facebook : Franck D'agostini")
+        page.find('#publish_on_facebook_account')['disabled'].should be_nil
+      end
+      it "shows checkbox publish to facebook page but disabled" do
+        page.should have_content("Publier sur la page Facebook")
+        page.find('#publish_on_facebook_page')['disabled'].should == "disabled"
+      end
+    end
+    context "if an account with page" do
+      before(:each) do
+        @facebook_account = create(:facebook_account_with_page, :salon_id => @salon.id)
+        click_link 'Messages'
+        click_link 'Nouveau message'
+      end
+      it "shows checkbox publish to facebook page and page name" do
+        page.should have_content("Publier sur la page Facebook : Barbier du moulin")
+        page.find('#publish_on_facebook_account')['disabled'].should be_nil
+      end
+    end
+    
+    
+  end
+  
+  describe "with SMS" do
+    
+  end
+  
   
     
 end

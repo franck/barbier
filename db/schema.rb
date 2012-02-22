@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120220110711) do
+ActiveRecord::Schema.define(:version => 20120222100126) do
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -24,12 +24,30 @@ ActiveRecord::Schema.define(:version => 20120220110711) do
     t.integer  "salon_id"
   end
 
+  create_table "facebook_accounts", :force => true do |t|
+    t.string   "identifier"
+    t.string   "name"
+    t.string   "picture"
+    t.string   "access_token"
+    t.string   "page_access_token"
+    t.string   "page_name"
+    t.string   "page_identifier"
+    t.string   "page_picture"
+    t.integer  "salon_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
   create_table "messages", :force => true do |t|
     t.string   "title"
     t.text     "content"
     t.integer  "salon_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+    t.boolean  "publish_on_facebook_account"
+    t.datetime "published_on_facebook_account_at"
+    t.boolean  "publish_on_facebook_page"
+    t.datetime "published_on_facebook_page_at"
   end
 
   create_table "photos", :force => true do |t|

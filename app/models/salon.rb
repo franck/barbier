@@ -9,6 +9,7 @@ class Salon < ActiveRecord::Base
   has_many :messages
   has_many :tarifs
   has_many :themes
+  has_one :facebook_account
   
   before_save :update_password
   

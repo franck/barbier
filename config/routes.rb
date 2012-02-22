@@ -1,7 +1,7 @@
 Barbier::Application.routes.draw do
   
   constraints lambda { |r| r.domain != SalonVar::DOMAIN || (r.subdomain.present? && r.subdomain != 'www') } do
-    match '', to: 'accueil#index'
+    match '', to: 'accueil#index'  
     
     namespace :prive do
       namespace :site do
@@ -21,7 +21,16 @@ Barbier::Application.routes.draw do
       match "/site" => redirect("/prive/site/messages")
       
       namespace :options do
-        resources :parametres  
+        resources :parametres
+        match 'facebooks', :to => "facebooks#index"
+        resource :facebook, :except => :create do
+          get :callback, :to => :create
+          collection do
+            get 'auth'
+            get 'select_page'
+            get 'unselect_page'
+          end
+        end
         resources :sauvegardes do
           collection do
             get 'export'

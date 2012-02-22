@@ -14,6 +14,7 @@ gem 'kaminari', '0.13.0'
 gem "delocalize"
 gem 'merrymenu'
 gem "paperclip", "~> 2.0"
+gem "fb_graph"
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -22,7 +23,7 @@ group :assets do
   gem 'sass-rails'
   gem 'coffee-rails', '~> 3.2.1'
   #gem 'bourbon'
-  gem 'bootstrap-sass', '~> 2.0.0'
+  gem 'bootstrap-sass', '~> 2.0.1'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer'
 
