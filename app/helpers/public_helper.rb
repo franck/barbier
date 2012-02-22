@@ -37,6 +37,7 @@ module PublicHelper
   end
   
   def public_photos(photos)
+    return if photos.size == 0
     photos_items = []
     for photo in photos
 			photos_items << image_tag(photo.picture.url(:thumb))
