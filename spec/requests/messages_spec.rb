@@ -80,13 +80,14 @@ describe "Messages" do
       
       it "shows checkbox publish to facebook account but disabled" do
         page.should have_content("Publier sur le compte Facebook")
-        page.find('#publish_on_facebook_account')['disabled'].should == "disabled"
+        page.find('#message_publish_on_facebook_account')['disabled'].should == "disabled"
       end
       it "shows checkbox publish to facebook page but disabled" do
         page.should have_content("Publier sur la page Facebook")
-        page.find('#publish_on_facebook_page')['disabled'].should == "disabled"
+        page.find('#message_publish_on_facebook_page')['disabled'].should == "disabled"
       end
     end
+    
     context "if an account without page" do
       before(:each) do
         @facebook_account = create(:facebook_account, :salon_id => @salon.id)
@@ -95,13 +96,14 @@ describe "Messages" do
       end
       it "shows checkbox publish to facebook account and facebook account name" do
         page.should have_content("Publier sur le compte Facebook : Franck D'agostini")
-        page.find('#publish_on_facebook_account')['disabled'].should be_nil
+        page.find('#message_publish_on_facebook_account')['disabled'].should be_nil
       end
       it "shows checkbox publish to facebook page but disabled" do
         page.should have_content("Publier sur la page Facebook")
-        page.find('#publish_on_facebook_page')['disabled'].should == "disabled"
+        page.find('#message_publish_on_facebook_page')['disabled'].should == "disabled"
       end
     end
+    
     context "if an account with page" do
       before(:each) do
         @facebook_account = create(:facebook_account_with_page, :salon_id => @salon.id)
@@ -110,7 +112,7 @@ describe "Messages" do
       end
       it "shows checkbox publish to facebook page and page name" do
         page.should have_content("Publier sur la page Facebook : Barbier du moulin")
-        page.find('#publish_on_facebook_account')['disabled'].should be_nil
+        page.find('#message_publish_on_facebook_account')['disabled'].should be_nil
       end
     end
     
