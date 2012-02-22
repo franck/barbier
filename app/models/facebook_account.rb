@@ -30,6 +30,7 @@ class FacebookAccount < ActiveRecord::Base
     self.page_access_token = page_access_token
     self.page_picture = page.picture
     self.page_identifier = page.identifier
+    self.page_link = page.link
     save!
   end
   
@@ -38,6 +39,7 @@ class FacebookAccount < ActiveRecord::Base
     self.page_access_token = nil
     self.page_picture = nil
     self.page_identifier = nil
+    self.page_link = nil
     save!
   end
   

@@ -14,6 +14,7 @@ Barbier::Application.routes.draw do
           end
         end
         resources :tarifs
+        resource :facebook
         resources :themes do
           member do
             get 'use'

@@ -1,0 +1,34 @@
+<h1>Facebook</h1>
+
+<% if @facebook_account.try(:page_name).present? %>
+	
+	<h4>Votre page Facebook liée</h4>
+	<div class="facebook-page">
+		<div class="picture"><%= image_tag @facebook_account.page_picture %></div>
+		<div class="infos">
+			<span class='name'><%= @facebook_account.page_name %></span><br/>
+		</div>
+	</div>
+	
+	<div class="clear">&nbsp;</div>
+	<h4>Likebox</h4>
+	
+	<%= form_for @salon, :url => prive_site_facebook_path(@salon), :method => :put, :html => { :class => 'form-inline' } do |f| %>
+	<div>
+		<label class="checkbox"><%= f.check_box :facebook_likebox %><span>Utiliser la likebox</span></label>
+		<%= f.submit "Enregistrer", :class => 'btn' %>
+	</div>
+	
+	<% end %>
+	
+	<%= public_facebook_likebox(@salon, :force => true) %>
+	
+	
+	
+	
+<% else %>
+	<h4>Fonctionnalité indisponible</h4>
+	<p>Vous n'avez pas de page Facebook lié. <%= link_to "Lier votre site à une page Facebook", prive_options_facebooks_path %></p>
+<% end %>
+
+<%= render "shared/facebook_sdk" %>

@@ -1,6 +1,30 @@
 # encoding: utf-8
 module PublicHelper
   
+  def public_facebook_likebox(salon, options={})
+    logger.debug("OPTIONS : #{salon.facebook_account.try(:page_link).blank? and options[:force] != true}")
+    return if salon.facebook_likebox == false and options[:force] != true
+    return if salon.facebook_account.try(:page_link).blank? and options[:force] != true
+  
+    
+    defaults = {
+      'show-faces' => 'true',
+      'stream' => 'false',
+      'header' => 'true',
+      'width' => '300'
+    }
+    options = defaults.merge(options)
+    
+    content_tag('div', '', 
+      :class => "fb-like-box",
+      'data-href' => salon.facebook_account.page_link,
+      'data-show-faces' => options['show-faces'],
+      'data-stream' => options['stream'],
+      'data-header' => options['header'],
+      'data-width' => options['width']
+    )
+  end
+  
   def public_tarifs(tarifs)
     return if tarifs.size == 0
     title = content_tag('h3', 'Tarifs')

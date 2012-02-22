@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120222144419) do
+ActiveRecord::Schema.define(:version => 20120222162804) do
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20120222144419) do
     t.integer  "salon_id"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.string   "page_link"
   end
 
   create_table "messages", :force => true do |t|
@@ -75,6 +76,7 @@ ActiveRecord::Schema.define(:version => 20120222144419) do
     t.string   "city"
     t.string   "title"
     t.text     "description"
+    t.boolean  "facebook_likebox"
   end
 
   create_table "tarifs", :force => true do |t|
