@@ -79,7 +79,7 @@ module PublicHelper
     
     if salon.address.present? || salon.postalcode.present? || salon.city.present?
       infos << public_address(:address => salon.address, :postalcode => salon.postalcode, :city => salon.city)
-      infos << carte(:address => salon.address, :postalcode => salon.postalcode, :city => salon.city)
+      infos << carte(:address => salon.address, :postalcode => salon.postalcode, :city => salon.city) if salon.carte
     end
         
     if infos.size > 0

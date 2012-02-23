@@ -43,6 +43,9 @@
 	<%= f.text_field :city %>
 </div>
 <div>
+	<label class="checkbox"><%= f.check_box :carte %><span>Montrer la carte</span></label>
+</div>
+<div>
 	<%= f.submit "Enregistrer", class: 'btn' %>
 </div>
 <% end %>
