@@ -6,6 +6,7 @@ Barbier::Application.routes.draw do
     namespace :prive do
       namespace :site do
         resources :informations
+        resource :contact
         resources :photos
         resources :messages do
           member do

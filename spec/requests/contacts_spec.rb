@@ -1,7 +1,7 @@
 # encoding: UTF-8
 require 'spec_helper'
 
-describe "Informations" do
+describe "Contacts" do
   
   before(:each) do
     @salon= create(:salon)
@@ -9,7 +9,7 @@ describe "Informations" do
     log_salon
     visit '/prive'
     click_link 'Site'
-    click_link 'Informations'
+    click_link 'Contact'
   end
   
   context "settings correct information" do
@@ -19,13 +19,11 @@ describe "Informations" do
       fill_in 'salon_address', :with => '24 rue du moulin'
       fill_in 'salon_postalcode', :with => '08000'
       fill_in 'salon_city', :with => 'Charleville-Mézières'
-      within('.contact') do
-        click_button 'Enregistrer'
-      end
+      click_button 'Enregistrer'
     end
     
     it "display a notice message" do
-      page.should have_content("Informations mises à jour")
+      page.should have_content("Données de contact mises à jour")
     end
     
     it "display the information on public site" do
@@ -42,9 +40,7 @@ describe "Informations" do
   context "when email format is invalid" do
     it "raise an error" do
       fill_in 'salon_public_email', :with => 'contact.com'
-      within('.contact') do
-        click_button 'Enregistrer'
-      end
+      click_button 'Enregistrer'
       page.should have_content("Le format de l'email n'est pas bon")
     end
   end

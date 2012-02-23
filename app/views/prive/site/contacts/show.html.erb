@@ -1,0 +1,31 @@
+<h1>Contact</h1>
+
+<%= form_for @salon, :url => prive_site_contact_path(@salon), :method => :put do |f| %>
+<%= render "/shared/error_messages", :target => @salon %>
+<div>
+	<%= f.label :public_email, "Email public" %>
+	<%= f.text_field :public_email %>
+</div>
+<div>
+	<%= f.label :phone, "Téléphone" %>
+	<%= f.text_field :phone %>
+</div>
+<div>
+	<%= f.label :address, "Adresse" %>
+	<%= f.text_field :address %>
+</div>
+<div>
+	<%= f.label :postalcode, "Code postal" %>
+	<%= f.text_field :postalcode %>
+</div>
+<div>
+	<%= f.label :city, "Ville" %>
+	<%= f.text_field :city %>
+</div>
+<div>
+	<label class="checkbox"><%= f.check_box :carte %><span>Montrer la carte</span></label>
+</div>
+<div>
+	<%= f.submit "Enregistrer", class: 'btn' %>
+</div>
+<% end %>
