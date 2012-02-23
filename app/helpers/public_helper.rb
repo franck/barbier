@@ -79,8 +79,9 @@ module PublicHelper
     
     if salon.address.present? || salon.postalcode.present? || salon.city.present?
       infos << public_address(:address => salon.address, :postalcode => salon.postalcode, :city => salon.city)
+      infos << carte(:address => salon.address, :postalcode => salon.postalcode, :city => salon.city)
     end
-    
+        
     if infos.size > 0
       content << infos.join('<br/>')
       content_tag('div', content.html_safe, :class => 'well contact')
@@ -106,6 +107,22 @@ module PublicHelper
     postalcode_and_city << options[:city] if options[:city].present?
     address_lines << postalcode_and_city.join(' - ')
     address_text << address_lines.join('<br/>')
+  end
+  
+  def carte(options={})
+    address = []
+    address << options[:address] if options[:address].present?
+    address << options[:postalcode] if options[:postalcode].present?
+    address << options[:city] if options[:city].present?
+    if address.size > 0
+      encoded_address = address.join('+').gsub(/ /, '+')
+      src = "http://maps.googleapis.com/maps/api/staticmap?center=#{encoded_address}&zoom=16&size=250x200&markers=color:blue|#{encoded_address}&sensor=false"
+      image = "<a href='http://maps.google.fr/maps?q=#{encoded_address}' target='_blank'><img src='#{src}' class='carte' /></a>"
+      link = "<a href='http://maps.google.fr/maps?q=#{encoded_address}' target='_blank'>voir sur google map</a>"
+      return image + '<br/>' + link
+    else 
+      return ""
+    end
   end
   
 end
