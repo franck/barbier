@@ -33,6 +33,8 @@ fr:
               blank: Le titre est obligatoire
         photo:
           attributes:
+            picture_file_name:
+              empty: Vous oubliez le fichier
             picture:
               empty: Vous oubliez le fichier
         tarif:
