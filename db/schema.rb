@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120223145155) do
+ActiveRecord::Schema.define(:version => 20120226135322) do
+
+  create_table "agendas", :force => true do |t|
+    t.string   "star_day_time"
+    t.string   "end_day_time"
+    t.string   "slot_duration"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -62,6 +70,16 @@ ActiveRecord::Schema.define(:version => 20120223145155) do
     t.datetime "updated_at",           :null => false
   end
 
+  create_table "rdvs", :force => true do |t|
+    t.integer  "salon_id"
+    t.integer  "client_id"
+    t.string   "what"
+    t.datetime "start"
+    t.datetime "end"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "salons", :force => true do |t|
     t.string   "name"
     t.string   "subdomain"
@@ -80,6 +98,7 @@ ActiveRecord::Schema.define(:version => 20120223145155) do
     t.boolean  "carte"
     t.string   "lat"
     t.string   "long"
+    t.text     "horaires"
   end
 
   create_table "tarifs", :force => true do |t|

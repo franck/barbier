@@ -1,6 +1,13 @@
 # encoding: utf-8
 module PublicHelper
   
+  def public_horaires(horaires)
+    return if horaires.blank?
+    title = content_tag('h3', 'Horaires')
+    content = title + markdown(horaires).html_safe
+    content_tag('div', content.html_safe, :class => 'horaires well')
+  end
+  
   def public_facebook_likebox(salon, options={})
     logger.debug("OPTIONS : #{salon.facebook_account.try(:page_link).blank? and options[:force] != true}")
     return if salon.facebook_likebox == false and options[:force] != true
