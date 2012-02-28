@@ -120,7 +120,11 @@ describe "Messages" do
   end
   
   describe "with SMS" do
-    
+    it "shows send SMS checkbox but disabled" do
+      click_link 'Messages'
+      click_link 'Nouveau message'
+      page.find('#send_by_sms')['disabled'].should == "disabled"
+    end
   end
   
   
