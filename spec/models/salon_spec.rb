@@ -111,6 +111,49 @@ describe Salon do
       end
     end
     
+    describe "on destroy" do
+      before(:each) do
+        @salon = create(:salon)
+      end
+      
+      it "destroy associated clients" do
+        client = create(:client, :salon_id => @salon.id)
+        @salon.destroy
+        Client.count.should == 0
+      end
+      
+      it "destroy associated photos" do
+        client = create(:photo, :salon_id => @salon.id)
+        @salon.destroy
+        Photo.count.should == 0
+      end
+      
+      it "destroy associated messages" do
+        client = create(:message, :salon_id => @salon.id)
+        @salon.destroy
+        Message.count.should == 0
+      end
+      
+      it "destroy associated tarifs" do
+        client = create(:tarif, :salon_id => @salon.id)
+        @salon.destroy
+        Tarif.count.should == 0
+      end
+      
+      it "destroy associated themes" do
+        client = create(:theme, :salon_id => @salon.id)
+        @salon.destroy
+        Theme.count.should == 0
+      end
+      
+      it "destroy associated facebook account" do
+        client = create(:facebook_account, :salon_id => @salon.id)
+        @salon.destroy
+        FacebookAccount.count.should == 0
+      end
+      
+    end
+    
     
   end
   

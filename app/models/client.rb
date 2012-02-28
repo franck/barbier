@@ -2,8 +2,9 @@ class Client < ActiveRecord::Base
   
   belongs_to :salon
   
-  validates_presence_of :name
-  validates_format_of   :email, :with  => /\A[^@]+@[^@]+\z/, :allow_blank => true
+  validates :name, :presence => true
+  validates :email, :format => { :with  => /\A[^@]+@[^@]+\z/, :allow_blank => true }
+  validates :salon_id, :presence => true
   
   def self.search(search)  
     if search  

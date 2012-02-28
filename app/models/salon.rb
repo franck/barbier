@@ -4,12 +4,12 @@ require 'password'
 class Salon < ActiveRecord::Base
   attr_accessor :password, :password_confirmation
   
-  has_many :clients
-  has_many :photos
-  has_many :messages
-  has_many :tarifs
-  has_many :themes
-  has_one :facebook_account
+  has_many :clients, :dependent => :destroy
+  has_many :photos, :dependent => :destroy
+  has_many :messages, :dependent => :destroy
+  has_many :tarifs, :dependent => :destroy
+  has_many :themes, :dependent => :destroy
+  has_one :facebook_account, :dependent => :destroy
   
   before_save :update_password
   
