@@ -23,6 +23,10 @@ FactoryGirl.define do
     title 'Coiffure homme'
     price '19,5'
   end
+
+  factory :tarif_category do
+    name 'Coiffure'
+  end
   
   factory :theme do
     title 'Mon thème'

@@ -1,0 +1,10 @@
+class CreateTarifCategories < ActiveRecord::Migration
+  def change
+    create_table :tarif_categories do |t|
+      t.string :name
+      t.integer :salon_id
+
+      t.timestamps
+    end
+  end
+end

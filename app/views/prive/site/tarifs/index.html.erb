@@ -2,9 +2,10 @@
 
 <p>
 	<%= link_to 'Nouveau tarif', new_prive_site_tarif_path, :class => 'btn' %>
+	<%= link_to 'Nouvelle catégorie', new_prive_site_tarif_category_path, :class => 'btn' %>
 </p>
 
-<table class="table table-striped">
+<table class="table" id="tarifs">
 	<thead>
 		<tr>
 			<th>Titre</th>
@@ -12,20 +13,33 @@
 			<th>&nbsp;</th>
 		</tr>
 	</thead>
-	<% if @tarifs.size > 0 %>
-	<% for tarif in @tarifs %>
-	<tr>
-		<td><%= tarif.title %></td>
-		<td><%= number_to_currency(tarif.price, :unit => "€", :format => '%n %u') %></td>
-		<td>
-			<%= link_to 'modifier', edit_prive_site_tarif_path(tarif) %>
-			<%= link_to 'supprimer', prive_site_tarif_path(tarif), :method => :delete %>
-		</td>
-	</tr>
-	<% end %>	
-	<% else %>
-	<tr>
-		<td colspan="3">Aucun tarif</td>
-	</tr>
-	<% end %>
+  <% for tarif in @tarifs_without_category %>
+    <tr>
+      <td><%= tarif.title %></td>
+      <td><%= number_to_currency(tarif.price, :unit => "€", :format => '%n %u') %></td>
+      <td>
+        <%= link_to 'modifier', edit_prive_site_tarif_path(tarif) %>
+        <%= link_to 'supprimer', prive_site_tarif_path(tarif), :method => :delete %>
+      </td>
+    </tr>
+  <% end -%>
+  <% for tarif_category in @tarif_categories %>
+    <tr class='tarif_category'>
+      <td colspan="2"><%= tarif_category.name %></td>
+      <td>
+        <%= link_to 'modifier', edit_prive_site_tarif_category_path(tarif_category) %>
+        <%= link_to 'supprimer', prive_site_tarif_category_path(tarif_category), :method => :delete %>
+      </td>
+    </tr>
+    <% for tarif in tarif_category.tarifs -%>
+      <tr>
+        <td class="tarif_title"><%= tarif.title %></td>
+        <td><%= number_to_currency(tarif.price, :unit => "€", :format => '%n %u') %></td>
+        <td>
+          <%= link_to 'modifier', edit_prive_site_tarif_path(tarif) %>
+          <%= link_to 'supprimer', prive_site_tarif_path(tarif), :method => :delete %>
+        </td>
+      </tr>
+    <% end -%>
+  <% end %>	
 </table>

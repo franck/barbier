@@ -6,3 +6,7 @@
 	<%= f.label :price, "Prix", :class => 'required' %>
 	<%= f.text_field :price, :class => 'input-medium' %>
 </div>
+<div>
+  <%= f.label :tarif_category_id, "Catégorie" %>
+  <%= f.select :tarif_category_id, TarifCategory.all.map{|c| [c.name, c.id] }, :include_blank => true %>
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120226135322) do
+ActiveRecord::Schema.define(:version => 20120422152111) do
 
   create_table "agendas", :force => true do |t|
     t.string   "star_day_time"
@@ -101,12 +101,20 @@ ActiveRecord::Schema.define(:version => 20120226135322) do
     t.text     "horaires"
   end
 
+  create_table "tarif_categories", :force => true do |t|
+    t.string   "name"
+    t.integer  "salon_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "tarifs", :force => true do |t|
     t.string   "title"
-    t.decimal  "price",      :precision => 8, :scale => 2
+    t.decimal  "price",             :precision => 8, :scale => 2
     t.integer  "salon_id"
-    t.datetime "created_at",                               :null => false
-    t.datetime "updated_at",                               :null => false
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
+    t.integer  "tarif_category_id"
   end
 
   create_table "themes", :force => true do |t|

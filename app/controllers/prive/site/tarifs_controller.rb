@@ -4,7 +4,9 @@ module Prive
     layout "site"
     
     def index
-      @tarifs = @salon.tarifs
+      # @tarifs = @salon.tarifs
+      @tarif_categories = TarifCategory.includes(:tarifs).where("tarif_categories.salon_id = ?", @salon.id)
+      @tarifs_without_category = Tarif.where("tarif_category_id is null and salon_id = ?", @salon.id)
     end
     
     def new

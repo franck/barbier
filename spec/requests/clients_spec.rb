@@ -51,6 +51,18 @@ describe "Clients" do
           page.should have_content('2')
         end
       end
+    end    
+  end
+  
+  describe "search" do
+    before(:each) do
+      create(:client, :name => "Bob foo", :salon_id => @salon.id)
+      create(:client, :name => "Franck bar", :salon_id => @salon.id)
+      create(:client, :name => "Robert foo", :salon_id => @salon.id)
+    end
+    
+    it "filter by name" do
+      
     end
     
   end

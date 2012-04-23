@@ -11,3 +11,8 @@
     span { margin-right:15px; }
   }
 }
+
+#tarifs {
+  tr.tarif_category td { background-color:whiteSmoke; font-weight:bold; }
+  tr td.tarif_title { padding-left:15px; }
+}
