@@ -20,7 +20,8 @@ set :migrate_target, :current
 set :ssh_options, {:forward_agent => true}
 set :normalize_asset_timestamps, false
 
-ssh_options[:port] = 32100
+set :ssh_port, "32100"
+ssh_options[:port] = ssh_port
 set :user, "deploy"
 set :admin_runner, "deploy"
 
