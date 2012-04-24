@@ -16,7 +16,6 @@ test:
 staging:
   <<: *defaults
   database: barbier_staging
-  socket: /var/run/mysqld/mysqld.sock
 
 production:
   <<: *defaults

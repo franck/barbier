@@ -13,14 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20120422152111) do
 
-  create_table "agendas", :force => true do |t|
-    t.string   "star_day_time"
-    t.string   "end_day_time"
-    t.string   "slot_duration"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
   create_table "clients", :force => true do |t|
     t.string   "name"
     t.string   "phone"
@@ -70,16 +62,6 @@ ActiveRecord::Schema.define(:version => 20120422152111) do
     t.datetime "updated_at",           :null => false
   end
 
-  create_table "rdvs", :force => true do |t|
-    t.integer  "salon_id"
-    t.integer  "client_id"
-    t.string   "what"
-    t.datetime "start"
-    t.datetime "end"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "salons", :force => true do |t|
     t.string   "name"
     t.string   "subdomain"
@@ -125,8 +107,6 @@ ActiveRecord::Schema.define(:version => 20120422152111) do
     t.integer  "salon_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "link"
-    t.string   "category"
   end
 
 end

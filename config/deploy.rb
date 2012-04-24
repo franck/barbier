@@ -59,5 +59,5 @@ after "deploy:symlink", "deploy:symlink_system"
 #end
 
 
-load 'deploy/assets'
+load 'config/deploy/assets'
 load 'config/deploy/tail_logs'

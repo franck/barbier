@@ -4,3 +4,5 @@
 /tmp
 vendor/ruby
 public/system
+public/assets
+.sass-cache
