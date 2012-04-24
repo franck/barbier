@@ -11,6 +11,12 @@ module SalonVar
     FACEBOOK_CLIENT_ID = "158898764228823"
     FACEBOOK_CLIENT_SECRET = "ecd21b911fd24afd52b4b40cf67684bb"
     FACEBOOK_SCOPE = "publish_stream, manage_pages"
+  elsif Rails.env == 'staging'
+    DOMAIN = "merrycreation-stage.com"
+    HOST = "merrycreation-stage.com"
+    FACEBOOK_CLIENT_ID = "158898764228823"
+    FACEBOOK_CLIENT_SECRET = "ecd21b911fd24afd52b4b40cf67684bb"
+    FACEBOOK_SCOPE = "publish_stream, manage_pages"
   else
     DOMAIN = "merrycreation.com"
     HOST = "merrycreation.com"
