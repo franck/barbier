@@ -14,7 +14,12 @@ Barbier::Application.routes.draw do
             get 'unpublish'
           end
         end
-        resources :tarifs
+        resources :tarifs do
+          collection do
+            get 'sort'
+            post 'reorder'
+          end
+        end
         resources :tarif_categories do
           collection do
             get 'sort'

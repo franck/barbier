@@ -6,7 +6,7 @@ module Prive
     def index
       # @tarifs = @salon.tarifs
       @tarif_categories = TarifCategory.includes(:tarifs).where("tarif_categories.salon_id = ?", @salon.id).order(:position)
-      @tarifs_without_category = Tarif.where("tarif_category_id is null and salon_id = ?", @salon.id)
+      @tarifs_without_category = Tarif.where("tarif_category_id is null and salon_id = ?", @salon.id).order(:position)
     end
     
     def new
@@ -39,6 +39,17 @@ module Prive
       tarif = @salon.tarifs.find(params[:id])
       tarif.destroy
       redirect_to prive_site_tarifs_path, :notice => 'Tarif supprimé'
+    end
+
+    def sort
+      @tarif_categories = TarifCategory.includes(:tarifs).where("tarif_categories.salon_id = ?", @salon.id).order(:position)
+      @tarifs_without_category = Tarif.where("tarif_category_id is null and salon_id = ?", @salon.id).order(:position)
+    end
+
+    def reorder
+      order = params[:item]
+      Tarif.order!(order)
+      render :text => order.inspect
     end
     
   end

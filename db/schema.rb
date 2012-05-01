@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120501111318) do
+ActiveRecord::Schema.define(:version => 20120501130953) do
 
   create_table "agendas", :force => true do |t|
     t.string   "star_day_time"
@@ -116,6 +116,7 @@ ActiveRecord::Schema.define(:version => 20120501111318) do
     t.datetime "created_at",                                      :null => false
     t.datetime "updated_at",                                      :null => false
     t.integer  "tarif_category_id"
+    t.integer  "position"
   end
 
   create_table "themes", :force => true do |t|

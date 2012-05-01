@@ -15,7 +15,7 @@ describe TarifCategory do
       bar = TarifCategory.create(:name => "bar")
       toto = TarifCategory.create(:name => "toto")
 
-      TarifCategory.order!(['3', '2', '1'])
+      TarifCategory.order!([toto.id.to_s, bar.id.to_s, foo.id.to_s])
       foo.reload
       bar.reload
       toto.reload

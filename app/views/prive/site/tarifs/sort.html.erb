@@ -1,9 +1,31 @@
 <h1>Trier les tarifs</h1>
 
-<ul>
-<% for tarif in @tarifs -%>
-  <li><%= tarif.name %></li>
-<% end -%>
+<% if @tarifs_without_category.size > 0 -%>
+<h2>Tarifs sans catégories</h2>
+<ul class="reorder" data-update-url="<%= reorder_prive_site_tarifs_path %>">
+  <% for tarif in @tarifs_without_category %>
+    <li id="item-<%= tarif.id %>">
+      <span class="handle"></span>
+      <span class="content"><%= tarif.title %></span>
+    </li>
+  <% end -%>
 </ul>
+<% end -%>
+
+<% if @tarif_categories.size > 0 %>
+  <% for category in @tarif_categories -%>
+    <% if category.tarifs.size > 1 -%>
+      <h2><%= category.name %></h2>
+      <ul class="reorder" data-update-url="<%= reorder_prive_site_tarifs_path%>">
+        <% for tarif in category.tarifs -%>
+          <li id="item-<%= tarif.id %>">
+            <span class="handle"></span>
+            <span class="content"><%= tarif.title %></span>
+          </li>
+        <% end -%>
+      </ul>
+    <% end -%>
+  <% end -%>
+<% end -%>
 
 <%= link_to "J'ai fini de trier", prive_site_tarifs_path %>
