@@ -1,0 +1,9 @@
+<h1>Trier les tarifs</h1>
+
+<ul>
+<% for tarif in @tarifs -%>
+  <li><%= tarif.name %></li>
+<% end -%>
+</ul>
+
+<%= link_to "J'ai fini de trier", prive_site_tarifs_path %>

@@ -5,7 +5,7 @@ module Prive
     
     def index
       # @tarifs = @salon.tarifs
-      @tarif_categories = TarifCategory.includes(:tarifs).where("tarif_categories.salon_id = ?", @salon.id)
+      @tarif_categories = TarifCategory.includes(:tarifs).where("tarif_categories.salon_id = ?", @salon.id).order(:position)
       @tarifs_without_category = Tarif.where("tarif_category_id is null and salon_id = ?", @salon.id)
     end
     

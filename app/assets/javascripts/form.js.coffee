@@ -1,2 +1,2 @@
 jQuery ->
-  $('.required').append('<em>*</em>');
+  # $('.required').append('<em>*</em>');

@@ -1,0 +1,12 @@
+<h1>Trier les catégories</h1>
+
+<ul class="reorder" data-update-url="<%= reorder_prive_site_tarif_categories_path %>">
+<% for tarif_category in @tarif_categories -%>
+  <li class="category" id="category-<%= tarif_category.id %>">
+    <span class="handle"></span>
+    <span class="content"><%= tarif_category.name %></span>
+  </li>
+<% end -%>
+</ul>
+
+<%= link_to "J'ai fini de trier", prive_site_tarifs_path %>

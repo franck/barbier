@@ -16,3 +16,12 @@
   tr.tarif_category td { background-color:whiteSmoke; font-weight:bold; }
   tr td.tarif_title { padding-left:15px; }
 }
+
+ul.reorder { 
+  list-style:none; margin:10px 0; float:left; width:100%;
+  li { 
+    vertical-align:middle; line-height:18px; clear:left; margin-bottom:8px; float:left;
+    span.handle { width:13px; height:18px; background:image-url('handle.png') no-repeat 0px 1px; display:inline-block; cursor:move; margin:0 5px 0 0; float:left; }
+    span.content { display:inline-block; vertical-align:middle; line-height:18px; float:left; }
+  }
+}

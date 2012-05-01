@@ -15,7 +15,12 @@ Barbier::Application.routes.draw do
           end
         end
         resources :tarifs
-        resources :tarif_categories
+        resources :tarif_categories do
+          collection do
+            get 'sort'
+            post 'reorder'
+          end
+        end
         resource :facebook
         resources :themes do
           member do

@@ -11,10 +11,11 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
-//= require form
 //= require clients
 //= require site
+//= require tarifs
 
 $(function() {
   $('#password').focus();  

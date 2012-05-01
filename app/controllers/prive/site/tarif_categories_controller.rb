@@ -34,6 +34,16 @@ module Prive
       tarif_category.destroy
       redirect_to prive_site_tarifs_path, :notice => 'Catégorie supprimé'
     end
+
+    def sort
+      @tarif_categories = TarifCategory.order(:position)
+    end
+
+    def reorder
+      order = params[:category]
+      TarifCategory.order!(order)
+      render :text => order.inspect
+    end
     
   end
 end
