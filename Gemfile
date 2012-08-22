@@ -12,7 +12,6 @@ gem "delocalize" # date/time parsing
 gem "redcarpet"
 gem 'kaminari', '0.13.0'
 gem "delocalize"
-gem 'merrymenu'
 gem "paperclip", "~> 2.0"
 gem "fb_graph"
 gem "rmagick"

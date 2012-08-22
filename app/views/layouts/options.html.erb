@@ -9,7 +9,7 @@
 </head>
 <body id="<%= get_controller(params[:controller]) %>">
 	<div id="fb-root"></div>
-	<%= salon_navbar(@salon) %>
+  <%= render "/shared/navbar" %>
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="span3">

@@ -12,7 +12,7 @@
 	    <div class="container">
 	      <a class="brand" href="/admin/salons"><%= "Admin" %></a>
         <div class="nav-collapse">
-					<%= render_menu :admin %>
+					<%= admin_navbar_left_links(params[:controller]) %>
         </div><!--/.menu-collapse -->
 	    </div>
 	  </div>
