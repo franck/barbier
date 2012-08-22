@@ -17,6 +17,13 @@
   }
   
   .new_client_button { float:right; }
+
+  #factures {
+    table { 
+      margin-top:10px; 
+      span.price { float:right; text-align:right; }
+    }
+  }
   
 }
 

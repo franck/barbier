@@ -4,6 +4,11 @@ FactoryGirl.define do
     name "Franck Dago"
     email "franck@example.com"
   end
+
+  factory :facture do
+    payed_at "15/05/2012"
+    mean_of_payment "cash"
+  end
   
   factory :salon do
     name "Barbier du moulin"

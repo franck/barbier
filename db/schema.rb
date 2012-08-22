@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120501130953) do
+ActiveRecord::Schema.define(:version => 20120822085035) do
 
   create_table "agendas", :force => true do |t|
     t.string   "star_day_time"
@@ -45,6 +45,23 @@ ActiveRecord::Schema.define(:version => 20120501130953) do
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
     t.string   "page_link"
+  end
+
+  create_table "factures", :force => true do |t|
+    t.integer  "client_id"
+    t.date     "payed_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "mean_of_payment"
+  end
+
+  create_table "items", :force => true do |t|
+    t.text     "description"
+    t.decimal  "price",       :precision => 8, :scale => 2
+    t.integer  "facture_id"
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+    t.integer  "salon_id"
   end
 
   create_table "messages", :force => true do |t|

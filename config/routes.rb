@@ -57,6 +57,7 @@ Barbier::Application.routes.draw do
       end
       match "/options" => redirect("/prive/options/parametres")
       resources :clients
+      resources :factures
       
       # sessions
       # resources :sessions

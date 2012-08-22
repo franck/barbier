@@ -34,6 +34,11 @@ class Salon < ActiveRecord::Base
       false
     end
   end
+
+  def unique_items
+    Item.where("salon_id", self.id).select(:description).uniq.map{|i| i.description }
+    #items = ["Coiffure", "Mousse a raser", "test"]
+  end
   
   protected
   

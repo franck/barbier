@@ -16,6 +16,7 @@
 @import "photos";
 @import "options";
 @import "site";
+@import "clients";
 @import "jquery-ui-1.8.17.custom.css";
 
 h1 { font-size: 218%; margin-top:0em; margin-bottom:0.643em; }
@@ -32,7 +33,15 @@ form {
   #error_explanation ul { margin:0 0 15px 0; padding:0; list-style:none; }
   #error_explanation ul li { margin:0; color:red; font-weight:bold; }
   .instruct { font-size:0.85em; color:#AAA; font-style:italic; }
+  div.field_with_errors { 
+    display: inline-block; 
+    input[type=text] {
+      border: 1px solid red;
+    }
+  }
 }
+
+
 
 #home .splash {
   margin-top:200px;

@@ -11,7 +11,9 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery-ui
+//= require jquery.ui.datepicker
+//= require jquery.ui.autocomplete
+//= require jquery.ui.sortable
 //= require jquery_ujs
 //= require clients
 //= require site

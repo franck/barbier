@@ -1,0 +1,7 @@
+fr:
+  factures:
+    mean_of_payment:
+      cash: Espèces
+      check: Chéque
+      card: CB
+      other: Autre

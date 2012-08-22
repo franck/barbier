@@ -25,7 +25,8 @@
 
 .photos {
   margin-bottom: 15px; 
-  img { width:33%; }
+  img { width:32%; }
+  .gutter { width:1%; display:inline-block; }
 }
 
 .messages {

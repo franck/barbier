@@ -1,6 +1,5 @@
 module ClientsHelper
   
-  
   def client_infos(client)
     content = []
     content << client.phone if client.phone && client.phone.present?

@@ -8,6 +8,7 @@ module Prive
   
     def show
       @client = @salon.clients.find(params[:id])
+      @factures = @client.factures
     end
   
     def new

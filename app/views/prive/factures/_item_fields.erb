@@ -1,0 +1,7 @@
+<div>
+  <%= f.text_field :description, :placeholder => "Description", :class => "input-xlarge item-description" %>
+  <%= f.text_field :price, :placeholder => "Prix", :class => "input-small" %>
+  <%#= f.hidden_field :salon_id, :value => @salon.id %>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "retirer", '#', class: "remove_fields" %>
+</div>

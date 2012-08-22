@@ -1,8 +1,9 @@
 <div class='well'>
 	<%= link_to ("&laquo; Liste clients").html_safe, prive_clients_path, :class => 'btn btn-info' %>&nbsp;&nbsp;
 	<%= link_to ("<i class='icon-pencil icon-white'></i>&nbsp;Modifier").html_safe, edit_prive_client_path(@client), :class => 'btn btn-info' %>&nbsp;&nbsp;
-	<%= link_to ("<i class='icon-user icon-white'></i>&nbsp;Nouveau client").html_safe, new_prive_client_path, :class => 'btn btn-primary' %>
+  <%= link_to ("<i class='icon-plus-sign icon-white'></i>&nbsp;Facture").html_safe, new_prive_facture_path(:client_id => @client.id), class: 'btn btn-success' %>&nbsp;&nbsp;
 	<div style="float:right">
+    <%= link_to ("<i class='icon-user icon-white'></i>&nbsp;Nouveau client").html_safe, new_prive_client_path, :class => 'btn btn-primary' %>&nbsp;&nbsp;
 		<%= link_to ("<i class='icon-trash icon-white'></i>&nbsp;Supprimer").html_safe, prive_client_path(@client), :method => :delete, :class => 'btn btn-danger' %>
 	</div>
 </div>
@@ -18,3 +19,30 @@
 <% else %>
 <p>Aucune note</p>
 <% end %>
+
+<div id="factures">
+  <h3>Factures</h3>
+  <table class="table table-striped">
+    <tr>
+      <th>Date</th>
+      <th>Services</th>
+      <th>Total</th>
+      <th>Moyen de paiement</th>
+      <th>Actions</th>
+    </tr>
+  <% for facture in @factures -%>
+    <tr>
+      <td><%= l facture.payed_at %></td>      
+      <td>
+        <%=raw facture.items.map{|i| "#{i.description} <span class='price'>#{number_to_currency(i.price)}</span>" }.join('<br/>') %>
+      </td>
+      <td><%= total_facture(facture) %></td>
+      <td><%= t("factures.mean_of_payment.#{facture.mean_of_payment}") %></td>
+      <td>
+        <%= link_to "modifier", edit_prive_facture_path(facture, :client_id => @client.id) %>
+        <%= link_to "supprimer", prive_facture_path(facture, :client_id => @client.id), :method => :delete %>
+      </td>
+    </tr>
+  <% end -%>
+  </table>
+</div>
