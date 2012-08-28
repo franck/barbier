@@ -12,5 +12,10 @@ module ApplicationHelper
   def get_controller(controller)
     controller.split('/').last
   end
+
+  # used by subnav to check which tab is active
+  def nav_item_active?(current_controller)
+    'active' if params['controller'] =~ Regexp.new(current_controller)
+  end
   
 end

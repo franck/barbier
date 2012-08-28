@@ -1,0 +1,12 @@
+<h1>Modifier le produit</h1>
+
+<%= form_for [:prive, :boutique, @produit] do |f| %>
+
+<%= render "form", :f => f %>
+
+<div style="clear:both">
+	<%= f.submit "Modifier", :class => 'btn' %>
+	<%= link_to "annuler", prive_boutique_produit_path(@produit) %>
+</div>
+	
+<% end %>

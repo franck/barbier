@@ -23,7 +23,7 @@ module Prive
     def update
       @tarif_category = @salon.tarif_categories.find(params[:id])
       if @tarif_category.update_attributes(params[:tarif_category])
-        redirect_to prive_site_tarifs_path, :notice => 'Catégorie modifié'
+        redirect_to prive_site_tarifs_path, :notice => 'Catégorie modifiée'
       else
         render :edit
       end
@@ -32,7 +32,7 @@ module Prive
     def destroy
       tarif_category = @salon.tarif_categories.find(params[:id])
       tarif_category.destroy
-      redirect_to prive_site_tarifs_path, :notice => 'Catégorie supprimé'
+      redirect_to prive_site_tarifs_path, :notice => 'Catégorie supprimée'
     end
     
   end

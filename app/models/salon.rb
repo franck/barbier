@@ -7,12 +7,15 @@ class Salon < ActiveRecord::Base
     :title, :description, :horaires, :public_email, :phone, :address, :postalcode, :city, :carte, :domain
   
   has_many :clients, :dependent => :destroy
+  has_many :produits, :dependent => :destroy
   has_many :photos, :dependent => :destroy
   has_many :messages, :dependent => :destroy
   has_many :tarifs, :dependent => :destroy
   has_many :tarif_categories, :dependent => :destroy
   has_many :themes, :dependent => :destroy
   has_one :facebook_account, :dependent => :destroy
+  has_many :produits, :dependent => :destroy
+  has_many :produit_categories, :dependent => :destroy
   
   before_save :update_password
   

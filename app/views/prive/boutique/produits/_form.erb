@@ -1,0 +1,10 @@
+<%= render "/shared/error_messages", :target => @produit %>
+<div>
+	<%= f.label :name, "Nom", :class => 'desc required' %>
+	<%= f.text_field :name, :class => 'input-xlarge' %>
+  <%= f.text_field :quantity, :class => 'input-small', :placeholder => "Quantité" %>
+</div>
+<div>
+  <%= f.label :produit_category_id, "Catégorie" %>
+  <%= f.select :produit_category_id, ProduitCategory.all.map{|c| [c.name, c.id] }, :include_blank => true %>
+</div>

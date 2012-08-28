@@ -47,6 +47,12 @@ Barbier::Application.routes.draw do
       end
       match "/options" => redirect("/prive/options/parametres")
       resources :clients
+
+      namespace :boutique do
+        resources :produits
+        resources :produit_categories
+      end
+      match "/boutique" => redirect("/prive/boutique/produits")
       
       # sessions
       # resources :sessions
