@@ -124,7 +124,7 @@ describe "Tarifs" do
     end
   end
 
-  describe "with categories", :focus do
+  describe "with categories" do
     
     before(:each) do
       create(:tarif, :title => "Coiffure homme", :salon_id => @salon.id)

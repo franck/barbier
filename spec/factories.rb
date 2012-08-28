@@ -31,7 +31,15 @@ FactoryGirl.define do
   factory :theme do
     title 'Mon thème'
   end
+
+  factory :produit do
+    name "Mousse a raser"
+  end
   
+  factory :produit_category do
+    name "Shampoing"
+  end
+
   factory :facebook_account do
     identifier "717032770"
     name "Franck D'agostini"
