@@ -11,15 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120822085035) do
-
-  create_table "agendas", :force => true do |t|
-    t.string   "star_day_time"
-    t.string   "end_day_time"
-    t.string   "slot_duration"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
+ActiveRecord::Schema.define(:version => 20120828135549) do
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -87,14 +79,27 @@ ActiveRecord::Schema.define(:version => 20120822085035) do
     t.datetime "updated_at",           :null => false
   end
 
-  create_table "rdvs", :force => true do |t|
+  create_table "produit_categories", :force => true do |t|
+    t.string   "name"
     t.integer  "salon_id"
-    t.integer  "client_id"
-    t.string   "what"
-    t.datetime "start"
-    t.datetime "end"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "produits", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "quantity"
+    t.integer  "salon_id"
+    t.integer  "produit_category_id"
+    t.decimal  "price",                :precision => 8, :scale => 2
+    t.decimal  "decimal",              :precision => 8, :scale => 2
+    t.string   "picture_file_name"
+    t.integer  "picture_file_size"
+    t.string   "picture_content_type"
+    t.datetime "picture_updated_at"
+    t.datetime "created_at",                                         :null => false
+    t.datetime "updated_at",                                         :null => false
   end
 
   create_table "salons", :force => true do |t|
@@ -144,8 +149,6 @@ ActiveRecord::Schema.define(:version => 20120822085035) do
     t.integer  "salon_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "link"
-    t.string   "category"
   end
 
 end
