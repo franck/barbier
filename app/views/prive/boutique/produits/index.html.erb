@@ -27,7 +27,7 @@
 	<% end %>
   <% for produit_category in @produit_categories -%>
     <tr class="produit_category">
-      <td colspan="2"><%= produit_category.name %></td>
+      <td colspan="3"><%= produit_category.name %></td>
       <td>
         <%= link_to 'modifier', edit_prive_boutique_produit_category_path(produit_category) %>
         <%= link_to 'supprimer', prive_boutique_produit_category_path(produit_category), :method => :delete  %>
@@ -37,6 +37,7 @@
       <tr>
         <td class='produit_title'><%= link_to produit.name, prive_boutique_produit_path(produit) %></td>
         <td><%= produit.quantity %></td>
+        <td><%= number_to_currency(produit.price, :unit => "€", :format => '%n %u') %></td>
         <td>
           <%= link_to "modifier", edit_prive_boutique_produit_path(produit) %>
           <%= link_to "supprimer", prive_boutique_produit_path(produit), :method => :delete, :confirm => "Etes vous sur de vouloir supprimer ce produit ?" %>

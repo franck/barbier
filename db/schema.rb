@@ -75,9 +75,14 @@ ActiveRecord::Schema.define(:version => 20120828135549) do
     t.integer  "quantity"
     t.integer  "salon_id"
     t.integer  "produit_category_id"
-    t.datetime "created_at",                                        :null => false
-    t.datetime "updated_at",                                        :null => false
-    t.decimal  "price",               :precision => 8, :scale => 2
+    t.decimal  "price",                :precision => 8, :scale => 2
+    t.decimal  "decimal",              :precision => 8, :scale => 2
+    t.string   "picture_file_name"
+    t.integer  "picture_file_size"
+    t.string   "picture_content_type"
+    t.datetime "picture_updated_at"
+    t.datetime "created_at",                                         :null => false
+    t.datetime "updated_at",                                         :null => false
   end
 
   create_table "salons", :force => true do |t|
