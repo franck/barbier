@@ -1,0 +1,10 @@
+<h1>Modifier la catégorie</h1>
+
+<%= form_for [:prive, :boutique, @produit_category] do |f| %>
+	<%= render "/shared/error_messages", :target => @produit_category %>	
+	<%= render 'form', :f => f %>	
+	<div>
+		<%= f.submit 'Modifier', :class => 'btn' %>
+		<%= link_to 'annuler', prive_boutique_produits_path %>
+	</div>
+<% end %>

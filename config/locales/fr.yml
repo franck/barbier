@@ -77,3 +77,70 @@ fr:
         precision: 2
         significant: false
         strip_insignificant_zeros: false
+  
+  activerecord:
+    errors:
+      models:
+        client:
+          attributes:
+            name:
+              blank: Il faut mettre un nom
+            email:
+              invalid: Le format de l'email n'est pas bon
+        salon:
+          attributes:
+            name:
+              blank: Le nom du salon est obligatoire
+            subdomain:
+              blank: Le sous domaine est obligatoire
+              taken: Le sous domaine est déjà pris
+              length: Le sous domaine doit comprendre entre 3 et 63 caractères
+              hyphen: Le sous domaine ne peut commencer ou finir par un tiret
+              format: Le sous domaine ne doit comporter que des lettres, des chiffres ou des tiret. Les accents et les majuscules ne sont pas autorisés.
+              reserved: Le sous domaine est résérvé (www, ftp, ...)
+            password:
+              blank: Il manque le mot de passe
+              length: "Le mot de passe n'a pas la taille (min: 3, max: 128)"
+              confirmation: Il manque la confirmation du mot de passe
+              too_short: "Le mot de passe est trop petit (min: 3)"
+              too_long: "Le mot de passe est trop long (max: 128)"
+            public_email:
+              invalid: Le format de l'email n'est pas bon
+        message:
+          attributes:
+            title:
+              blank: Le titre est obligatoire
+        photo:
+          attributes:
+            picture_file_name:
+              empty: Vous oubliez le fichier
+            picture:
+              empty: Vous oubliez le fichier
+        tarif:
+          attributes:
+            title:
+              blank: "Le titre du service ou du produit ne peut être vide"
+            price:
+              blank: "Vous oubliez le prix"
+              not_a_number: "Le prix doit être un nombre"
+        theme:
+          attributes:
+            title:
+              blank: "Vous devez donner un titre à ce thème"
+        produit:
+          attributes:
+            name:
+              blank: "Il manque le nom du produit"
+        produit_category:
+          attributes:
+            name:
+              blank: "Il manque le nom de la catégorie"
+            
+
+  views:
+    pagination:
+      first: "&laquo; Début"
+      last: "Fin &raquo;"
+      previous: "&laquo;"
+      next: "&raquo;"
+      truncate: "..."

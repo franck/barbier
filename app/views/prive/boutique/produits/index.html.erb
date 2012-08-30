@@ -1,0 +1,48 @@
+<h1>Liste des produits en stock</h1>
+
+<p>
+	<%= link_to ("Nouveau produit").html_safe, new_prive_boutique_produit_path, :class => 'btn' %>
+	<%= link_to ("Nouvelle catégorie").html_safe, new_prive_boutique_produit_category_path, :class => 'btn' %>
+</p>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Nom</th>
+      <th>Quantité</th>
+      <th>Prix</th>
+      <th>&nbsp;</th>
+		</tr>
+	</thead>
+	<% for produit in @produits_without_category %>
+	<tr>
+		<td><%= link_to produit.name, edit_prive_boutique_produit_path(produit) %></td>
+    <td><%= produit.quantity %></td>
+    <td><%= number_to_currency(produit.price, :unit => "€", :format => '%n %u') %></td>
+    <td>
+      <%= link_to "modifier", edit_prive_boutique_produit_path(produit) %>
+      <%= link_to "supprimer", prive_boutique_produit_path(produit), :method => :delete, :confirm => "Etes vous sur de vouloir supprimer ce produit ?" %>
+    </td>
+	</tr>
+	<% end %>
+  <% for produit_category in @produit_categories -%>
+    <tr class="produit_category">
+      <td colspan="3"><%= produit_category.name %></td>
+      <td>
+        <%= link_to 'modifier', edit_prive_boutique_produit_category_path(produit_category) %>
+        <%= link_to 'supprimer', prive_boutique_produit_category_path(produit_category), :method => :delete  %>
+      </td>
+    </tr>
+    <% for produit in produit_category.produits %>
+      <tr>
+        <td class='produit_title'><%= link_to produit.name, prive_boutique_produit_path(produit) %></td>
+        <td><%= produit.quantity %></td>
+        <td><%= number_to_currency(produit.price, :unit => "€", :format => '%n %u') %></td>
+        <td>
+          <%= link_to "modifier", edit_prive_boutique_produit_path(produit) %>
+          <%= link_to "supprimer", prive_boutique_produit_path(produit), :method => :delete, :confirm => "Etes vous sur de vouloir supprimer ce produit ?" %>
+        </td>
+      </tr>
+    <% end -%>
+  <% end -%>
+</table>

@@ -22,4 +22,9 @@ module ApplicationHelper
     link_to("<i class='icon-plus-sign icon-white'></i>&nbsp;#{name}".html_safe, '#', class: "add_fields btn btn-mini btn-warning", data: {id: id, fields: fields.gsub("\n", "")})
   end
   
+    # used by subnav to check which tab is active
+  def nav_item_active?(current_controller)
+    'active' if params['controller'] =~ Regexp.new(current_controller)
+  end
+  
 end
