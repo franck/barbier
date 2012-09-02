@@ -3,7 +3,7 @@ module Prive
   class ClientsController < BaseController
   
     def index
-      @clients = @salon.clients.search(params[:search]).page(params[:page]).per(20)
+      @clients = @salon.clients.search(params[:search]).paginate(:page => params[:page], :per_page => 20)
     end
   
     def show

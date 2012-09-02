@@ -10,7 +10,9 @@ gem 'sqlite3'
 
 gem "delocalize" # date/time parsing
 gem "redcarpet"
-gem 'kaminari', '0.13.0'
+#gem 'kaminari', '0.13.0'
+gem 'will_paginate', '~> 3.0'
+gem 'bootstrap-will_paginate'
 gem "delocalize"
 gem "paperclip", "~> 2.0"
 gem "fb_graph"
