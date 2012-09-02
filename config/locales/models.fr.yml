@@ -62,13 +62,11 @@ fr:
           attributes:
             title:
               blank: "Vous devez donner un titre à ce thème"
-            
-              
-
-  views:
-    pagination:
-      first: "&laquo; Début"
-      last: "Fin &raquo;"
-      previous: "&laquo;"
-      next: "&raquo;"
-      truncate: "..."
+        produit:
+          attributes:
+            name:
+              blank: "Il manque le nom du produit"
+        produit_category:
+          attributes:
+            name:
+              blank: "Il manque le nom de la catégorie"

@@ -15,9 +15,11 @@
 //= require jquery.ui.autocomplete
 //= require jquery.ui.sortable
 //= require jquery_ujs
+//= require bootstrap
 //= require clients
 //= require site
 //= require tarifs
+//= require factures
 
 $(function() {
   $('#password').focus();  

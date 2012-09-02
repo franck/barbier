@@ -23,7 +23,7 @@ group :assets do
   gem 'sass-rails'
   gem 'coffee-rails', '~> 3.2.1'
   #gem 'bourbon'
-  gem 'bootstrap-sass', '~> 2.0.1'
+  gem 'bootstrap-sass', '~> 2.0.4.0'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer'
 
@@ -32,6 +32,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'rails-i18n'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

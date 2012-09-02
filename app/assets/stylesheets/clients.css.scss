@@ -18,12 +18,25 @@
   
   .new_client_button { float:right; }
 
-  #factures {
-    table { 
-      margin-top:10px; 
-      span.price { float:right; text-align:right; }
-    }
-  }
   
 }
 
+#factures {
+  position:relative;
+  table { 
+    clear:both;
+    span.price { float:right; text-align:right; }
+  }
+
+  #factures-period-controls {
+    clear:both;
+    float:left; width:100%; margin-bottom:15px;
+    #factures-period-date { 
+      float:left; line-height:28px; font-size:120%;
+      a.factures-period-date-today, span.factures-period-date-text, a.factures-period-date-link { margin-right:8px; }
+      a.factures-period-date-link { font-weight:normal; font-size:120%; padding-top:0; line-height:22px; }
+    } 
+    #factures-period-selector { float:right; } 
+  }
+
+}

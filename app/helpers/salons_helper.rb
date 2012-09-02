@@ -3,12 +3,15 @@ module SalonsHelper
   
   def salon_navbar_left_links(controller)
     case controller
-    when "prive/clients", "prive/factures"
+    when "prive/clients"
       clients_class = "active" 
+    when "prive/factures"
+      factures_class = "active"
     end
 
     items = []
     items << content_tag('li', link_to('Clients', prive_clients_path), :class => clients_class)
+    items << content_tag('li', link_to('Factures', prive_factures_path), :class => factures_class)
     content_tag('ul', items.join.html_safe, :class => 'nav')
   end
 

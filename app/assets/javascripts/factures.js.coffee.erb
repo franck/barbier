@@ -1,0 +1,5 @@
+jQuery ->
+  $("#factures-period-selector").button()
+  period = $("#factures-period-selector").data("period")
+  $("#factures-period-#{period}").button('toggle')
+  

@@ -52,7 +52,7 @@ describe "Produit Categories" do
     end
   end
 
-  context "on #destroy,", :focus => true do
+  context "on #destroy," do
     context "when a product is inside this category," do
       before(:each) do
         @category = create(:produit_category, :name => "Shampoings", :salon_id => @salon.id)

@@ -1,0 +1,47 @@
+<h1>Factures</h1>
+
+<div id="factures">
+  <div id="factures-period-controls">
+
+    <%= display_factures_period_date(@date, @period) %>
+
+    <div id="factures-period-change-date">
+    </div>
+
+    <div id="factures-period-selector" class="btn-group" data-toggle="buttons-radio" data-period="<%= @period %>">
+      <button class="btn" id="factures-period-day"><%= link_to 'Jour', period: 'day', date: @date %></button>
+      <button class="btn" id="factures-period-week"><%= link_to 'Semaine', period: 'week', date: @date %></button>
+      <button class="btn" id="factures-period-month"><%= link_to 'Mois', period: 'month', date: @date %></button>
+    </div>
+  </div>
+
+  <table class="table table-striped table-bordered">
+    <tr>
+      <th>Date</th>
+      <th>Services</th>
+      <th>Total</th>
+      <th>Moyen de paiement</th>
+      <th>Actions</th>
+    </tr>
+    <% if @factures.any? %>
+      <% for facture in @factures -%>
+        <tr>
+          <td><%= l facture.payed_at %></td>      
+          <td>
+            <%=raw facture.items.map{|i| "#{i.description} <span class='price'>#{number_to_currency(i.price)}</span>" }.join('<br/>') %>
+          </td>
+          <td><%= total_facture(facture) %></td>
+          <td><%= t("factures.mean_of_payment.#{facture.mean_of_payment}") %></td>
+          <td>
+            <%= link_to "modifier", edit_prive_facture_path(facture) %>
+            <%= link_to "supprimer", prive_facture_path(facture), :method => :delete %>
+          </td>
+        </tr>
+      <% end -%>
+    </table>
+  <% else %>
+    <tr>
+      <td colspan="5">Aucune facture</td>
+    </tr>
+  <% end %>
+</div>

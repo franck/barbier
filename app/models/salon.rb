@@ -16,6 +16,7 @@ class Salon < ActiveRecord::Base
   has_one :facebook_account, :dependent => :destroy
   has_many :produits, :dependent => :destroy
   has_many :produit_categories, :dependent => :destroy
+  has_many :factures, :dependent => :destroy
   
   before_save :update_password
   
