@@ -2,7 +2,6 @@
 
 <div id="factures">
   <div id="factures-period-controls">
-
     <%= display_factures_period_date(@date, @period) %>
 
     <div id="factures-period-change-date">
@@ -12,6 +11,16 @@
       <button class="btn" id="factures-period-day"><%= link_to 'Jour', period: 'day', date: @date %></button>
       <button class="btn" id="factures-period-week"><%= link_to 'Semaine', period: 'week', date: @date %></button>
       <button class="btn" id="factures-period-month"><%= link_to 'Mois', period: 'month', date: @date %></button>
+    </div>
+  </div>
+
+
+  <div id="factures-subactions">
+    <div id="factures-total">
+      <p><strong>Total :</strong> <%= total_factures(@factures) %></p>
+    </div>
+    <div id="factures-actions">
+      <%= link_to "exporter (xls)", { date: @date, period: @period, format: 'xls' } %>
     </div>
   </div>
 

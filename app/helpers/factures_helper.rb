@@ -2,7 +2,13 @@ module FacturesHelper
 
   def total_facture(facture)
     total = 0
-    total = facture.items.inject(0){|total, i| total + i.price }
+    total = facture.total_items
+    number_to_currency(total)
+  end
+
+  def total_factures(factures)
+    total = 0
+    total = factures.inject(0){|total, i| total + i.total_items }
     number_to_currency(total)
   end
 

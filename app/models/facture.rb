@@ -35,6 +35,10 @@ class Facture < ActiveRecord::Base
     false
   end
 
+  def total_items
+    self.items.inject(0){|total, i| total + i.price }
+  end
+
   protected
 
   def parse_raw_value_as_a_number(raw_value)

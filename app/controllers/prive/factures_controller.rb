@@ -8,8 +8,11 @@ module Prive
       @date = params[:date] ? Date.parse(params[:date]) : Date.today
       @period = params[:period] ? params[:period] : 'day'
       
-      #@factures = @salon.factures.where("payed_at = ?", @date)
       @factures = Facture.find_by_date_and_period(@date, @period, @salon)
+      respond_to do |format|
+        format.html
+        format.xls
+      end
     end
 
     def new
