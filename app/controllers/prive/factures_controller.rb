@@ -9,6 +9,7 @@ module Prive
       @period = params[:period] ? params[:period] : 'day'
       
       @factures = Facture.find_by_date_and_period(@date, @period, @salon)
+      logger.debug("Factures : #{@factures.size}")
       respond_to do |format|
         format.html
         format.xls
