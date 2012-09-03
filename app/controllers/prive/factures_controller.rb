@@ -17,6 +17,7 @@ module Prive
     end
 
     def new
+      session[:return_to] = request.referer
       @facture = @salon.factures.build(:payed_at => Date.today)
       @facture.items.build
     end
@@ -28,17 +29,14 @@ module Prive
 
       @facture = Facture.new(params[:facture])
       if @facture.save
-        if @client
-          redirect_to prive_client_path(@client), :notice => "Facture créée"
-        else
-          redirect_to prive_factures_path, :notice => "Facture créée"
-        end
+        redirect_to session[:return_to], :notice => "Facture créée"
       else
         render :new
       end
     end
 
     def edit
+      session[:return_to] = request.referer
       @facture = @salon.factures.find(params[:id])
     end
 
@@ -49,11 +47,12 @@ module Prive
 
       @facture = @salon.factures.find(params[:id])
       if @facture.update_attributes(params[:facture])
-        if @client
-          redirect_to prive_client_path(@client), :notice => "Facture modifiée"
-        else
-          redirect_to prive_factures_path, :notice => "Facture modifiée"
-        end
+        #if @client
+        #  redirect_to prive_client_path(@client), :notice => "Facture modifiée"
+        #else
+        #  redirect_to prive_factures_path, :notice => "Facture modifiée"
+        #end
+        redirect_to session[:return_to], :notice => "Facture modifiée"
       else
         render :edit
       end

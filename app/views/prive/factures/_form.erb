@@ -1,5 +1,5 @@
 <%= render "/shared/error_messages", :target => @facture %>
-<%= hidden_field_tag :client_id, @client.id %>
+<%= f.hidden_field :client_id, :value => @client.try(:id) %>
 <fieldset>
   <span id="item_description_source" data-autocomplete-source="<%= @salon.unique_items %>"></span>
   <%= f.text_field :payed_at, :class => 'datepicker input-small', :placeholder => "Date" %>
