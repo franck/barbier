@@ -24,11 +24,9 @@ group :assets do
   gem 'sprockets'
   gem 'sass-rails'
   gem 'coffee-rails', '~> 3.2.1'
-  #gem 'bourbon'
   gem 'bootstrap-sass', '~> 2.0.4.0'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer'
-
   gem 'uglifier', '>= 1.0.3'
   gem 'jquery-ui-rails'
 end
