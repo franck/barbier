@@ -34,7 +34,7 @@
     <% @factures.each do |facture| %>
       <% facture.items.each do |item| %>
         <Row>
-          <Cell><Data ss:Type="String"><%= facture.payed_at.strftime("%d/%m%Y") %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= facture.payed_at.strftime("%d/%m/%Y") %></Data></Cell>
           <Cell><Data ss:Type="String"><%= item.description %></Data></Cell>
           <Cell ss:StyleID="s25"><Data ss:Type="Number"><%= item.price %></Data></Cell>
           <Cell><Data ss:Type="String"><%= t("factures.mean_of_payment.#{facture.mean_of_payment}") %></Data></Cell>
