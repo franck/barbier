@@ -41,11 +41,10 @@ ActiveRecord::Schema.define(:version => 20120828135549) do
 
   create_table "factures", :force => true do |t|
     t.integer  "client_id"
-    t.integer  "salon_id"
-    t.string   "mean_of_payment"
     t.date     "payed_at"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "mean_of_payment"
   end
 
   create_table "items", :force => true do |t|
