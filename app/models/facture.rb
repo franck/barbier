@@ -1,6 +1,8 @@
+# encoding: utf-8
 class Facture < ActiveRecord::Base
   MEANS_OF_PAYMENT = ["cash", "card", "check", "other" ]
   START_DAY = :monday
+  SERVICES = ["Coiffure", "Esthéthique"]
 
   default_scope order("payed_at asc")
 
@@ -33,10 +35,6 @@ class Facture < ActiveRecord::Base
     return true unless parse_raw_value_as_a_number(price).is_a?(Numeric)
 
     false
-  end
-
-  def total_items
-    self.items.inject(0){|total, i| total + i.price }
   end
 
   protected

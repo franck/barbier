@@ -1,5 +1,7 @@
 Barbier::Application.routes.draw do
   
+  resources :category_factures
+
   constraints lambda { |r| r.domain != SalonVar::DOMAIN || (r.subdomain.present? && r.subdomain != 'www') } do
     match '', to: 'accueil#index'  
     
@@ -58,6 +60,8 @@ Barbier::Application.routes.draw do
       match "/options" => redirect("/prive/options/parametres")
       resources :clients
       resources :factures
+      resources :option_factures
+      resources :category_factures
       namespace :boutique do
         resources :produits
         resources :produit_categories

@@ -11,7 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120828135549) do
+ActiveRecord::Schema.define(:version => 20120904083112) do
+
+  create_table "agendas", :force => true do |t|
+    t.datetime "start_day_time", :default => '2012-01-01 08:30:00'
+    t.datetime "end_day_time",   :default => '2012-01-01 20:00:00'
+    t.string   "slot_duration",  :default => "15"
+    t.integer  "salon_id"
+    t.datetime "created_at",                                        :null => false
+    t.datetime "updated_at",                                        :null => false
+  end
+
+  create_table "category_factures", :force => true do |t|
+    t.string   "name"
+    t.integer  "salon_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -52,9 +68,10 @@ ActiveRecord::Schema.define(:version => 20120828135549) do
     t.text     "description"
     t.decimal  "price",       :precision => 8, :scale => 2
     t.integer  "facture_id"
-    t.integer  "salon_id"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
+    t.integer  "salon_id"
+    t.string   "category"
   end
 
   create_table "messages", :force => true do |t|
@@ -101,6 +118,17 @@ ActiveRecord::Schema.define(:version => 20120828135549) do
     t.datetime "picture_updated_at"
     t.datetime "created_at",                                         :null => false
     t.datetime "updated_at",                                         :null => false
+  end
+
+  create_table "rdvs", :force => true do |t|
+    t.integer  "salon_id"
+    t.integer  "client_id"
+    t.string   "who"
+    t.string   "what"
+    t.datetime "start"
+    t.datetime "end"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "salons", :force => true do |t|
@@ -150,6 +178,8 @@ ActiveRecord::Schema.define(:version => 20120828135549) do
     t.integer  "salon_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "link"
+    t.string   "category"
   end
 
 end

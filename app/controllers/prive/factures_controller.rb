@@ -2,6 +2,8 @@
 module Prive
   class FacturesController < BaseController
 
+    layout "factures"
+
     before_filter :get_client
 
     def index
@@ -9,7 +11,8 @@ module Prive
       @period = params[:period] ? params[:period] : 'day'
       
       @factures = Facture.find_by_date_and_period(@date, @period, @salon)
-      logger.debug("Factures : #{@factures.size}")
+      # @service = Facture::SERVICES
+      @services = Item.services_in_factures(@factures)
       respond_to do |format|
         format.html
         format.xls

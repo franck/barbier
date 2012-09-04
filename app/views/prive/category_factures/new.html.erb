@@ -1,0 +1,12 @@
+<h1>Nouvelle catégorie de facture</h1>
+
+<%= form_for [:prive, @category_facture], :class => 'form-horizontal' do |f| %>
+
+<%= render "form", :f => f %>
+
+<div style="clear:both">
+	<%= f.submit "Ajouter", class: 'btn' %>
+	<%= link_to "annuler", prive_option_factures_path %>
+</div>
+	
+<% end %>

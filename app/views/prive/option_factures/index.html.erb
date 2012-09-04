@@ -1,0 +1,24 @@
+<h1>Options</h1>
+
+<h2>Catégories de factures</h2>
+
+<p>Les catégories de factures permettent de distinguer des types de services dans le rendu des factures. Exemple : Coiffure et Esthétique</p>
+
+<% if @category_factures.any? %>
+  <ul>
+    <% for category in @category_factures %>
+      <li>
+        <%= category.name %>&nbsp;
+        <%= link_to "supprimer", prive_category_facture_path(category), :method => :delete, :confirm => "Etes vous sur de vouloir supprimer cette catégorie ?" %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <ul>
+    <li>Aucune catégorie de facture</li>
+  </ul>
+  <% end %>
+
+<p>
+	<%= link_to "Nouvelle Catégorie", new_prive_category_facture_path, :class => 'btn' %>
+</p>
