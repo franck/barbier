@@ -20,6 +20,7 @@
 //= require site
 //= require tarifs
 //= require factures
+//
 
 $(function() {
   $('#password').focus();  

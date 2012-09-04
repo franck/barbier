@@ -20,7 +20,6 @@ jQuery ->
     regexp = new RegExp($(this).data('id'), 'g')
     data_fields = $($(this).data('fields').replace(regexp, time))
     $('.item-description', data_fields).autocomplete(autocomplete_opts)
-    console.log(data_fields)
     $(this).before(data_fields)
     event.preventDefault()
   
