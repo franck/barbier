@@ -22,6 +22,13 @@ module FacturesHelper
     number_to_currency(total)
   end
 
+  def total_service(factures, service)
+    return if factures.nil?
+    items = []
+    items << factures.each{|facture| facture.items.where("category = ?", service).all }
+    total_items(items.flatten)
+  end
+
   def display_factures_period_date(date, period)
     today = link_to("Aujourd'hui", { date: Date.today, period: 'day' }, :class => 'btn factures-period-date-today')
     if period == 'week'

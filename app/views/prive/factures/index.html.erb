@@ -2,9 +2,9 @@
 
 <div id="factures">
   <div id="factures-period-controls">
-    <%= display_factures_period_date(@date, @period) %>
-
-    <div id="factures-period-change-date">
+    <div id="factures-period-controls-left">
+      <%= link_to ("<i class='icon-plus-sign icon-white'></i>&nbsp;Facture").html_safe, new_prive_facture_path(), class: 'btn btn-success' %>
+      <%= display_factures_period_date(@date, @period) %>
     </div>
 
     <div id="factures-period-selector" class="btn-group" data-toggle="buttons-radio" data-period="<%= @period %>">
@@ -34,18 +34,27 @@
       <th>Moyen de paiement</th>
       <th>Actions</th>
     </tr>
+    <tr>
+      <th>&nbsp;</th>
+      <% for service in @services %>
+        <th class="currency"><%= number_to_currency(total_items(@items[service])) %></th>
+      <% end %>
+      <th class="currency"><%= total_factures(@factures) %></th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+    </tr>
     <% if @factures.any? %>
       <% for facture in @factures -%>
         <tr>
           <td><%= l facture.payed_at %></td>      
 
           <% for service in @services %>
-          <td>
+          <td class="currency">
             <%= number_to_currency(total_items(facture.items.where("category = ?", service))) %>
           </td>
           <% end %>
 
-          <td><%= total_facture(facture) %></td>
+          <td class="currency"><%= total_facture(facture) %></td>
           <td><%= t("factures.mean_of_payment.#{facture.mean_of_payment}") %></td>
           <td>
             <%= link_to "modifier", edit_prive_facture_path(facture, :client_id => facture.client.try(:id)) %>

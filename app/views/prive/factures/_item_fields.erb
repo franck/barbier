@@ -1,7 +1,7 @@
-<div>
-  <%= f.text_field :description, :placeholder => "Description", :class => "input-xlarge item-description" %>
+<div class="">
+  <%= f.text_field :description, :placeholder => "Description", :class => "input-xlarge item-description", :data => { :type => f.object.attributes['category']} %>
   <%= f.text_field :price, :placeholder => "Prix", :class => "input-small" %>
-  <%= f.select :category, @salon.category_factures.map(&:name) %>
+  <%= f.select :category, @salon.category_factures.map(&:name) + ["Produit"], {}, :class => "item-category" %>
   <%= f.hidden_field :_destroy %>
   <%= link_to "retirer", '#', class: "remove_fields" %>
 </div>

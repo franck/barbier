@@ -26,13 +26,16 @@
   table { 
     clear:both;
     span.price { float:right; text-align:right; }
+    th.currency, td.currency { text-align:right }
   }
 
   #factures-period-controls {
     clear:both;
     float:left; width:100%; margin-bottom:15px;
+    #factures-period-controls-left { float:left; }
+
     #factures-period-date { 
-      float:left; line-height:28px; font-size:120%;
+      display:inline-block; line-height:28px; font-size:120%; margin-left:4px;
       a.factures-period-date-today, span.factures-period-date-text, a.factures-period-date-link { margin-right:8px; }
       a.factures-period-date-link { font-weight:normal; font-size:120%; padding-top:0; line-height:22px; }
     } 
@@ -46,5 +49,11 @@
   }
 }
 
-
+#facture {
+  .item-type-produit { background-color:rgba(81, 163, 81, 0.8); padding:5px 5px 0px 5px; margin:2px 0; float:left; clear:both; }
+  .item-type-service { background-color:rgba(248, 148, 6, 0.8); padding:5px 5px 0px 5px; margin:2px 0; float:left; clear:both; }
+  #add-items { clear:both; float:left; width:100%; margin-top:5px; }
+  a.remove_fields { color:#FFF; }
+  a:hover.remove_fields { color:#FFF; }
+}
 

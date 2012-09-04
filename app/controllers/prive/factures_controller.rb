@@ -11,8 +11,8 @@ module Prive
       @period = params[:period] ? params[:period] : 'day'
       
       @factures = Facture.find_by_date_and_period(@date, @period, @salon)
-      # @service = Facture::SERVICES
       @services = Item.services_in_factures(@factures)
+      @items = Item.where("facture_id IN (?)", @factures.map(&:id)).group_by(&:category)
       respond_to do |format|
         format.html
         format.xls

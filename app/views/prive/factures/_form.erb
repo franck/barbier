@@ -1,7 +1,8 @@
 <%= render "/shared/error_messages", :target => @facture %>
 <%= f.hidden_field :client_id, :value => @client.try(:id) %>
 <fieldset>
-  <span id="item_description_source" data-autocomplete-source="<%= @salon.unique_items %>"></span>
+  <span id="service_description_source" data-autocomplete-source="<%= @salon.unique_items %>"></span>
+  <span id="produit_description_source" data-autocomplete-source="<%= @salon.produits.map(&:name) %>"></span>
   <%= f.text_field :payed_at, :class => 'datepicker input-small', :placeholder => "Date" %>
   <%= f.select :mean_of_payment, Facture::MEANS_OF_PAYMENT.map{|mp| [t("factures.mean_of_payment.#{mp}"), mp]} %>
 </fieldset>
@@ -9,5 +10,8 @@
 <%= f.fields_for :items do |builder| -%>
   <%= render "item_fields", f: builder %>
 <% end -%>
-<p><%= link_to_add_fields "Ajouter un service", f, :items %></p>
+<p id="add-items">
+  <%= link_to_add_fields "Ajouter un service", f, :items %>
+  <%= link_to_add_fields "Ajouter un produit", f, :items, "produit", "success" %>
+</p>
 <br/>
