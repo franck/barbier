@@ -22,6 +22,7 @@
   <table class="table table-striped table-bordered">
     <tr>
       <th>Date</th>
+      <th>Client</th>
       <% for service in @services %>
         <th><%= service.present? ? service : "Service" %></th>
       <% end %>
@@ -30,6 +31,7 @@
       <th>Actions</th>
     </tr>
     <tr>
+      <th>&nbsp;</th>
       <th>&nbsp;</th>
       <% for service in @services %>
         <th class="currency"><%= number_to_currency(total_items(@items[service])) %></th>
@@ -42,6 +44,7 @@
       <% for facture in @factures -%>
         <tr>
           <td><%= l facture.payed_at %></td>      
+          <td><%= facture.client.try(:name) %></td>      
 
           <% for service in @services %>
           <td class="currency">
