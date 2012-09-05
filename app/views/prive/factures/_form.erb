@@ -1,5 +1,7 @@
 <%= render "/shared/error_messages", :target => @facture %>
-<%= f.hidden_field :client_id, :value => @client.try(:id) %>
+<% if @client %>
+<%= hidden_field_tag :client_id, @client.try(:id) %>
+<% end %>
 <fieldset>
   <span id="service_description_source" data-autocomplete-source="<%= @salon.unique_items %>"></span>
   <span id="produit_description_source" data-autocomplete-source="<%= @salon.produits.map(&:name) %>"></span>

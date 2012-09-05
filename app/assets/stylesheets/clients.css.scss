@@ -33,6 +33,7 @@
     clear:both;
     float:left; width:100%; margin-bottom:15px;
     #factures-period-controls-left { float:left; }
+    #factures-period-controls-right { float:right; }
 
     #factures-period-date { 
       display:inline-block; line-height:28px; font-size:120%; margin-left:4px;
@@ -40,13 +41,9 @@
       a.factures-period-date-link { font-weight:normal; font-size:120%; padding-top:0; line-height:22px; }
     } 
     #factures-period-selector { float:right; } 
+    #factures-actions { float:left; line-height:28px; margin-right:16px; }
   }
 
-  #factures-subactions {  
-    clear:both; float:left; width:100%; margin-bottom:10px;
-    #factures-total { float:left; margin-right:10px; }
-    #factures-actions { float:right; }
-  }
 }
 
 #facture {

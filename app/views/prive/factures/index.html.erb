@@ -7,20 +7,15 @@
       <%= display_factures_period_date(@date, @period) %>
     </div>
 
-    <div id="factures-period-selector" class="btn-group" data-toggle="buttons-radio" data-period="<%= @period %>">
-      <%= link_to 'Jour', { period: 'day', date: @date }, { class: 'btn', id: 'factures-period-day' } %>
-      <%= link_to 'Semaine', { period: 'week', date: @date }, { class: 'btn', id: 'factures-period-week' } %>
-      <%= link_to 'Mois', { period: 'month', date: @date }, { class: 'btn', id: 'factures-period-month' } %>
-    </div>
-  </div>
-
-
-  <div id="factures-subactions">
-    <div id="factures-total">
-      <p><strong>Total :</strong> <%= total_factures(@factures) %></p>
-    </div>
-    <div id="factures-actions">
-      <%= link_to "exporter (xls)", { date: @date, period: @period, format: 'xls' } %>
+    <div id="factures-period-controls-right">
+      <div id="factures-actions">
+        <%= link_to "exporter (xls)", { date: @date, period: @period, format: 'xls' } %>
+      </div>
+      <div id="factures-period-selector" class="btn-group" data-toggle="buttons-radio" data-period="<%= @period %>">
+        <%= link_to 'Jour', { period: 'day', date: @date }, { class: 'btn', id: 'factures-period-day' } %>
+        <%= link_to 'Semaine', { period: 'week', date: @date }, { class: 'btn', id: 'factures-period-week' } %>
+        <%= link_to 'Mois', { period: 'month', date: @date }, { class: 'btn', id: 'factures-period-month' } %>
+      </div>
     </div>
   </div>
 

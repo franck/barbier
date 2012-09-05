@@ -34,6 +34,7 @@ module Prive
       if @facture.save
         redirect_to session[:return_to], :notice => "Facture créée"
       else
+        logger.debug "CLIENT : #{@client}"
         render :new
       end
     end
