@@ -7,11 +7,14 @@ module SalonsHelper
       clients_class = "active" 
     when "prive/factures"
       factures_class = "active"
+    when /prive\/boutique/
+      boutique_class = "active"
     end
 
     items = []
     items << content_tag('li', link_to('Clients', prive_clients_path), :class => clients_class)
     items << content_tag('li', link_to('Factures', prive_factures_path), :class => factures_class)
+    items << content_tag('li', link_to('Boutique', prive_boutique_path), :class => boutique_class)
     content_tag('ul', items.join.html_safe, :class => 'nav')
   end
 

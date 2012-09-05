@@ -1,6 +1,8 @@
+# encoding: utf-8
 class Facture < ActiveRecord::Base
   MEANS_OF_PAYMENT = ["cash", "card", "check", "other" ]
   START_DAY = :monday
+  SERVICES = ["Coiffure", "Esthéthique"]
 
   default_scope order("payed_at asc")
 

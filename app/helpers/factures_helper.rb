@@ -1,9 +1,32 @@
 module FacturesHelper
 
+  def factures_nav
+    items = []
+    #items << content_tag('li', "Stock", :class => 'nav-header')
+    items << content_tag('li', link_to('Calendrier', prive_factures_path), :class => nav_item_active?('prive/factures'))
+    items << content_tag('li', link_to('Options', prive_option_factures_path), :class => nav_item_active?('prive/option_factures|prive/category_factures'))
+    content_tag('ul', items.join.html_safe, :class => 'nav nav-list')
+  end
+
+  def total_items(items)
+    items.inject(0){|total, i| total + i.price }
+  end
+  
   def total_facture(facture)
+    number_to_currency(total_items(facture.items))
+  end
+
+  def total_factures(factures)
     total = 0
-    total = facture.items.inject(0){|total, i| total + i.price }
+    total = factures.inject(0){|total, i| total + total_items(i.items) }
     number_to_currency(total)
+  end
+
+  def total_service(factures, service)
+    return if factures.nil?
+    items = []
+    items << factures.each{|facture| facture.items.where("category = ?", service).all }
+    total_items(items.flatten)
   end
 
   def display_factures_period_date(date, period)

@@ -1,0 +1,29 @@
+<table class="table table-striped table-bordered">
+  <tr>
+    <th>Date</th>
+    <th>Services</th>
+    <th>Total</th>
+    <th>Moyen de paiement</th>
+    <th>Actions</th>
+  </tr>
+  <% if @factures.any? %>
+    <% for facture in @factures -%>
+      <tr>
+        <td><%= l facture.payed_at %></td>      
+        <td>
+          <%=raw facture.items.map{|i| "#{i.description} <span class='price'>#{number_to_currency(i.price)}</span>" }.join('<br/>') %>
+        </td>
+        <td><%= total_facture(facture) %></td>
+        <td><%= t("factures.mean_of_payment.#{facture.mean_of_payment}") %></td>
+        <td>
+          <%= link_to "modifier", edit_prive_facture_path(facture, :client_id => facture.client.try(:id)) %>
+          <%= link_to "supprimer", prive_facture_path(facture), :method => :delete %>
+        </td>
+      </tr>
+    <% end -%>
+  <% else %>
+    <tr>
+      <td colspan="5">Aucune facture</td>
+    </tr>
+  <% end %>
+</table>

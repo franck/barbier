@@ -2,46 +2,65 @@
 
 <div id="factures">
   <div id="factures-period-controls">
-
-    <%= display_factures_period_date(@date, @period) %>
-
-    <div id="factures-period-change-date">
+    <div id="factures-period-controls-left">
+      <%= link_to ("<i class='icon-plus-sign icon-white'></i>&nbsp;Facture").html_safe, new_prive_facture_path(), class: 'btn btn-success' %>
+      <%= display_factures_period_date(@date, @period) %>
     </div>
 
-    <div id="factures-period-selector" class="btn-group" data-toggle="buttons-radio" data-period="<%= @period %>">
-      <button class="btn" id="factures-period-day"><%= link_to 'Jour', period: 'day', date: @date %></button>
-      <button class="btn" id="factures-period-week"><%= link_to 'Semaine', period: 'week', date: @date %></button>
-      <button class="btn" id="factures-period-month"><%= link_to 'Mois', period: 'month', date: @date %></button>
+    <div id="factures-period-controls-right">
+      <div id="factures-actions">
+        <%= link_to "exporter (xls)", { date: @date, period: @period, format: 'xls' } %>
+      </div>
+      <div id="factures-period-selector" class="btn-group" data-toggle="buttons-radio" data-period="<%= @period %>">
+        <%= link_to 'Jour', { period: 'day', date: @date }, { class: 'btn', id: 'factures-period-day' } %>
+        <%= link_to 'Semaine', { period: 'week', date: @date }, { class: 'btn', id: 'factures-period-week' } %>
+        <%= link_to 'Mois', { period: 'month', date: @date }, { class: 'btn', id: 'factures-period-month' } %>
+      </div>
     </div>
   </div>
 
   <table class="table table-striped table-bordered">
     <tr>
       <th>Date</th>
-      <th>Services</th>
+      <% for service in @services %>
+        <th><%= service.present? ? service : "Service" %></th>
+      <% end %>
       <th>Total</th>
       <th>Moyen de paiement</th>
       <th>Actions</th>
+    </tr>
+    <tr>
+      <th>&nbsp;</th>
+      <% for service in @services %>
+        <th class="currency"><%= number_to_currency(total_items(@items[service])) %></th>
+      <% end %>
+      <th class="currency"><%= total_factures(@factures) %></th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
     </tr>
     <% if @factures.any? %>
       <% for facture in @factures -%>
         <tr>
           <td><%= l facture.payed_at %></td>      
-          <td>
-            <%=raw facture.items.map{|i| "#{i.description} <span class='price'>#{number_to_currency(i.price)}</span>" }.join('<br/>') %>
+
+          <% for service in @services %>
+          <td class="currency">
+            <%= number_to_currency(total_items(facture.items.where("category = ?", service))) %>
           </td>
-          <td><%= total_facture(facture) %></td>
+          <% end %>
+
+          <td class="currency"><%= total_facture(facture) %></td>
           <td><%= t("factures.mean_of_payment.#{facture.mean_of_payment}") %></td>
           <td>
-            <%= link_to "modifier", edit_prive_facture_path(facture) %>
+            <%= link_to "modifier", edit_prive_facture_path(facture, :client_id => facture.client.try(:id)) %>
             <%= link_to "supprimer", prive_facture_path(facture), :method => :delete %>
           </td>
         </tr>
       <% end -%>
-    </table>
-  <% else %>
-    <tr>
-      <td colspan="5">Aucune facture</td>
-    </tr>
-  <% end %>
+    <% else %>
+      <tr>
+        <td colspan="5">Aucune facture</td>
+      </tr>
+    <% end %>
+  </table>
 </div>

@@ -2,17 +2,25 @@
 module Prive
   class FacturesController < BaseController
 
+    layout "factures"
+
     before_filter :get_client
 
     def index
       @date = params[:date] ? Date.parse(params[:date]) : Date.today
       @period = params[:period] ? params[:period] : 'day'
       
-      #@factures = @salon.factures.where("payed_at = ?", @date)
       @factures = Facture.find_by_date_and_period(@date, @period, @salon)
+      @services = Item.services_in_factures(@factures)
+      @items = Item.where("facture_id IN (?)", @factures.map(&:id)).group_by(&:category)
+      respond_to do |format|
+        format.html
+        format.xls
+      end
     end
 
     def new
+      session[:return_to] = request.referer
       @facture = @salon.factures.build(:payed_at => Date.today)
       @facture.items.build
     end
@@ -24,17 +32,15 @@ module Prive
 
       @facture = Facture.new(params[:facture])
       if @facture.save
-        if @client
-          redirect_to prive_client_path(@client), :notice => "Facture créée"
-        else
-          redirect_to prive_factures_path, :notice => "Facture créée"
-        end
+        redirect_to session[:return_to], :notice => "Facture créée"
       else
+        logger.debug "CLIENT : #{@client}"
         render :new
       end
     end
 
     def edit
+      session[:return_to] = request.referer
       @facture = @salon.factures.find(params[:id])
     end
 
@@ -45,11 +51,12 @@ module Prive
 
       @facture = @salon.factures.find(params[:id])
       if @facture.update_attributes(params[:facture])
-        if @client
-          redirect_to prive_client_path(@client), :notice => "Facture modifiée"
-        else
-          redirect_to prive_factures_path, :notice => "Facture modifiée"
-        end
+        #if @client
+        #  redirect_to prive_client_path(@client), :notice => "Facture modifiée"
+        #else
+        #  redirect_to prive_factures_path, :notice => "Facture modifiée"
+        #end
+        redirect_to session[:return_to], :notice => "Facture modifiée"
       else
         render :edit
       end

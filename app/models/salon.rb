@@ -17,6 +17,7 @@ class Salon < ActiveRecord::Base
   has_many :produits, :dependent => :destroy
   has_many :produit_categories, :dependent => :destroy
   has_many :factures, :dependent => :destroy
+  has_many :category_factures, :dependent => :destroy
   
   before_save :update_password
   
@@ -40,7 +41,7 @@ class Salon < ActiveRecord::Base
   end
 
   def unique_items
-    Item.where("salon_id", self.id).select(:description).uniq.map{|i| i.description }
+    Item.where("salon_id = ? and category != 'Produit'", self.id).select(:description).uniq.map{|i| i.description }
     #items = ["Coiffure", "Mousse a raser", "test"]
   end
   

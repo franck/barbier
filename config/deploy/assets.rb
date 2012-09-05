@@ -6,6 +6,7 @@ namespace :deploy do
       find_servers_for_task(current_task).each do |server|
         run_locally "rsync -e 'ssh -p #{ssh_port}' -vr --exclude='.DS_Store' public/assets #{user}@#{server.host}:#{shared_path}/"
       end
+      run_locally "bundle exec rake assets:clean"
     end
   end
 end

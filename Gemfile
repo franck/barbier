@@ -10,7 +10,9 @@ gem 'sqlite3'
 
 gem "delocalize" # date/time parsing
 gem "redcarpet"
-gem 'kaminari', '0.13.0'
+#gem 'kaminari', '0.13.0'
+gem 'will_paginate', '~> 3.0'
+gem 'bootstrap-will_paginate'
 gem "delocalize"
 gem "paperclip", "~> 2.0"
 gem "fb_graph"
@@ -22,11 +24,9 @@ group :assets do
   gem 'sprockets'
   gem 'sass-rails'
   gem 'coffee-rails', '~> 3.2.1'
-  #gem 'bourbon'
   gem 'bootstrap-sass', '~> 2.0.4.0'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer'
-
   gem 'uglifier', '>= 1.0.3'
   gem 'jquery-ui-rails'
 end
