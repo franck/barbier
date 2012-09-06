@@ -29,6 +29,12 @@ module FacturesHelper
     total_items(items.flatten)
   end
 
+  def link_to_client_of_this_facture(facture)
+    if facture.client
+      link_to(facture.client.name, prive_client_path(facture.client))
+    end
+  end
+
   def display_factures_period_date(date, period)
     today = link_to("Aujourd'hui", { date: Date.today, period: 'day' }, :class => 'btn factures-period-date-today')
     if period == 'week'

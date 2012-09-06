@@ -44,7 +44,7 @@
       <% for facture in @factures -%>
         <tr>
           <td><%= l facture.payed_at %></td>      
-          <td><%= facture.client.try(:name) %></td>      
+          <td><%= link_to_client_of_this_facture(facture) %></td>      
 
           <% for service in @services %>
           <td class="currency">
