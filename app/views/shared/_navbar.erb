@@ -1,23 +1,17 @@
 <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-
       <%= link_to(@salon.try(:name) || "Salon de coiffure", prive_path, :class => 'brand') %>
-
       <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-
       <div class="nav-collapse">
-    
         <%= salon_navbar_left_links(params[:controller]) %>
-
         <ul class="nav pull-right">
           <%= salon_navbar_right_links(params[:controller]) %>
         </ul>
-
       </div><!-- end of nav-collapse -->
     </div><!-- end of container -->
   </div>
