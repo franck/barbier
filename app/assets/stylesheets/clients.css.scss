@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#birthday { margin-bottom: 15px; @extend .well; }
+#birthday-infos { display:none; }
+
 #clients {
   table {
     width:100%; margin-top:15px;

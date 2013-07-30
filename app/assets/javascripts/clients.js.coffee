@@ -1,5 +1,8 @@
 jQuery ->
 
+  $("#birthday-more").click ->
+    $("#birthday-infos").toggle()
+
   set_item_type_class = (item_category) ->
     console.log("on set item type class")
     parent_div = $(item_category).parent('div')

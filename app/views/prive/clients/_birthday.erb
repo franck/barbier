@@ -1,0 +1,14 @@
+<% if @birthday_customers.any? %>
+  <div id="birthday">
+    <%= birthday_customer_intro(@birthday_customers) %>
+    <a href="#" id="birthday-more">afficher</a>
+    <dl id="birthday-infos">
+      <% @birthday_customers_grouped_by_dates.each do |date, clients| %>
+        <dt><%= date %></dt>
+        <% for client in clients %>
+          <dd><%= client.name %> - <%= client.phone %></dd>
+        <% end %>
+      <% end %>
+    </dl>
+  </div>
+<% end %>

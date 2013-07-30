@@ -1,8 +1,8 @@
 # encoding: utf-8
 FactoryGirl.define do
   factory :client do
-    name "Franck Dago"
-    email "franck@example.com"
+    name { Faker::Name.name }
+    email { Faker::Internet.safe_email }
   end
 
   factory :facture do
