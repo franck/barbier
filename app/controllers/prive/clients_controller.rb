@@ -4,7 +4,7 @@ module Prive
   
     def index
       @birthday_customers = @salon.clients.has_is_birthday_this_week
-      @birthday_customers_grouped_by_dates = @birthday_customers.group_by{|client| client.birthdate.strftime("%d/%m") }
+      @birthday_customers_grouped_by_dates = @salon.clients.has_is_birthday_this_week_grouped_by_date_and_sorted 
       @clients = @salon.clients.search(params[:search]).paginate(:page => params[:page], :per_page => 20)
     end
   
