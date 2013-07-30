@@ -14,5 +14,10 @@ class Client < ActiveRecord::Base
       scoped
     end
   end
+
+  def self.has_is_birthday_this_week
+    today = Date.today
+    where("DATE_FORMAT(birthdate, '%m%d') >= ? and DATE_FORMAT(birthdate, '%m%d') <= ?", today.beginning_of_week.strftime('%m%d'), today.end_of_week.strftime('%m%d'))
+  end
   
 end

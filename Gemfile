@@ -16,7 +16,7 @@ gem 'bootstrap-will_paginate'
 gem "delocalize"
 gem "paperclip", "~> 2.0"
 gem "fb_graph"
-gem "rmagick"
+#gem "rmagick"
 
 # Gems used only for assets and not required
 # in production environments by default.
