@@ -1,7 +1,7 @@
 module SalonVar
   if Rails.env == 'development'
-    DOMAIN = "lvh.me"
-    HOST = "lvh.me:3001"
+    DOMAIN = "local"
+    HOST = "local"
     FACEBOOK_CLIENT_ID = "158898764228823"
     FACEBOOK_CLIENT_SECRET = "ecd21b911fd24afd52b4b40cf67684bb"
     FACEBOOK_SCOPE = "publish_stream, manage_pages"
