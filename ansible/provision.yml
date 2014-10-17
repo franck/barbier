@@ -1,0 +1,21 @@
+- hosts: servers
+  gather_facts: true
+
+  vars_files:
+    - vars/{{ rails_env }}_passwords.yml
+
+#  tasks:
+#    - debug: msg="{{ app_user_password }}"
+#      tags:
+#        - debug
+
+  roles:
+    - common
+    - ruby
+    - nginx_passenger
+    - mysql
+    - { role: app, tags: [ 'app' ] }
+    - monit
+
+
+

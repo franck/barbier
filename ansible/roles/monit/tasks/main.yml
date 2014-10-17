@@ -1,0 +1,20 @@
+- name: Install monit
+  apt: >
+    state=present
+    name=monit
+
+# - name: Update monitrc 
+#   template: >
+#     src=monitrc.j2
+#     dest=/etc/monit/monitrc
+
+# - name: Monit | Copy the sshd/ntp/chron monit service files
+#  template:
+#    src: "etc_monit_conf.d_{{item}}.j2"
+#    dest: "/etc/monit/conf.d/{{item}}"
+#  with_items:
+#    - sshd
+#    - cron
+#    - ntp
+#  notify:
+#    - restart monit

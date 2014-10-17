@@ -1,0 +1,53 @@
+- name: upgrade
+  action: apt update_cache=yes upgrade=yes
+
+- name: install ruby dependencies 
+  action: apt pkg={{ item }} state=installed
+  with_items:
+    - git-core 
+    - curl 
+    - zlib1g-dev 
+    - build-essential 
+    - libssl-dev 
+    - libreadline-dev 
+    - libyaml-dev 
+    - libsqlite3-dev 
+    - sqlite3 
+    - libxml2-dev 
+    - libxslt1-dev 
+    - libcurl4-openssl-dev 
+    - python-software-properties
+
+- name: Ensure directory temporary ruby download directory is present
+  file: >
+    state=directory
+    path={{ ruby_tmp_dir }}
+
+- name: Download ruby source 
+  get_url: >
+    url={{ ruby_url }}
+    dest={{ ruby_tmp_dir }}
+
+- name: Ensure ruby is extracted
+  command: >
+    tar -xf {{ ruby_compressed_file }}
+    chdir={{ ruby_tmp_dir }}
+    creates={{ tmp_ruby_path }}
+
+- name: Ensure ruby is configured
+  command: >
+    ./configure --with-zlib-dir=/usr --with-readline-dir=/usr
+    chdir={{ tmp_ruby_path }}
+    creates="{{ tmp_ruby_path}}/Makefile"
+
+- name: ruby-from-src | ensure ruby is compiled
+  command: 
+    make 
+    chdir={{ tmp_ruby_path }}
+    creates="{{ tmp_ruby_path }}/ruby"
+
+- name: ruby-from-src | ensure ruby is installed
+  command: 
+    make install 
+    chdir={{ tmp_ruby_path }} 
+    creates=/usr/local/bin/ruby

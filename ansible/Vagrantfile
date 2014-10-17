@@ -13,6 +13,17 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision 'shell', path: 'authorized_keys.sh'
 
-  config.vm.network :private_network, ip: '192.168.33.10'
-  config.vm.hostname = 'myapp.dev'
+  config.vm.network :private_network, ip: '192.168.33.19'
+  config.vm.hostname = 'barbier.local'
+
+  #{
+  #  'app'   => '192.168.33.10',
+  #  'db1'    => '192.168.33.11',
+  #  'redis1' => '192.168.33.12',
+  #}.each do |short_name, ip|
+  #  config.vm.define short_name do |host|
+  #    host.vm.network 'private_network', ip: ip
+  #    host.vm.hostname = "#{short_name}.myapp.dev"
+  #  end
+  #end
 end

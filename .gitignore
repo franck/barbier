@@ -1,3 +1,4 @@
+config/database.yml
 /.bundle
 /db/*.sqlite3
 /log/*.log
@@ -7,3 +8,4 @@ public/system
 public/assets
 .sass-cache
 db/schema.rb
+ansible/.vagrant

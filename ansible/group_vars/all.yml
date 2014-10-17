@@ -1,0 +1,8 @@
+app_name: barbier
+app_root: "/var/www/{{ app_name }}"
+app_repo: "git@github.com:franck/{{ app_name }}.git"
+app_user: deploy
+
+ruby_version: "ruby-1.9.3-p392"
+
+monit_notify_email: "franck.dagostini@gmail.com"

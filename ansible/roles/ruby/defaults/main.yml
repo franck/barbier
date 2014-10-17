@@ -1,0 +1,5 @@
+ruby_version: "ruby-1.9.3-p392"
+ruby_tmp_dir: "/usr/local/src"
+ruby_url: "http://ftp.ruby-lang.org/pub/ruby/1.9/{{ ruby_version}}.tar.gz"
+ruby_compressed_file: "{{ ruby_version }}.tar.gz"
+tmp_ruby_path: "{{ ruby_tmp_dir }}/{{ ruby_version }}"

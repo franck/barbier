@@ -1,0 +1,128 @@
+- name: create app user
+  user: >
+    name={{ app_user }}
+    password={{ app_user_password }}
+    shell=/bin/bash
+  tags:
+    - app
+
+- name: add local sshkey to app_user  
+  authorized_key: >
+    user={{ app_user }}
+    key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+  tags:
+    - app
+
+- name: add app user to sudoers
+  lineinfile: >
+    dest=/etc/sudoers
+    state=present
+    line="{{ app_user }} ALL=(ALL) ALL"
+  tags:
+    - app
+
+- name: install requesite packages
+  apt: >
+    name={{ item }}
+    state=present
+  with_items:
+    - nodejs
+    - imagemagick
+  tags:
+    - app
+
+- name: install rails
+  gem: >
+    state=present
+    user_install=no
+    name={{ item }}
+  with_items:
+    - rails
+    - bundler
+  tags:
+    - app
+
+- name: setup DB
+  mysql_db: >
+    name={{ app_db_name }}
+    state=present
+  tags:
+    - app
+
+#- name: Create DB user
+
+- name: Create app directory
+  file: >
+    state=directory
+    mode=0711
+    owner={{ app_user }}
+    group={{ app_user }}
+    path={{ app_root }}
+  tags:
+    - app
+
+- name: send key to remote deploy user
+  copy: >
+    src=private_key 
+    dest="/home/{{ app_user }}/.ssh/priv_key"
+    mode=0600
+  tags:
+    - app
+
+#- name: Checkout from repo
+#  sudo_user: "{{ app_user }}"
+#  git: >
+#    repo={{ app_repo }}
+#    dest={{ app_root }}
+#    accept_hostkey=yes
+#    key_file="/home/{{ app_user }}/.ssh/priv_key"
+#  tags:
+#    - app
+#
+#- name: Bundle
+#  shell: >
+#    chdir={{ app_root }}
+#    bundle install --without test
+#  tags:
+#    - app
+#
+#- name: Run migrations
+#  shell: >
+#    chdir={{ app_root }}
+#    rake db:migrate RAILS_ENV={{ rails_env }}
+#  tags:
+#    - app
+#
+#- name: Assets precompile
+#  shell: >
+#    chdir={{ app_root }}
+#    rake assets:precompile RAILS_ENV={{ rails_env }}
+#  tags:
+#    - app
+#
+##- name: Start application (passenger)
+#- name: restart application (passenger)
+#  shell: >
+#    chdir={{ app_root }}
+#    touch tmp/restart.txt
+#  tags:
+#    - app
+
+- name: Create the configurations for sites
+  template: >
+    src=site.conf.j2 
+    dest=/etc/nginx/sites-available/{{ app_name }}.conf
+  notify:
+   - reload nginx
+  tags:
+    - app
+
+- name: Create links for sites-enabled
+  file: >
+    state=link 
+    src=/etc/nginx/sites-available/{{ app_name }}.conf 
+    dest=/etc/nginx/sites-enabled/{{ app_name }}.conf
+  notify:
+   - reload nginx
+  tags:
+    - app

@@ -1,0 +1,8 @@
+- name : Install Mysql server
+  apt: >
+    name={{ item }}
+    state=present
+  with_items:
+    - mysql-server
+    - libmysqlclient15-dev
+    - python-mysqldb # require by mysql_db ansible module

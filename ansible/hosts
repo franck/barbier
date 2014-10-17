@@ -1,0 +1,13 @@
+[servers:children]
+production
+stage
+local
+
+[production]
+178.62.253.156
+
+[stage]
+178.62.253.156
+
+[local]
+barbier.local

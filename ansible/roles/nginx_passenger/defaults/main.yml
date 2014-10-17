@@ -1,0 +1,16 @@
+nginx_user: "www-data"
+nginx_group: "{{nginx_user}}"
+
+nginx_worker_processes: "{{ ansible_processor_vcpus }}"
+nginx_max_clients: 512
+nginx_worker_rlimit_nofile: 1024
+nginx_log_dir: "/var/log/nginx"
+
+nginx_http_params:
+  - sendfile "on"
+  - tcp_nopush "on"
+  - tcp_nodelay "on"
+  - keepalive_timeout "65"
+  - access_log "{{nginx_log_dir}}/access.log"
+  - error_log "{{nginx_log_dir}}/error.log"
+  - server_tokens off

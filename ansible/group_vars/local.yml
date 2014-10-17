@@ -1,0 +1,7 @@
+hostname: barbier.local
+rails_env: development
+app_db_name: barbier_dev
+
+nginx_server_name: "{{ hostname }}"
+app_public_path: "/var/www/{{ app_name }}/app/current/public"
+

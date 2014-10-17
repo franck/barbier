@@ -1,0 +1,14 @@
+#{{ ansible_managed }}
+server {
+  listen 80;
+
+  server_name {{ nginx_server_name }};
+  passenger_enabled on;
+  rails_env {{ rails_env }};
+  root {{ app_public_path }};
+
+  error_page   500 502 503 504  /50x.html;
+  location = /50x.html {
+    root   html;
+  }
+}

@@ -1,0 +1,19 @@
+- name: update apt cache
+  apt: update_cache=yes cache_valid_time=3600
+
+- name: upgrade the distro
+  apt: upgrade=yes
+  sudo: yes
+
+- name: install packages
+  apt: pkg={{ item }} state=latest
+  sudo: yes
+  with_items:
+    - build-essential
+    - git
+    - git-core
+    - curl
+    - wget
+    - tree
+    - vim
+

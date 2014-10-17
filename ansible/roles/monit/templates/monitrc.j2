@@ -1,0 +1,44 @@
+###############################################################################
+## Global section
+###############################################################################
+
+set daemon {{monit_poll_period}}
+{% if monit_poll_start_delay is defined %}
+with start delay {{monit_poll_start_delay}}
+{% endif %}
+
+set logfile {{monit_logfile}}
+set idfile /var/lib/monit/id
+set statefile /var/lib/monit/state
+set mailserver {{monit_mailserver_host}}{% if monit_mailserver_port is defined %} port {{monit_mailserver_port}}{% endif %}
+
+{% if monit_mailserver_username is defined %}  username "{{monit_mailserver_username}}"{{'\n'}}{% endif %}
+{% if monit_mailserver_password is defined %}  password "{{monit_mailserver_password}}"{{'\n'}}{% endif %}
+{% if monit_mailserver_encryption is defined %}  using {{monit_mailserver_encryption}}{{'\n'}}{% endif %}
+{% if monit_mailserver_timeout is defined %}  with timeout {{monit_mailserver_timeout}} seconds{{'\n'}}{% endif %}
+
+set eventqueue
+basedir {{monit_eventqueue_directory}}
+slots {{monit_eventqueue_slots | default('100')}}
+
+set mail-format {
+  from: {{monit_mailformat_from}}
+  subject: {{monit_mailformat_subject}}
+  message: {{monit_mailformat_message}}
+}
+
+set alert {{monit_notify_email}} NOT ON { action, instance, pid, ppid }
+
+set httpd port {{monit_port}}
+{% if monit_address is defined %}  use address {{monit_address}}{{'\n'}}{% endif %}
+{% for a in monit_allow %}  allow {{a}}{{'\n'}}{% endfor %}
+{% if monit_ssl %}  ssl enable
+pemfile {{monit_cert}}
+{% endif %}
+
+
+###############################################################################
+## Includes
+###############################################################################
+
+include /etc/monit/conf.d/*
