@@ -4,9 +4,11 @@
 # is considered to be the first unless any hosts have the primary
 # property set.  Don't declare `role :all`, it's a meta role.
 
-role :app, %w{deploy@example.com}
-role :web, %w{deploy@example.com}
-role :db,  %w{deploy@example.com}
+set :stage, :local
+
+role :app, %w{deploy@barbier.local}
+role :web, %w{deploy@barbier.local}
+role :db,  %w{deploy@barbier.local}
 
 
 # Extended Server Syntax
@@ -16,6 +18,10 @@ role :db,  %w{deploy@example.com}
 # used to set extended properties on the server.
 
 server 'barbier.local', user: 'deploy', roles: %w{web app}
+
+# ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
+set :branch, 'master'
+set :rails_env, 'development'
 
 
 # Custom SSH Options

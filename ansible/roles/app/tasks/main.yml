@@ -69,15 +69,57 @@
   tags:
     - app
 
-#- name: Checkout from repo
-#  sudo_user: "{{ app_user }}"
-#  git: >
-#    repo={{ app_repo }}
-#    dest={{ app_root }}
-#    accept_hostkey=yes
-#    key_file="/home/{{ app_user }}/.ssh/priv_key"
-#  tags:
-#    - app
+
+- name: add ssh priv_key to ssh config (line 1)
+  lineinfile:
+    dest: /home/{{ app_user }}/.ssh/config
+    create: yes
+    state: present
+    insertafter: EOF
+    regexp:  "^Host github.com"
+    line: "Host github.com"
+
+- name: add ssh priv_key to ssh config (line 2)
+  lineinfile:
+    dest: /home/{{ app_user }}/.ssh/config
+    state: present
+    insertafter: "^Host github.com"
+    regexp: "Hostname github.com"
+    line: "  Hostname github.com"
+
+- name: add ssh priv_key to ssh config (line 3)
+  lineinfile:
+    dest: /home/{{ app_user }}/.ssh/config
+    state: present
+    insertafter: "Hostname github.com"
+    regexp: "IdentityFile /home/{{ app_user }}/.ssh/priv_key"
+    line: "  IdentityFile /home/{{ app_user }}/.ssh/priv_key"
+
+- name: Set .ssh/config for app user
+  file:
+    path: /home/{{ app_user }}/.ssh/config
+    owner: "{{ app_user }}"
+    group: "{{ app_user }}" 
+    mode: 0600
+
+#- name: ensure github.com is a known host
+#  lineinfile:
+#    dest: /home/{{ app_user }}/.ssh/known_hosts
+#    create: yes
+#    state: present
+#    line: "{{ lookup('pipe', 'ssh-keyscan -t rsa github.com') }}"
+#    regexp: "^github.com"
+
+
+- name: Checkout from repo
+  sudo_user: "{{ app_user }}"
+  git: >
+    repo={{ app_repo }}
+    dest=/home/{{ app_user }}/tmp
+    accept_hostkey=yes
+    key_file="/home/{{ app_user }}/.ssh/priv_key"
+  tags:
+    - app
 #
 #- name: Bundle
 #  shell: >
