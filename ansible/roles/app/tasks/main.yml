@@ -51,25 +51,25 @@
 
 - name: Create app directory
   file: >
+    path={{ app_root }}
     state=directory
     mode=0711
     owner={{ app_user }}
     group={{ app_user }}
-    path={{ app_root }}
   tags:
     - app
 
 - name: Create shared directory
   file: >
+    path={{ app_shared_path }}
     state=directory
     mode=0711
     owner={{ app_user }}
     group={{ app_user }}
-    path={{ app_shared_path }}
   tags:
     - app
 
-- name: Copy database.yml
+- name: Copy database.yml in shared directory
   copy: >
     src={{ playbook_dir }}/../../config/database.yml
     dest={{ app_shared_path }}/config/database.yml
@@ -79,25 +79,15 @@
   tags:
     - app
 
-
-#- name: ensure github.com is a known host
-#  lineinfile:
-#    dest: /home/{{ app_user }}/.ssh/known_hosts
-#    create: yes
-#    state: present
-#    line: "{{ lookup('pipe', 'ssh-keyscan -t rsa github.com') }}"
-#    regexp: "^github.com"
-
-
-- name: Checkout from repo
-  sudo_user: "{{ app_user }}"
-  git: >
-    repo={{ app_repo }}
-    dest=/home/{{ app_user }}/tmp
-    accept_hostkey=yes
-    key_file="/home/{{ app_user }}/.ssh/priv_key"
-  tags:
-    - app
+#- name: Checkout from repo
+#  sudo_user: "{{ app_user }}"
+#  git: >
+#    repo={{ app_repo }}
+#    dest=/home/{{ app_user }}/tmp
+#    accept_hostkey=yes
+#    key_file="/home/{{ app_user }}/.ssh/priv_key"
+#  tags:
+#    - app
 #
 #- name: Bundle
 #  shell: >
