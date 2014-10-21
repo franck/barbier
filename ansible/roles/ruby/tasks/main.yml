@@ -23,10 +23,14 @@
     state=directory
     path={{ ruby_tmp_dir }}
 
-- name: Download ruby source 
-  get_url: >
-    url={{ ruby_url }}
-    dest={{ ruby_tmp_dir }}
+#- name: Download ruby source 
+#  get_url: >
+#    url={{ ruby_url }}
+#    dest={{ ruby_tmp_dir }}
+#
+
+- name: use ruby source from file
+  copy: src={{ ruby_compressed_file }} dest={{ ruby_tmp_dir }}/{{ ruby_compressed_file }} mode=0755
 
 - name: Ensure ruby is extracted
   command: >

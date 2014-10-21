@@ -5,7 +5,7 @@
     - vars/{{ rails_env }}_passwords.yml
 
 #  tasks:
-#    - debug: msg="{{ app_user_password }}"
+#    - debug: msg="{{ deploy_user_password }}"
 #      tags:
 #        - debug
 
@@ -16,6 +16,7 @@
     - mysql
     - { role: app, tags: [ 'app' ] }
     - monit
+    - firewall
 
 
 

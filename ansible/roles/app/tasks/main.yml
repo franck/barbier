@@ -1,91 +1,40 @@
-- name: create app user
-  user: >
-    name={{ app_user }}
-    password={{ app_user_password }}
-    shell=/bin/bash
-  tags:
-    - app
-
-- name: add local sshkey to app_user  
-  authorized_key: >
-    user={{ app_user }}
-    key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
-  tags:
-    - app
-
-- name: add app user to sudoers
-  lineinfile: >
-    dest=/etc/sudoers
-    state=present
-    line="{{ app_user }} ALL=(ALL) ALL"
-  tags:
-    - app
-
 - name: install requesite packages
-  apt: >
-    name={{ item }}
-    state=present
+  apt: name={{ item }} state=present
   with_items:
     - nodejs
     - imagemagick
-  tags:
-    - app
+  tags: app
 
 - name: install rails
-  gem: >
-    state=present
-    user_install=no
-    name={{ item }}
+  gem: state=present user_install=no name={{ item }}
   with_items:
     - rails
     - bundler
-  tags:
-    - app
+  tags: app
 
 - name: setup DB
-  mysql_db: >
-    name={{ app_db_name }}
-    state=present
-  tags:
-    - app
+  mysql_db: name={{ app_db_name }} state=present
+  tags: app
 
-- name: Create app directory
-  file: >
-    path={{ app_root }}
-    state=directory
-    mode=0711
-    owner={{ app_user }}
-    group={{ app_user }}
-  tags:
-    - app
+- name: Create shared config directory for database.yml
+  file: path={{ app_shared_path }}/config state=directory mode=0711 owner={{ deploy_user }} group={{ deploy_user }}
+  tags: app
 
-- name: Create shared directory
-  file: >
-    path={{ app_shared_path }}
-    state=directory
-    mode=0711
-    owner={{ app_user }}
-    group={{ app_user }}
-  tags:
-    - app
+- name: Set app directory and subfolders permissions
+  file: path={{ app_root }} state=directory mode=0755 owner={{ deploy_user }} group={{ deploy_user }} recurse=yes
+  tags: app
 
 - name: Copy database.yml in shared directory
-  copy: >
-    src={{ playbook_dir }}/../../config/database.yml
-    dest={{ app_shared_path }}/config/database.yml
-    mode=0600
-    owner={{ app_user }}
-    group={{ app_user }}
-  tags:
-    - app
+  copy: src={{ playbook_dir }}/../../config/database.yml dest={{ app_shared_path }}/config/database.yml mode=0600 owner={{ deploy_user }} group={{ deploy_user }}
+  tags: app
 
 #- name: Checkout from repo
-#  sudo_user: "{{ app_user }}"
+#  sudo_user: "{{ deploy_user }}"
 #  git: >
 #    repo={{ app_repo }}
-#    dest=/home/{{ app_user }}/tmp
+#    dest=/home/{{ deploy_user }}/tmp
 #    accept_hostkey=yes
-#    key_file="/home/{{ app_user }}/.ssh/priv_key"
+#    key_file="/home/{{ deploy_user }}/.ssh/priv_key"
 #  tags:
 #    - app
 #
@@ -124,8 +73,7 @@
     dest=/etc/nginx/sites-available/{{ app_name }}.conf
   notify:
    - reload nginx
-  tags:
-    - app
+  tags: app
 
 - name: Create links for sites-enabled
   file: >
@@ -134,5 +82,4 @@
     dest=/etc/nginx/sites-enabled/{{ app_name }}.conf
   notify:
    - reload nginx
-  tags:
-    - app
+  tags: app

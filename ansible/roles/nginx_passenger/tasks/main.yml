@@ -31,25 +31,19 @@
 - name: Get passenger_root path
   shell: /usr/bin/passenger-config --root
   register: passenger_root_path
-  tags:
-    - debug
 
-- debug: >
-    msg="passenger_root_path : {{ passenger_root_path.stdout }}"
-  tags:
-    - debug
+#- debug: >
+#    msg="passenger_root_path : {{ passenger_root_path.stdout }}"
+#  tags:
+#    - debug
   
 
 - name: Get ruby path
   shell: which ruby
   register: passenger_ruby_path
-  tags:
-    - debug
 
-- debug: >
-    msg="passenger_ruby_path : {{ passenger_ruby_path.stdout }}"
-  tags:
-    - debug
+#- debug: >
+#    msg="passenger_ruby_path : {{ passenger_ruby_path.stdout }}"
 
 - name: Copy the nginx configuration file
   template: >
@@ -57,8 +51,6 @@
     dest=/etc/nginx/nginx.conf
   notify:
    - restart nginx
-  tags:
-    - debug
 
 
 - name: Disable the default site

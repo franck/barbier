@@ -1,8 +1,9 @@
 hostname: barbier.local
 rails_env: development
 app_db_name: barbier_dev
+app_stage: local
 
 nginx_server_name: "{{ hostname }}"
-app_public_path: "/var/www/{{ app_name }}/local/current/public"
-app_shared_path: "/var/www/{{ app_name }}/local/shared"
+app_public_path: "/var/www/{{ app_name }}/{{ app_stage }}/current/public"
+app_shared_path: "/var/www/{{ app_name }}/{{ app_stage }}/shared"
 
