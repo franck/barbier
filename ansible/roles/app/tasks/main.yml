@@ -61,6 +61,26 @@
   tags:
     - app
 
+- name: Create shared directory
+  file: >
+    state=directory
+    mode=0711
+    owner={{ app_user }}
+    group={{ app_user }}
+    path={{ app_shared_path }}
+  tags:
+    - app
+
+- name: Copy database.yml
+  copy: >
+    src={{ playbook_dir }}/../../config/database.yml
+    dest={{ app_shared_path }}/config/database.yml
+    mode=0600
+    owner={{ app_user }}
+    group={{ app_user }}
+  tags:
+    - app
+
 - name: send key to remote deploy user
   copy: >
     src=private_key 
@@ -68,7 +88,6 @@
     mode=0600
   tags:
     - app
-
 
 - name: add ssh priv_key to ssh config (line 1)
   lineinfile:
