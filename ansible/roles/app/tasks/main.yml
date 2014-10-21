@@ -49,8 +49,6 @@
   tags:
     - app
 
-#- name: Create DB user
-
 - name: Create app directory
   file: >
     state=directory
@@ -81,45 +79,6 @@
   tags:
     - app
 
-- name: send key to remote deploy user
-  copy: >
-    src=private_key 
-    dest="/home/{{ app_user }}/.ssh/priv_key"
-    mode=0600
-  tags:
-    - app
-
-- name: add ssh priv_key to ssh config (line 1)
-  lineinfile:
-    dest: /home/{{ app_user }}/.ssh/config
-    create: yes
-    state: present
-    insertafter: EOF
-    regexp:  "^Host github.com"
-    line: "Host github.com"
-
-- name: add ssh priv_key to ssh config (line 2)
-  lineinfile:
-    dest: /home/{{ app_user }}/.ssh/config
-    state: present
-    insertafter: "^Host github.com"
-    regexp: "Hostname github.com"
-    line: "  Hostname github.com"
-
-- name: add ssh priv_key to ssh config (line 3)
-  lineinfile:
-    dest: /home/{{ app_user }}/.ssh/config
-    state: present
-    insertafter: "Hostname github.com"
-    regexp: "IdentityFile /home/{{ app_user }}/.ssh/priv_key"
-    line: "  IdentityFile /home/{{ app_user }}/.ssh/priv_key"
-
-- name: Set .ssh/config for app user
-  file:
-    path: /home/{{ app_user }}/.ssh/config
-    owner: "{{ app_user }}"
-    group: "{{ app_user }}" 
-    mode: 0600
 
 #- name: ensure github.com is a known host
 #  lineinfile:

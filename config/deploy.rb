@@ -9,6 +9,10 @@ set :repo_url, 'git@github.com:franck/barbier.git'
 
 set :deploy_to, "/var/www/#{fetch(:application)}/#{fetch(:stage)}"
 
+set :ssh_options, {
+  forward_agent: true
+}
+
 # Default value for :log_level is :debug
 # set :log_level, :debug
 
