@@ -1,0 +1,8 @@
+hostname: barbier_stage.merrycreation.com
+rails_env: stage
+app_db_name: barbier_stage
+app_stage: stage
+
+nginx_server_name: "{{ hostname }}"
+app_public_path: "/var/www/{{ app_name }}/{{ app_stage }}/current/public"
+app_shared_path: "/var/www/{{ app_name }}/{{ app_stage }}/shared"

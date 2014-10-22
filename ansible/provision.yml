@@ -1,5 +1,7 @@
-- hosts: servers
+- name: Install a full stack Rails server
+  hosts: servers
   gather_facts: true
+  user: root
 
   vars_files:
     - vars/{{ rails_env }}_passwords.yml

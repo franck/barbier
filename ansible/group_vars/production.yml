@@ -1,0 +1,9 @@
+hostname: barbier.merrycreation.com
+rails_env: production
+app_db_name: barbier_production
+app_stage: production
+
+nginx_server_name: "178.62.253.156 {{ hostname }}"
+app_public_path: "/var/www/{{ app_name }}/{{ app_stage }}/current/public"
+app_shared_path: "/var/www/{{ app_name }}/{{ app_stage }}/shared"
+

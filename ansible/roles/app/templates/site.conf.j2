@@ -3,9 +3,33 @@ server {
   listen 80;
 
   server_name {{ nginx_server_name }};
+  client_max_body_size 50M;
   passenger_enabled on;
   rails_env {{ rails_env }};
   root {{ app_public_path }};
+
+  # Drop requests to non-rails requests
+  location ~ \.(aspx|php|php3|jsp|cgi)$ {
+    return 410;
+  }
+
+  location ~* ^.+\.(png|jpg|jpeg|gif)$ {
+    access_log   off;
+    expires      30d;
+  }
+
+  # nginx serves compiled assets
+  location ^~ /assets/ {
+    gzip_static on;
+    expires max;
+    add_header Cache-Control public;
+  }
+
+  # If the file exists as a static file serve it directly without
+  # running all the other rewite tests on it
+  if (-f $request_filename) { 
+    break; 
+  }
 
   error_page   500 502 503 504  /50x.html;
   location = /50x.html {
